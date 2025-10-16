@@ -1,0 +1,703 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C72EA144E8001C8FB9 /* RootView.swift */; };
+		F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */; };
+		F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */; };
+		F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */; };
+		F88943CD2EA144E8001C8FB9 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BF2EA144E8001C8FB9 /* LessonView.swift */; };
+		F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */; };
+		F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */; };
+		F88943D12EA144E8001C8FB9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BD2EA144E8001C8FB9 /* Models.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F883386A2EA1421900F636D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F88338542EA1421900F636D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F883385B2EA1421900F636D9;
+			remoteInfo = KanjiKanaTrainer;
+		};
+		F88338742EA1421900F636D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F88338542EA1421900F636D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F883385B2EA1421900F636D9;
+			remoteInfo = KanjiKanaTrainer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F883385C2EA1421900F636D9 /* KanjiKanaTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KanjiKanaTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F88338692EA1421900F636D9 /* KanjiKanaTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F88338732EA1421900F636D9 /* KanjiKanaTrainerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphRepository.swift; sourceTree = "<group>"; };
+		F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRepository.swift; sourceTree = "<group>"; };
+		F88943BD2EA144E8001C8FB9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F88943BF2EA144E8001C8FB9 /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
+		F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
+		F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeEvaluator.swift; sourceTree = "<group>"; };
+		F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		F88943C72EA144E8001C8FB9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F883385E2EA1421900F636D9 /* KanjiKanaTrainer */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KanjiKanaTrainer;
+			sourceTree = "<group>";
+		};
+		F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KanjiKanaTrainerTests;
+			sourceTree = "<group>";
+		};
+		F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KanjiKanaTrainerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F88338592EA1421900F636D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88338662EA1421900F636D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88338702EA1421900F636D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F88338532EA1421900F636D9 = {
+			isa = PBXGroup;
+			children = (
+				F88943C82EA144E8001C8FB9 /* Sources */,
+				F883385E2EA1421900F636D9 /* KanjiKanaTrainer */,
+				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
+				F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */,
+				F883385D2EA1421900F636D9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F883385D2EA1421900F636D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F883385C2EA1421900F636D9 /* KanjiKanaTrainer.app */,
+				F88338692EA1421900F636D9 /* KanjiKanaTrainerTests.xctest */,
+				F88338732EA1421900F636D9 /* KanjiKanaTrainerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F88943BC2EA144E8001C8FB9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */,
+				F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F88943BE2EA144E8001C8FB9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F88943BD2EA144E8001C8FB9 /* Models.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F88943C12EA144E8001C8FB9 /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				F88943BF2EA144E8001C8FB9 /* LessonView.swift */,
+				F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */,
+			);
+			path = Lesson;
+			sourceTree = "<group>";
+		};
+		F88943C22EA144E8001C8FB9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F88943C12EA144E8001C8FB9 /* Lesson */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F88943C42EA144E8001C8FB9 /* Ink */ = {
+			isa = PBXGroup;
+			children = (
+				F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */,
+			);
+			path = Ink;
+			sourceTree = "<group>";
+		};
+		F88943C82EA144E8001C8FB9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F88943BC2EA144E8001C8FB9 /* Data */,
+				F88943BE2EA144E8001C8FB9 /* Domain */,
+				F88943C22EA144E8001C8FB9 /* Features */,
+				F88943C42EA144E8001C8FB9 /* Ink */,
+				F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */,
+				F88943C72EA144E8001C8FB9 /* RootView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F883385B2EA1421900F636D9 /* KanjiKanaTrainer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F883387D2EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainer" */;
+			buildPhases = (
+				F88338582EA1421900F636D9 /* Sources */,
+				F88338592EA1421900F636D9 /* Frameworks */,
+				F883385A2EA1421900F636D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F883385E2EA1421900F636D9 /* KanjiKanaTrainer */,
+			);
+			name = KanjiKanaTrainer;
+			packageProductDependencies = (
+			);
+			productName = KanjiKanaTrainer;
+			productReference = F883385C2EA1421900F636D9 /* KanjiKanaTrainer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F88338682EA1421900F636D9 /* KanjiKanaTrainerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F88338802EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainerTests" */;
+			buildPhases = (
+				F88338652EA1421900F636D9 /* Sources */,
+				F88338662EA1421900F636D9 /* Frameworks */,
+				F88338672EA1421900F636D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F883386B2EA1421900F636D9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
+			);
+			name = KanjiKanaTrainerTests;
+			packageProductDependencies = (
+			);
+			productName = KanjiKanaTrainerTests;
+			productReference = F88338692EA1421900F636D9 /* KanjiKanaTrainerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F88338722EA1421900F636D9 /* KanjiKanaTrainerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F88338832EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainerUITests" */;
+			buildPhases = (
+				F883386F2EA1421900F636D9 /* Sources */,
+				F88338702EA1421900F636D9 /* Frameworks */,
+				F88338712EA1421900F636D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F88338752EA1421900F636D9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */,
+			);
+			name = KanjiKanaTrainerUITests;
+			packageProductDependencies = (
+			);
+			productName = KanjiKanaTrainerUITests;
+			productReference = F88338732EA1421900F636D9 /* KanjiKanaTrainerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F88338542EA1421900F636D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					F883385B2EA1421900F636D9 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+					F88338682EA1421900F636D9 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = F883385B2EA1421900F636D9;
+					};
+					F88338722EA1421900F636D9 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = F883385B2EA1421900F636D9;
+					};
+				};
+			};
+			buildConfigurationList = F88338572EA1421900F636D9 /* Build configuration list for PBXProject "KanjiKanaTrainer" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F88338532EA1421900F636D9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F883385D2EA1421900F636D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F883385B2EA1421900F636D9 /* KanjiKanaTrainer */,
+				F88338682EA1421900F636D9 /* KanjiKanaTrainerTests */,
+				F88338722EA1421900F636D9 /* KanjiKanaTrainerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F883385A2EA1421900F636D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88338672EA1421900F636D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88338712EA1421900F636D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F88338582EA1421900F636D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */,
+				F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */,
+				F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */,
+				F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */,
+				F88943CD2EA144E8001C8FB9 /* LessonView.swift in Sources */,
+				F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */,
+				F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */,
+				F88943D12EA144E8001C8FB9 /* Models.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88338652EA1421900F636D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F883386F2EA1421900F636D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F883386B2EA1421900F636D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F883385B2EA1421900F636D9 /* KanjiKanaTrainer */;
+			targetProxy = F883386A2EA1421900F636D9 /* PBXContainerItemProxy */;
+		};
+		F88338752EA1421900F636D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F883385B2EA1421900F636D9 /* KanjiKanaTrainer */;
+			targetProxy = F88338742EA1421900F636D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F883387B2EA1421900F636D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = YKHW2TJ32G;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F883387C2EA1421900F636D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YKHW2TJ32G;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F883387E2EA1421900F636D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YKHW2TJ32G;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Debug;
+		};
+		F883387F2EA1421900F636D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YKHW2TJ32G;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Release;
+		};
+		F88338812EA1421900F636D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YKHW2TJ32G;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KanjiKanaTrainer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KanjiKanaTrainer";
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Debug;
+		};
+		F88338822EA1421900F636D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YKHW2TJ32G;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KanjiKanaTrainer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KanjiKanaTrainer";
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Release;
+		};
+		F88338842EA1421900F636D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YKHW2TJ32G;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = KanjiKanaTrainer;
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Debug;
+		};
+		F88338852EA1421900F636D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YKHW2TJ32G;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = KanjiKanaTrainer;
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F88338572EA1421900F636D9 /* Build configuration list for PBXProject "KanjiKanaTrainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F883387B2EA1421900F636D9 /* Debug */,
+				F883387C2EA1421900F636D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F883387D2EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F883387E2EA1421900F636D9 /* Debug */,
+				F883387F2EA1421900F636D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F88338802EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F88338812EA1421900F636D9 /* Debug */,
+				F88338822EA1421900F636D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F88338832EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F88338842EA1421900F636D9 /* Debug */,
+				F88338852EA1421900F636D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F88338542EA1421900F636D9 /* Project object */;
+}
