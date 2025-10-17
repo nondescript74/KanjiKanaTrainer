@@ -15,6 +15,13 @@
 		F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */; };
 		F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */; };
 		F88943D12EA144E8001C8FB9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BD2EA144E8001C8FB9 /* Models.swift */; };
+		F8A336A52EA2BEE3001DCD01 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */; };
+		F8A336A72EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
+		F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
+		F8A336A92EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
+		F8A336AB2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
+		F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
+		F8A336AD2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +53,9 @@
 		F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeEvaluator.swift; sourceTree = "<group>"; };
 		F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		F88943C72EA144E8001C8FB9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
+		F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
+		F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -125,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				F88943BD2EA144E8001C8FB9 /* Models.swift */,
+				F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -163,6 +174,8 @@
 				F88943C42EA144E8001C8FB9 /* Ink */,
 				F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */,
 				F88943C72EA144E8001C8FB9 /* RootView.swift */,
+				F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */,
+				F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -312,7 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */,
+				F8A336A52EA2BEE3001DCD01 /* PracticeView.swift in Sources */,
 				F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */,
+				F8A336A72EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
+				F8A336AB2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
 				F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */,
 				F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */,
 				F88943CD2EA144E8001C8FB9 /* LessonView.swift in Sources */,
@@ -326,6 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
+				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +351,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A336AD2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
+				F8A336A92EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -518,7 +538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

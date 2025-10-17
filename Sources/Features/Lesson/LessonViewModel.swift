@@ -1,15 +1,32 @@
 import Foundation
 import Combine
+import CoreGraphics
 
 @MainActor
 final class LessonViewModel: ObservableObject {
+    enum DemoState: Equatable {
+        case idle
+        case drawing
+        case completed
+    }
+
     @Published var glyph: CharacterGlyph?
+    @Published var demoState: DemoState = .idle
+    @Published var drawnStrokes: [[CGPoint]] = []
+    @Published var currentStroke: [CGPoint] = []
+    @Published var progress: Double = 0.0
+
     private let env: AppEnvironment
     private let glyphID: CharacterID
+    private var animationTask: Task<Void, Never>?
 
     init(id: CharacterID, env: AppEnvironment) {
         self.glyphID = id
         self.env = env
+    }
+    
+    deinit {
+        animationTask?.cancel()
     }
 
     func loadGlyph() async {
@@ -20,5 +37,88 @@ final class LessonViewModel: ObservableObject {
         }
     }
 
-    func startPractice() { }
+    // MARK: - Demo Animation API
+
+    func startDemo() {
+        guard let g = glyph, !g.strokes.isEmpty else {
+            print("No stroke data available for demo")
+            return
+        }
+        
+        // Cancel any existing animation
+        animationTask?.cancel()
+        
+        // Reset state
+        demoState = .drawing
+        drawnStrokes = []
+        currentStroke = []
+        progress = 0.0
+        
+        // Start animated drawing
+        animationTask = Task {
+            await animateDrawing(strokes: g.strokes)
+        }
+    }
+    
+    func stopDemo() {
+        animationTask?.cancel()
+        demoState = .idle
+        drawnStrokes = []
+        currentStroke = []
+        progress = 0.0
+    }
+    
+    private func animateDrawing(strokes: [StrokePath]) async {
+        let canvasWidth: CGFloat = 280  // Approximate canvas width from LessonView
+        let canvasHeight: CGFloat = 280
+        
+        for (strokeIndex, strokePath) in strokes.enumerated() {
+            guard !Task.isCancelled else { return }
+            
+            let points = strokePath.points.map { point in
+                // Convert StrokePoint to CGPoint and scale to canvas size
+                CGPoint(
+                    x: CGFloat(point.x) * canvasWidth,
+                    y: CGFloat(point.y) * canvasHeight
+                )
+            }
+            
+            guard !points.isEmpty else { continue }
+            
+            // Animate drawing this stroke point by point
+            currentStroke = []
+            
+            for point in points {
+                guard !Task.isCancelled else { return }
+                
+                currentStroke.append(point)
+                
+                // Small delay between points for smooth animation
+                try? await Task.sleep(nanoseconds: 15_000_000) // 15ms
+            }
+            
+            // Stroke complete - move to drawn strokes
+            drawnStrokes.append(currentStroke)
+            currentStroke = []
+            
+            // Update progress
+            progress = Double(strokeIndex + 1) / Double(strokes.count)
+            
+            // Pause between strokes
+            try? await Task.sleep(nanoseconds: 300_000_000) // 300ms
+        }
+        
+        // All strokes complete
+        demoState = .completed
+    }
+    
+    // Convert StrokePath to CGPoint array
+    private func convertStrokePoints(_ stroke: StrokePath, width: CGFloat, height: CGFloat) -> [CGPoint] {
+        return stroke.points.map { point in
+            CGPoint(
+                x: CGFloat(point.x) * width,
+                y: CGFloat(point.y) * height
+            )
+        }
+    }
 }
