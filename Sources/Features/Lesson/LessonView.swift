@@ -3,20 +3,130 @@ import SwiftUI
 struct LessonView: View {
     @StateObject var viewModel: LessonViewModel
 
+    // Drawing configuration
+    var brushColor: Color = .blue
+    var activeBrushColor: Color = .teal
+    var brushLineWidth: CGFloat = 6
+
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             if let glyph = viewModel.glyph {
+                // Header
                 Text(glyph.literal).font(.system(size: 80))
                 Text(glyph.meaning.joined(separator: ", "))
                     .font(.title3).foregroundStyle(.secondary)
-                Spacer()
-                Button("Practice") { viewModel.startPractice() }
-                    .buttonStyle(.borderedProminent)
+
+                // Demo area
+                if viewModel.demoState != .idle {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.secondary.opacity(0.06))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
+                            )
+                            .frame(maxWidth: .infinity, minHeight: 280)
+                            .overlay(
+                                Canvas { context, size in
+                                    // Draw completed strokes
+                                    let strokes = viewModel.drawnStrokes
+                                    for stroke in strokes {
+                                        guard stroke.count > 1 else { continue }
+                                        var path = Path()
+                                        path.addLines(stroke)
+                                        // Calligraphy-like layered stroke for completed strokes
+                                        // Base body
+                                        context.stroke(
+                                            path,
+                                            with: .color(brushColor.opacity(0.95)),
+                                            style: StrokeStyle(lineWidth: brushLineWidth, lineCap: .round, lineJoin: .round)
+                                        )
+                                        // Soft edge (slightly wider and more transparent)
+                                        context.addFilter(.blur(radius: 0.6))
+                                        context.stroke(
+                                            path,
+                                            with: .color(brushColor.opacity(0.25)),
+                                            style: StrokeStyle(lineWidth: brushLineWidth * 1.4, lineCap: .round, lineJoin: .round)
+                                        )
+                                        context.addFilter(.blur(radius: 0))
+                                        // Inner sheen to mimic ink variation
+                                        context.stroke(
+                                            path,
+                                            with: .color(brushColor.opacity(0.35)),
+                                            style: StrokeStyle(lineWidth: brushLineWidth * 0.55, lineCap: .round, lineJoin: .round)
+                                        )
+                                    }
+                                    // Draw current stroke in progress
+                                    let current = viewModel.currentStroke
+                                    if current.count > 1 {
+                                        var path = Path()
+                                        path.addLines(current)
+                                        // Calligraphy-like layered stroke for in-progress stroke
+                                        context.stroke(
+                                            path,
+                                            with: .color(activeBrushColor.opacity(0.95)),
+                                            style: StrokeStyle(lineWidth: brushLineWidth, lineCap: .round, lineJoin: .round)
+                                        )
+                                        context.addFilter(.blur(radius: 0.6))
+                                        context.stroke(
+                                            path,
+                                            with: .color(activeBrushColor.opacity(0.22)),
+                                            style: StrokeStyle(lineWidth: brushLineWidth * 1.4, lineCap: .round, lineJoin: .round)
+                                        )
+                                        context.addFilter(.blur(radius: 0))
+                                        context.stroke(
+                                            path,
+                                            with: .color(activeBrushColor.opacity(0.35)),
+                                            style: StrokeStyle(lineWidth: brushLineWidth * 0.55, lineCap: .round, lineJoin: .round)
+                                        )
+                                    }
+                                }
+                                .allowsHitTesting(false)
+                                .padding(8)
+                            )
+
+                        VStack(spacing: 12) {
+                            Text(statusText(viewModel.demoState))
+                                .font(.headline)
+                            ProgressView(value: viewModel.progress)
+                                .progressViewStyle(.linear)
+                                .frame(maxWidth: 320)
+                            if let glyph = viewModel.glyph {
+                                Text("Strokes: \(viewModel.drawnStrokes.count)/\(glyph.strokes.count)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .padding()
+                    }
+
+                    HStack(spacing: 12) {
+                        if viewModel.demoState == .completed {
+                            Button("Replay") { viewModel.startDemo() }
+                                .buttonStyle(.borderedProminent)
+                        }
+                        Button("Stop", role: .destructive) { viewModel.stopDemo() }
+                            .buttonStyle(.bordered)
+                    }
+                } else {
+                    Spacer(minLength: 24)
+                    Button("Start Demo") { viewModel.startDemo() }
+                        .buttonStyle(.borderedProminent)
+                }
             } else {
                 ProgressView("Loading…")
             }
         }
+        .padding()
         .task { await viewModel.loadGlyph() }
-        .navigationTitle("Lesson")
+        .navigationTitle("Lesson Demo")
+    }
+}
+
+private func statusText(_ state: LessonViewModel.DemoState) -> String {
+    switch state {
+    case .idle: return ""
+    case .drawing: return "Watch how the character is drawn..."
+    case .completed: return "Demo Complete!"
     }
 }
