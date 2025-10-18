@@ -22,6 +22,12 @@
 		F8A336AB2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
 		F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
 		F8A336AD2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
+		F8DD759B2EA43A4600B50B76 /* StrokeData_README.md in Resources */ = {isa = PBXBuildFile; fileRef = F8DD759A2EA43A4600B50B76 /* StrokeData_README.md */; };
+		F8DD75A62EA43B2700B50B76 /* MIGRATION_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = F8DD75A52EA43B2700B50B76 /* MIGRATION_GUIDE.md */; };
+		F8DD75AA2EA43B3500B50B76 /* QUICK_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F8DD75A92EA43B3500B50B76 /* QUICK_REFERENCE.md */; };
+		F8DD75AC2EA43B3A00B50B76 /* KanaCodepointGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DD75AB2EA43B3A00B50B76 /* KanaCodepointGenerator.swift */; };
+		F8DD75AE2EA43B4500B50B76 /* IMPLEMENTATION_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = F8DD75AD2EA43B4500B50B76 /* IMPLEMENTATION_SUMMARY.md */; };
+		F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +62,31 @@
 		F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRepresentable.swift; sourceTree = "<group>"; };
+		F8DD759A2EA43A4600B50B76 /* StrokeData_README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = StrokeData_README.md; sourceTree = "<group>"; };
+		F8DD75A52EA43B2700B50B76 /* MIGRATION_GUIDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MIGRATION_GUIDE.md; sourceTree = "<group>"; };
+		F8DD75A92EA43B3500B50B76 /* QUICK_REFERENCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = QUICK_REFERENCE.md; sourceTree = "<group>"; };
+		F8DD75AB2EA43B3A00B50B76 /* KanaCodepointGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaCodepointGenerator.swift; sourceTree = "<group>"; };
+		F8DD75AD2EA43B4500B50B76 /* IMPLEMENTATION_SUMMARY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IMPLEMENTATION_SUMMARY.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F8DD75B62EA43DDD00B50B76 /* Exceptions for "KanjiKanaTrainerTests" folder in "KanjiKanaTrainer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				StrokeDataConverter.swift,
+				StrokeDataLoader.swift,
+				StrokeDataTests.swift,
+			);
+			target = F883385B2EA1421900F636D9 /* KanjiKanaTrainer */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		F865ACA82EA2F8BE008A8472 /* Scripts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		F883385E2EA1421900F636D9 /* KanjiKanaTrainer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = KanjiKanaTrainer;
@@ -66,12 +94,20 @@
 		};
 		F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F8DD75B62EA43DDD00B50B76 /* Exceptions for "KanjiKanaTrainerTests" folder in "KanjiKanaTrainer" target */,
+			);
 			path = KanjiKanaTrainerTests;
 			sourceTree = "<group>";
 		};
 		F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = KanjiKanaTrainerUITests;
+			sourceTree = "<group>";
+		};
+		F8DD75A42EA43AC600B50B76 /* StrokeData */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = StrokeData;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -104,6 +140,7 @@
 		F88338532EA1421900F636D9 = {
 			isa = PBXGroup;
 			children = (
+				F865ACA82EA2F8BE008A8472 /* Scripts */,
 				F88943C82EA144E8001C8FB9 /* Sources */,
 				F883385E2EA1421900F636D9 /* KanjiKanaTrainer */,
 				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
@@ -125,8 +162,14 @@
 		F88943BC2EA144E8001C8FB9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F8DD75A42EA43AC600B50B76 /* StrokeData */,
 				F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */,
 				F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */,
+				F8DD759A2EA43A4600B50B76 /* StrokeData_README.md */,
+				F8DD75A52EA43B2700B50B76 /* MIGRATION_GUIDE.md */,
+				F8DD75A92EA43B3500B50B76 /* QUICK_REFERENCE.md */,
+				F8DD75AB2EA43B3A00B50B76 /* KanaCodepointGenerator.swift */,
+				F8DD75AD2EA43B4500B50B76 /* IMPLEMENTATION_SUMMARY.md */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -196,7 +239,9 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				F865ACA82EA2F8BE008A8472 /* Scripts */,
 				F883385E2EA1421900F636D9 /* KanjiKanaTrainer */,
+				F8DD75A42EA43AC600B50B76 /* StrokeData */,
 			);
 			name = KanjiKanaTrainer;
 			packageProductDependencies = (
@@ -300,6 +345,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8DD759B2EA43A4600B50B76 /* StrokeData_README.md in Resources */,
+				F8DD75AA2EA43B3500B50B76 /* QUICK_REFERENCE.md in Resources */,
+				F8DD75AE2EA43B4500B50B76 /* IMPLEMENTATION_SUMMARY.md in Resources */,
+				F8DD75A62EA43B2700B50B76 /* MIGRATION_GUIDE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +384,7 @@
 				F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */,
 				F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */,
 				F88943D12EA144E8001C8FB9 /* Models.swift in Sources */,
+				F8DD75AC2EA43B3A00B50B76 /* KanaCodepointGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
+				F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */,
 				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,13 +545,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = KanjiKanaTrainer;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -515,19 +568,20 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 2;
 				XROS_DEPLOYMENT_TARGET = 26.1;
 			};
 			name = Debug;
@@ -538,13 +592,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = KanjiKanaTrainer;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -559,19 +615,20 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 2;
 				XROS_DEPLOYMENT_TARGET = 26.1;
 			};
 			name = Release;

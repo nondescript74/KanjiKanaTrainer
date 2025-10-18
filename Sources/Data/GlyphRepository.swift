@@ -102,12 +102,14 @@ struct GlyphBundleRepository: GlyphRepository {
     func glyph(for id: CharacterID) async throws -> CharacterGlyph {
         // Look up by codepoint in both syllabary maps, independent of Script enum details.
         if let payload = Self.hiragana[UInt32(id.codepoint)] {
-            let syntheticStrokes = generateSyntheticStrokes()
-            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: syntheticStrokes, difficulty: 1)
+            // Load stroke data from JSON on-demand, fallback to synthetic if unavailable
+            let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? generateSyntheticStrokes()
+            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1)
         }
         if let payload = Self.katakana[UInt32(id.codepoint)] {
-            let syntheticStrokes = generateSyntheticStrokes()
-            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: syntheticStrokes, difficulty: 1)
+            // Load stroke data from JSON on-demand, fallback to synthetic if unavailable
+            let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? generateSyntheticStrokes()
+            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1)
         }
         throw GlyphBundleError.missingGlyph(script: id.script, codepoint: UInt32(id.codepoint))
     }
