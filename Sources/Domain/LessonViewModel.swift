@@ -40,8 +40,17 @@ final class LessonViewModel: ObservableObject {
     // MARK: - Demo Animation API
 
     func startDemo() {
-        guard let g = glyph, !g.strokes.isEmpty else {
-            print("No stroke data available for demo")
+        guard let g = glyph else {
+            print("⚠️ Cannot start demo: Glyph not loaded")
+            return
+        }
+        
+        guard !g.strokes.isEmpty else {
+            print("⚠️ No stroke data available for demo")
+            print("   Character: '\(g.literal)' (U+\(String(format: "%04X", g.codepoint)))")
+            print("   Script: \(g.script)")
+            print("   This usually means kanastrokes.json is missing or doesn't contain this character")
+            print("   Check the Debug view (StrokeDataDebugView) for more information")
             return
         }
         
@@ -53,6 +62,8 @@ final class LessonViewModel: ObservableObject {
         drawnStrokes = []
         currentStroke = []
         progress = 0.0
+        
+        print("▶️ Starting demo for '\(g.literal)' with \(g.strokes.count) strokes")
         
         // Start animated drawing
         animationTask = Task {
@@ -69,17 +80,15 @@ final class LessonViewModel: ObservableObject {
     }
     
     private func animateDrawing(strokes: [StrokePath]) async {
-        let canvasWidth: CGFloat = 280  // Approximate canvas width from LessonView
-        let canvasHeight: CGFloat = 280
-        
+        // Store normalized points (0-1 range) and let the Canvas scale them
         for (strokeIndex, strokePath) in strokes.enumerated() {
             guard !Task.isCancelled else { return }
             
             let points = strokePath.points.map { point in
-                // Convert StrokePoint to CGPoint and scale to canvas size
+                // Store as normalized coordinates (0.0 to 1.0)
                 CGPoint(
-                    x: CGFloat(point.x) * canvasWidth,
-                    y: CGFloat(point.y) * canvasHeight
+                    x: CGFloat(point.x),
+                    y: CGFloat(point.y)
                 )
             }
             

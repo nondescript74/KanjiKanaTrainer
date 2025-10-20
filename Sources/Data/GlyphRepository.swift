@@ -2,6 +2,7 @@ import Foundation
 
 protocol GlyphRepository {
     func glyph(for id: CharacterID) async throws -> CharacterGlyph
+    func hasStrokeData(for codepoint: UInt32) -> Bool
 }
 
 /// Errors specific to the bundle repository
@@ -102,54 +103,24 @@ struct GlyphBundleRepository: GlyphRepository {
     func glyph(for id: CharacterID) async throws -> CharacterGlyph {
         // Look up by codepoint in both syllabary maps, independent of Script enum details.
         if let payload = Self.hiragana[UInt32(id.codepoint)] {
-            // Load stroke data from JSON on-demand, fallback to synthetic if unavailable
-            let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? generateSyntheticStrokes()
+            // Load stroke data from JSON on-demand
+            let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? []
             return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1)
         }
         if let payload = Self.katakana[UInt32(id.codepoint)] {
-            // Load stroke data from JSON on-demand, fallback to synthetic if unavailable
-            let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? generateSyntheticStrokes()
+            // Load stroke data from JSON on-demand
+            let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? []
             return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1)
         }
         throw GlyphBundleError.missingGlyph(script: id.script, codepoint: UInt32(id.codepoint))
     }
     
-    // MARK: - Synthetic Stroke Generation
-    
-    /// Generates simple synthetic stroke data for demonstration purposes
-    /// In a real app, this would come from a proper stroke database
-    private func generateSyntheticStrokes() -> [StrokePath] {
-        // Generate 2-3 random strokes to demonstrate the animation
-        let strokeCount = Int.random(in: 2...3)
-        var strokes: [StrokePath] = []
-        
-        for strokeIndex in 0..<strokeCount {
-            let pointCount = Int.random(in: 8...15)
-            var points: [StrokePoint] = []
-            
-            // Start position varies per stroke
-            let startX = Float.random(in: 0.2...0.4) + Float(strokeIndex) * 0.15
-            let startY = Float.random(in: 0.2...0.4)
-            
-            // Generate curved path
-            for i in 0..<pointCount {
-                let t = Float(i) / Float(pointCount - 1)
-                
-                // Create a curved path using simple bezier-like interpolation
-                let x = startX + t * Float.random(in: 0.2...0.4)
-                let y = startY + t * Float.random(in: 0.2...0.4) + sin(t * .pi) * 0.1
-                
-                let point = StrokePoint(
-                    x: x,
-                    y: y,
-                    t: TimeInterval(i) * 0.05
-                )
-                points.append(point)
-            }
-            
-            strokes.append(StrokePath(points: points))
-        }
-        
-        return strokes
+    /// Check if stroke data is available for a specific codepoint
+    func hasStrokeData(for codepoint: UInt32) -> Bool {
+        return StrokeDataLoader.loadStrokes(for: codepoint) != nil
     }
+//    /// Check if stroke data is available for a specific codepoint
+//    func hasStrokeData(for codepoint: UInt32) -> Bool {
+//        return StrokeDataLoader.loadStrokes(for: codepoint) != nil
+//    }
 }

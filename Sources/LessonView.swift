@@ -25,7 +25,7 @@ struct LessonView: View {
                                 RoundedRectangle(cornerRadius: 12)
                                     .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
                             )
-                            .frame(maxWidth: .infinity, minHeight: 280)
+                            .frame(width: 300, height: 300)
                             .overlay(
                                 Canvas { context, size in
                                     // Draw completed strokes
@@ -33,7 +33,11 @@ struct LessonView: View {
                                     for stroke in strokes {
                                         guard stroke.count > 1 else { continue }
                                         var path = Path()
-                                        path.addLines(stroke)
+                                        // Scale normalized coordinates (0-1) to canvas size
+                                        let scaledPoints = stroke.map { point in
+                                            CGPoint(x: point.x * size.width, y: point.y * size.height)
+                                        }
+                                        path.addLines(scaledPoints)
                                         // Calligraphy-like layered stroke for completed strokes
                                         // Base body
                                         context.stroke(
@@ -60,7 +64,11 @@ struct LessonView: View {
                                     let current = viewModel.currentStroke
                                     if current.count > 1 {
                                         var path = Path()
-                                        path.addLines(current)
+                                        // Scale normalized coordinates (0-1) to canvas size
+                                        let scaledPoints = current.map { point in
+                                            CGPoint(x: point.x * size.width, y: point.y * size.height)
+                                        }
+                                        path.addLines(scaledPoints)
                                         // Calligraphy-like layered stroke for in-progress stroke
                                         context.stroke(
                                             path,
@@ -90,7 +98,7 @@ struct LessonView: View {
                                 .font(.headline)
                             ProgressView(value: viewModel.progress)
                                 .progressViewStyle(.linear)
-                                .frame(maxWidth: 320)
+                                .frame(maxWidth: 200)
                             if let glyph = viewModel.glyph {
                                 Text("Strokes: \(viewModel.drawnStrokes.count)/\(glyph.strokes.count)")
                                     .font(.caption)
@@ -110,8 +118,22 @@ struct LessonView: View {
                     }
                 } else {
                     Spacer(minLength: 24)
-                    Button("Start Demo") { viewModel.startDemo() }
-                        .buttonStyle(.borderedProminent)
+                    
+                    VStack(spacing: 12) {
+                        Button("Start Demo") { viewModel.startDemo() }
+                            .buttonStyle(.borderedProminent)
+                            .disabled(glyph.strokes.isEmpty)
+                        
+                        if glyph.strokes.isEmpty {
+                            Text("No stroke data available for this character")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Text("\(glyph.strokes.count) stroke\(glyph.strokes.count == 1 ? "" : "s") loaded")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
                 }
             } else {
                 ProgressView("Loading…")

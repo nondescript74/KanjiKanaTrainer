@@ -72,8 +72,35 @@ struct LessonViewLoader: View {
     
     private func loadRandomGlyph() async {
         do {
-            let randomID = randomCharacterID(for: script)
+            // Get all available characters with stroke data
+            let availableCodepoints = KanaStrokeDataLoader.shared.availableCodepoints
+            
+            // Filter to only those in the selected script's range
+            let scriptRange: ClosedRange<UInt32>
+            switch script {
+            case .hiragana:
+                scriptRange = 0x3040...0x309F
+            case .katakana:
+                scriptRange = 0x30A0...0x30FF
+            }
+            
+            let availableInScript = availableCodepoints.filter { scriptRange.contains($0) }
+            
+            guard !availableInScript.isEmpty else {
+                print("❌ No stroke data available for \(script.rawValue)")
+                print("   Available codepoints: \(availableCodepoints.map { String(format: "U+%04X", $0) }.joined(separator: ", "))")
+                throw NSError(
+                    domain: "LessonViewLoader",
+                    code: 1,
+                    userInfo: [NSLocalizedDescriptionKey: "No characters found with stroke data for \(script.rawValue). Please add stroke data for \(script.rawValue) characters to kanastrokes.json in the strokedata folder."]
+                )
+            }
+            
+            // Pick a random character from available ones
+            let randomCodepoint = availableInScript.randomElement()!
+            let randomID = CharacterID(script: .kana, codepoint: Int(randomCodepoint))
             glyph = try await env.glyphs.glyph(for: randomID)
+            
         } catch {
             self.error = error
         }
