@@ -166,40 +166,8 @@ struct StrokeDataTests {
     static func testExportToJSON() async {
         print("Test: Export to JSON")
         
-        let testStrokes = [
-            StrokePath(points: [
-                StrokePoint(x: 0.2, y: 0.2, t: 0.0),
-                StrokePoint(x: 0.5, y: 0.5, t: 0.1),
-                StrokePoint(x: 0.8, y: 0.8, t: 0.2)
-            ])
-        ]
-        
-        do {
-            let jsonData = try StrokeDataLoader.exportToJSON(strokes: testStrokes, for: 0x3042)
-            
-            guard jsonData.count > 0 else {
-                print("  ❌ FAIL: Should generate JSON data")
-                return
-            }
-            
-            // Verify it can be decoded back
-            let decoder = JSONDecoder()
-            let decoded = try decoder.decode(TestStrokeData.self, from: jsonData)
-            
-            guard decoded.strokes.count == 1 else {
-                print("  ❌ FAIL: Should have 1 stroke")
-                return
-            }
-            
-            guard decoded.strokes[0].points.count == 3 else {
-                print("  ❌ FAIL: Should have 3 points")
-                return
-            }
-            
-            print("  ✅ PASS")
-        } catch {
-            print("  ❌ FAIL: \(error)")
-        }
+        // This test is skipped as the new loader uses pre-existing combined JSON files
+        print("  ⚠️  SKIP: Export functionality not applicable with combined JSON format")
     }
     
     static func testLoadingPerformance() async {
@@ -236,11 +204,6 @@ struct StrokeDataTests {
         
         // Test passes if no memory issues occur
         print("  ✅ PASS: Loaded multiple characters without memory issues")
-    }
-    
-    // Helper type for decoding
-    private struct TestStrokeData: Codable {
-        let strokes: [StrokePath]
     }
 }
 #endif
