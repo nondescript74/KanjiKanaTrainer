@@ -72,7 +72,7 @@ struct LessonViewLoader: View {
     
     private func loadRandomGlyph() async {
         do {
-            // Get all available characters with stroke data
+            // First, try to get characters with available stroke data
             let availableCodepoints = KanaStrokeDataLoader.shared.availableCodepoints
             
             // Filter to only those in the selected script's range
@@ -86,19 +86,19 @@ struct LessonViewLoader: View {
             
             let availableInScript = availableCodepoints.filter { scriptRange.contains($0) }
             
-            guard !availableInScript.isEmpty else {
-                print("❌ No stroke data available for \(script.rawValue)")
-                print("   Available codepoints: \(availableCodepoints.map { String(format: "U+%04X", $0) }.joined(separator: ", "))")
-                throw NSError(
-                    domain: "LessonViewLoader",
-                    code: 1,
-                    userInfo: [NSLocalizedDescriptionKey: "No characters found with stroke data for \(script.rawValue). Please add stroke data for \(script.rawValue) characters to kanastrokes.json in the strokedata folder."]
-                )
+            let randomID: CharacterID
+            
+            if !availableInScript.isEmpty {
+                // Use stroke data if available
+                let randomCodepoint = availableInScript.randomElement()!
+                randomID = CharacterID(script: .kana, codepoint: Int(randomCodepoint))
+                print("✅ Using character with stroke data: U+\(String(format: "%04X", randomCodepoint))")
+            } else {
+                // Fall back to random character generation (will use synthetic strokes)
+                print("⚠️ No stroke data available for \(script.rawValue), using synthetic strokes")
+                randomID = randomCharacterID(for: script)
             }
             
-            // Pick a random character from available ones
-            let randomCodepoint = availableInScript.randomElement()!
-            let randomID = CharacterID(script: .kana, codepoint: Int(randomCodepoint))
             glyph = try await env.glyphs.glyph(for: randomID)
             
         } catch {

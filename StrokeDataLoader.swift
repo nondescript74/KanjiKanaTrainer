@@ -29,8 +29,42 @@ class KanaStrokeDataLoader {
     // MARK: - Loading Methods
     
     private func loadStrokeData() {
+        #if DEBUG
+        print("🔍 Debug: Bundle identifier: \(Bundle.main.bundleIdentifier ?? "Unknown Bundle")")
+        print("🔍 Debug: Bundle path: \(Bundle.main.bundlePath)")
+        
+        // Let's see what resources ARE in the bundle
+        if let resourcePath = Bundle.main.resourcePath {
+            print("🔍 Debug: Resource path: \(resourcePath)")
+            if let contents = try? FileManager.default.contentsOfDirectory(atPath: resourcePath) {
+                print("🔍 Debug: Bundle contents: \(contents.sorted())")
+            }
+        }
+        
+        // Try to find the strokedata directory specifically
+        if let strokeDataURL = Bundle.main.url(forResource: nil, withExtension: nil, subdirectory: "strokedata") {
+            print("✅ Debug: Found strokedata directory at: \(strokeDataURL)")
+            if let strokeDataContents = try? FileManager.default.contentsOfDirectory(at: strokeDataURL, includingPropertiesForKeys: nil) {
+                print("🔍 Debug: strokedata contents: \(strokeDataContents.map { $0.lastPathComponent })")
+            }
+        } else {
+            print("❌ Debug: strokedata directory not found")
+        }
+        #endif
+        
         guard let url = Bundle.main.url(forResource: "kanastrokes", withExtension: "json", subdirectory: "strokedata") else {
-            print("❌ kanastrokes.json NOT FOUND in bundle")
+            print("❌ kanastrokes.json NOT FOUND in strokedata subdirectory")
+            
+            // Try without subdirectory as fallback
+            if let fallbackURL = Bundle.main.url(forResource: "kanastrokes", withExtension: "json") {
+                #if DEBUG
+                print("✅ Debug: Found kanastrokes.json in main bundle (no subdirectory): \(fallbackURL)")
+                #endif
+                // Continue with this URL instead
+                loadFromURL(fallbackURL)
+                return
+            }
+            
             print("   Expected location: strokedata/kanastrokes.json")
             print("   Please ensure:")
             print("   1. The file is added to your Xcode project")
@@ -40,6 +74,13 @@ class KanaStrokeDataLoader {
             return
         }
         
+        #if DEBUG
+        print("✅ Debug: Found kanastrokes.json at: \(url)")
+        #endif
+        loadFromURL(url)
+    }
+    
+    private func loadFromURL(_ url: URL) {
         guard let data = try? Data(contentsOf: url) else {
             print("❌ Failed to read kanastrokes.json data")
             return
