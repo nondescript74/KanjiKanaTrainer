@@ -11,40 +11,44 @@ struct RootView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 24) {
-                // Script selection
-                Picker("Script", selection: $selectedScript) {
-                    ForEach(KanaScript.allCases, id: \.self) { script in
-                        Text(script.rawValue).tag(script)
+        if #available(iOS 16.0, *) {
+            NavigationStack {
+                VStack(spacing: 24) {
+                    // Script selection
+                    Picker("Script", selection: $selectedScript) {
+                        ForEach(KanaScript.allCases, id: \.self) { script in
+                            Text(script.rawValue).tag(script)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal)
+                    
+                    NavigationLink("Lesson Demo") {
+                        LessonViewLoader(script: selectedScript, env: env)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    
+                    NavigationLink("Practice Random Character") {
+                        PracticeViewLoader(script: selectedScript, env: env)
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.large)
+                    
+                    Spacer()
+                    
+                    // Version and build number
+                    if let versionBuild = versionAndBuildNumber() {
+                        Text(versionBuild)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                     }
                 }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-                
-                NavigationLink("Lesson Demo") {
-                    LessonViewLoader(script: selectedScript, env: env)
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                
-                NavigationLink("Practice Random Character") {
-                    PracticeViewLoader(script: selectedScript, env: env)
-                }
-                .buttonStyle(.bordered)
-                .controlSize(.large)
-                
-                Spacer()
-                
-                // Version and build number
-                if let versionBuild = versionAndBuildNumber() {
-                    Text(versionBuild)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
+                .padding()
+                .navigationTitle("KanjiKana Trainer")
             }
-            .padding()
-            .navigationTitle("KanjiKana Trainer")
+        } else {
+            // Fallback on earlier versions
         }
     }
     
