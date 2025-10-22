@@ -145,9 +145,27 @@ struct LessonViewLoader: View {
             let codepoint = Int.random(in: 0x30A2...0x30F3)
             return CharacterID(script: .kana, codepoint: codepoint)
         case .chineseNumbers:
-            // Chinese numbers 0-10
-            let numbers: [Int] = [0x96F6, 0x4E00, 0x4E8C, 0x4E09, 0x56DB, 0x4E94, 0x516D, 0x4E03, 0x516B, 0x4E5D, 0x5341]
-            let codepoint = numbers.randomElement()!
+            // Chinese numbers 0-30 (includes both single and compound characters)
+            // Single characters: 0-10 use positive codepoints
+            // Compound numbers: 11-30 use negative numbers
+            let singleNumbers: [Int] = [
+                0x96F6, // 0 (零)
+                0x4E00, // 1 (一)
+                0x4E8C, // 2 (二)
+                0x4E09, // 3 (三)
+                0x56DB, // 4 (四)
+                0x4E94, // 5 (五)
+                0x516D, // 6 (六)
+                0x4E03, // 7 (七)
+                0x516B, // 8 (八)
+                0x4E5D, // 9 (九)
+                0x5341  // 10 (十)
+            ]
+            let compoundNumbers: [Int] = Array(11...30) // 11-30 as identifiers
+            
+            // Randomly choose between single or compound
+            let allNumbers = singleNumbers + compoundNumbers.map { -$0 } // Negative for compounds
+            let codepoint = allNumbers.randomElement()!
             return CharacterID(script: .hanzi, codepoint: codepoint)
         }
     }
@@ -204,9 +222,27 @@ struct PracticeViewLoader: View {
             let codepoint = Int.random(in: 0x30A2...0x30F3)
             return CharacterID(script: .kana, codepoint: codepoint)
         case .chineseNumbers:
-            // Chinese numbers 0-10
-            let numbers: [Int] = [0x96F6, 0x4E00, 0x4E8C, 0x4E09, 0x56DB, 0x4E94, 0x516D, 0x4E03, 0x516B, 0x4E5D, 0x5341]
-            let codepoint = numbers.randomElement()!
+            // Chinese numbers 0-30 (includes both single and compound characters)
+            // Single characters: 0-10 use positive codepoints
+            // Compound numbers: 11-30 use negative numbers
+            let singleNumbers: [Int] = [
+                0x96F6, // 0 (零)
+                0x4E00, // 1 (一)
+                0x4E8C, // 2 (二)
+                0x4E09, // 3 (三)
+                0x56DB, // 4 (四)
+                0x4E94, // 5 (五)
+                0x516D, // 6 (六)
+                0x4E03, // 7 (七)
+                0x516B, // 8 (八)
+                0x4E5D, // 9 (九)
+                0x5341  // 10 (十)
+            ]
+            let compoundNumbers: [Int] = Array(11...30) // 11-30 as identifiers
+            
+            // Randomly choose between single or compound
+            let allNumbers = singleNumbers + compoundNumbers.map { -$0 } // Negative for compounds
+            let codepoint = allNumbers.randomElement()!
             return CharacterID(script: .hanzi, codepoint: codepoint)
         }
     }

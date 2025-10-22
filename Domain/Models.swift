@@ -5,6 +5,19 @@ enum Script: String, Codable { case kana, kanji, hanzi }
 struct CharacterID: Hashable, Codable {
     let script: Script
     let codepoint: Int
+    
+    // Special constructor for compound characters using negative codepoints
+    static func compound(script: Script, number: Int) -> CharacterID {
+        return CharacterID(script: script, codepoint: -number)
+    }
+    
+    var isCompound: Bool {
+        return codepoint < 0
+    }
+    
+    var compoundNumber: Int? {
+        return isCompound ? -codepoint : nil
+    }
 }
 
 struct StrokePoint: Codable { let x: Float; let y: Float; let t: TimeInterval }
@@ -19,6 +32,14 @@ struct CharacterGlyph: Codable, Identifiable {
     let meaning: [String]
     let strokes: [StrokePath]
     let difficulty: Int
+    
+    // Optional: component characters for compound numbers
+    let components: [Int]?
+    
+    // Check if this is a compound character
+    var isCompound: Bool {
+        return components != nil && !components!.isEmpty
+    }
 }
 
 struct PracticeScore: Codable {
