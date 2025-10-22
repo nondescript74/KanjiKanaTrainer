@@ -7,6 +7,7 @@ struct RootView: View {
     enum KanaScript: String, CaseIterable {
         case hiragana = "Hiragana"
         case katakana = "Katakana"
+        case chineseNumbers = "Chinese Numbers"
     }
     
     var body: some View {
@@ -32,10 +33,28 @@ struct RootView: View {
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.large)
+                
+                Spacer()
+                
+                // Version and build number
+                if let versionBuild = versionAndBuildNumber() {
+                    Text(versionBuild)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
             .padding()
             .navigationTitle("KanjiKana Trainer")
         }
+    }
+    
+    /// Returns the version and build number string from the app's Info.plist
+    private func versionAndBuildNumber() -> String? {
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+              let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String else {
+            return nil
+        }
+        return "Version \(version) (\(build))"
     }
 }
 
@@ -73,15 +92,24 @@ struct LessonViewLoader: View {
     private func loadRandomGlyph() async {
         do {
             // First, try to get characters with available stroke data
-            let availableCodepoints = KanaStrokeDataLoader.shared.availableCodepoints
-            
-            // Filter to only those in the selected script's range
+            let availableCodepoints: [UInt32]
             let scriptRange: ClosedRange<UInt32>
+            let scriptType: Script
+            
             switch script {
             case .hiragana:
+                availableCodepoints = KanaStrokeDataLoader.shared.availableCodepoints
                 scriptRange = 0x3040...0x309F
+                scriptType = .kana
             case .katakana:
+                availableCodepoints = KanaStrokeDataLoader.shared.availableCodepoints
                 scriptRange = 0x30A0...0x30FF
+                scriptType = .kana
+            case .chineseNumbers:
+                availableCodepoints = ChineseStrokeDataLoader.shared.availableCodepoints
+                // Chinese number range (including common numbers)
+                scriptRange = 0x4E00...0x9FFF  // Main CJK Unified Ideographs block
+                scriptType = .hanzi
             }
             
             let availableInScript = availableCodepoints.filter { scriptRange.contains($0) }
@@ -91,7 +119,7 @@ struct LessonViewLoader: View {
             if !availableInScript.isEmpty {
                 // Use stroke data if available
                 let randomCodepoint = availableInScript.randomElement()!
-                randomID = CharacterID(script: .kana, codepoint: Int(randomCodepoint))
+                randomID = CharacterID(script: scriptType, codepoint: Int(randomCodepoint))
                 print("✅ Using character with stroke data: U+\(String(format: "%04X", randomCodepoint))")
             } else {
                 // Fall back to random character generation (will use synthetic strokes)
@@ -116,6 +144,11 @@ struct LessonViewLoader: View {
             // Common katakana range (avoiding small kana)
             let codepoint = Int.random(in: 0x30A2...0x30F3)
             return CharacterID(script: .kana, codepoint: codepoint)
+        case .chineseNumbers:
+            // Chinese numbers 0-10
+            let numbers: [Int] = [0x96F6, 0x4E00, 0x4E8C, 0x4E09, 0x56DB, 0x4E94, 0x516D, 0x4E03, 0x516B, 0x4E5D, 0x5341]
+            let codepoint = numbers.randomElement()!
+            return CharacterID(script: .hanzi, codepoint: codepoint)
         }
     }
 }
@@ -170,6 +203,11 @@ struct PracticeViewLoader: View {
             // Common katakana range (avoiding small kana)
             let codepoint = Int.random(in: 0x30A2...0x30F3)
             return CharacterID(script: .kana, codepoint: codepoint)
+        case .chineseNumbers:
+            // Chinese numbers 0-10
+            let numbers: [Int] = [0x96F6, 0x4E00, 0x4E8C, 0x4E09, 0x56DB, 0x4E94, 0x516D, 0x4E03, 0x516B, 0x4E5D, 0x5341]
+            let codepoint = numbers.randomElement()!
+            return CharacterID(script: .hanzi, codepoint: codepoint)
         }
     }
 }
