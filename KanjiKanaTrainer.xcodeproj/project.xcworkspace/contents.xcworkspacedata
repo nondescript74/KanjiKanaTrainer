@@ -4,4 +4,10 @@
    <FileRef
       location = "self:">
    </FileRef>
+   <FileRef
+      location = "group:download_kana_strokes_json_fixed.py">
+   </FileRef>
+   <FileRef
+      location = "group:download_kana_strokes_json_fixed.py">
+   </FileRef>
 </Workspace>

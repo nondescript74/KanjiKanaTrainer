@@ -7,6 +7,7 @@ struct LessonView: View {
     var brushColor: Color = .blue
     var activeBrushColor: Color = .teal
     var brushLineWidth: CGFloat = 6
+    var showDebugBounds: Bool = false  // Set to true to visualize bounding box
 
     var body: some View {
         VStack(spacing: 16) {
@@ -28,14 +29,79 @@ struct LessonView: View {
                             .frame(width: 300, height: 300)
                             .overlay(
                                 Canvas { context, size in
+                                    // Calculate bounding box from ALL strokes in the glyph (not just drawn ones)
+                                    // This ensures consistent positioning throughout the animation
+                                    guard let glyph = viewModel.glyph, !glyph.strokes.isEmpty else { return }
+                                    
+                                    let allGlyphPoints = glyph.strokes.flatMap { stroke in
+                                        stroke.points.map { point in
+                                            CGPoint(x: CGFloat(point.x), y: CGFloat(point.y))
+                                        }
+                                    }
+                                    
+                                    guard !allGlyphPoints.isEmpty else { return }
+                                    
+                                    let minX = allGlyphPoints.map { $0.x }.min() ?? 0
+                                    let maxX = allGlyphPoints.map { $0.x }.max() ?? 1
+                                    let minY = allGlyphPoints.map { $0.y }.min() ?? 0
+                                    let maxY = allGlyphPoints.map { $0.y }.max() ?? 1
+                                    
+                                    let strokeWidth = maxX - minX
+                                    let strokeHeight = maxY - minY
+                                    
+                                    // Add padding to prevent strokes from touching edges
+                                    let padding: CGFloat = 30
+                                    let availableSize = CGSize(
+                                        width: size.width - (padding * 2),
+                                        height: size.height - (padding * 2)
+                                    )
+                                    
+                                    // Calculate scale to fit strokes within available space while maintaining aspect ratio
+                                    let scaleX = strokeWidth > 0 ? availableSize.width / strokeWidth : availableSize.width
+                                    let scaleY = strokeHeight > 0 ? availableSize.height / strokeHeight : availableSize.height
+                                    let scale = min(scaleX, scaleY)
+                                    
+                                    // Calculate offset to center the strokes properly
+                                    // Center based on the bounding box center, not just edges
+                                    let boundingBoxCenterX = (minX + maxX) / 2
+                                    let boundingBoxCenterY = (minY + maxY) / 2
+                                    let canvasCenterX = size.width / 2
+                                    let canvasCenterY = size.height / 2
+                                    let offsetX = canvasCenterX - (boundingBoxCenterX * scale)
+                                    let offsetY = canvasCenterY - (boundingBoxCenterY * scale)
+                                    
+                                    // Debug visualization (if enabled)
+                                    if showDebugBounds {
+                                        let debugRect = CGRect(
+                                            x: offsetX + (minX * scale),
+                                            y: offsetY + (minY * scale),
+                                            width: strokeWidth * scale,
+                                            height: strokeHeight * scale
+                                        )
+                                        context.stroke(
+                                            Path(debugRect),
+                                            with: .color(.red.opacity(0.5)),
+                                            style: StrokeStyle(lineWidth: 1, dash: [5, 5])
+                                        )
+                                        // Draw center point
+                                        let center = CGPoint(x: canvasCenterX, y: canvasCenterY)
+                                        context.fill(
+                                            Path(ellipseIn: CGRect(x: center.x - 3, y: center.y - 3, width: 6, height: 6)),
+                                            with: .color(.red)
+                                        )
+                                    }
+                                    
                                     // Draw completed strokes
                                     let strokes = viewModel.drawnStrokes
                                     for stroke in strokes {
                                         guard stroke.count > 1 else { continue }
                                         var path = Path()
-                                        // Scale normalized coordinates (0-1) to canvas size
+                                        // Scale and position coordinates
                                         let scaledPoints = stroke.map { point in
-                                            CGPoint(x: point.x * size.width, y: point.y * size.height)
+                                            CGPoint(
+                                                x: offsetX + (point.x * scale),
+                                                y: offsetY + (point.y * scale)
+                                            )
                                         }
                                         path.addLines(scaledPoints)
                                         // Calligraphy-like layered stroke for completed strokes
@@ -64,9 +130,12 @@ struct LessonView: View {
                                     let current = viewModel.currentStroke
                                     if current.count > 1 {
                                         var path = Path()
-                                        // Scale normalized coordinates (0-1) to canvas size
+                                        // Scale and position coordinates
                                         let scaledPoints = current.map { point in
-                                            CGPoint(x: point.x * size.width, y: point.y * size.height)
+                                            CGPoint(
+                                                x: offsetX + (point.x * scale),
+                                                y: offsetY + (point.y * scale)
+                                            )
                                         }
                                         path.addLines(scaledPoints)
                                         // Calligraphy-like layered stroke for in-progress stroke
@@ -115,6 +184,13 @@ struct LessonView: View {
                         }
                         Button("Stop", role: .destructive) { viewModel.stopDemo() }
                             .buttonStyle(.bordered)
+                        
+                        #if DEBUG
+                        Button("Debug Data") {
+                            debugStrokeData(for: glyph)
+                        }
+                        .buttonStyle(.bordered)
+                        #endif
                     }
                 } else {
                     Spacer(minLength: 24)
@@ -152,3 +228,28 @@ private func statusText(_ state: LessonViewModel.DemoState) -> String {
     case .completed: return "Demo Complete!"
     }
 }
+
+#if DEBUG
+extension LessonView {
+    /// Print stroke data for debugging positioning issues
+    func debugStrokeData(for glyph: CharacterGlyph) {
+        print("\n=== Stroke Data Debug for '\(glyph.literal)' (U+\(String(format: "%04X", glyph.codepoint))) ===")
+        for (index, stroke) in glyph.strokes.enumerated() {
+            let points = stroke.points
+            let xValues = points.map { CGFloat($0.x) }
+            let yValues = points.map { CGFloat($0.y) }
+            let minX = xValues.min() ?? 0
+            let maxX = xValues.max() ?? 0
+            let minY = yValues.min() ?? 0
+            let maxY = yValues.max() ?? 0
+            
+            print("Stroke \(index + 1): \(points.count) points")
+            print("  X range: \(String(format: "%.3f", minX)) - \(String(format: "%.3f", maxX))")
+            print("  Y range: \(String(format: "%.3f", minY)) - \(String(format: "%.3f", maxY))")
+            print("  First point: (\(String(format: "%.3f", points.first?.x ?? 0)), \(String(format: "%.3f", points.first?.y ?? 0)))")
+            print("  Last point: (\(String(format: "%.3f", points.last?.x ?? 0)), \(String(format: "%.3f", points.last?.y ?? 0)))")
+        }
+        print("===========================================\n")
+    }
+}
+#endif

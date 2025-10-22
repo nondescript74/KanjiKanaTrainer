@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		F82B04FF2EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
 		F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
+		F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */; };
+		F82BC8FE2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */; };
+		F82BC90D2EA92E8C009920B2 /* README_JSON.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90B2EA92E8C009920B2 /* README_JSON.md */; };
+		F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90E2EA9312B009920B2 /* kanastrokes.json */; };
+		F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90E2EA9312B009920B2 /* kanastrokes.json */; };
 		F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C72EA144E8001C8FB9 /* RootView.swift */; };
 		F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */; };
 		F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */; };
@@ -22,9 +27,6 @@
 		F8A336AB2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
 		F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
 		F8A336AD2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
-		F8C970EE2EA84399002A2D74 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C970E82EA842FA002A2D74 /* kanastrokes.json */; };
-		F8C970EF2EA84444002A2D74 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C970E82EA842FA002A2D74 /* kanastrokes.json */; };
-		F8C970F02EA84454002A2D74 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C970E82EA842FA002A2D74 /* kanastrokes.json */; };
 		F8D1E45A2EA69648006039CC /* StrokeDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */; };
 		F8D1E45B2EA69648006039CC /* StrokeDataDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */; };
 		F8D1E45C2EA69648006039CC /* StrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */; };
@@ -60,6 +62,9 @@
 
 /* Begin PBXFileReference section */
 		F82B04FE2EA6E30D000FEA0B /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
+		F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataCorrectionTool.swift; sourceTree = "<group>"; };
+		F82BC90B2EA92E8C009920B2 /* README_JSON.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_JSON.md; sourceTree = "<group>"; };
+		F82BC90E2EA9312B009920B2 /* kanastrokes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kanastrokes.json; sourceTree = "<group>"; };
 		F883385C2EA1421900F636D9 /* KanjiKanaTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KanjiKanaTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88338692EA1421900F636D9 /* KanjiKanaTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88338732EA1421900F636D9 /* KanjiKanaTrainerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +78,6 @@
 		F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRepresentable.swift; sourceTree = "<group>"; };
-		F8C970E82EA842FA002A2D74 /* kanastrokes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kanastrokes.json; sourceTree = "<group>"; };
 		F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataConverter.swift; sourceTree = "<group>"; };
 		F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataDebugView.swift; sourceTree = "<group>"; };
 		F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataLoader.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		F88338532EA1421900F636D9 = {
 			isa = PBXGroup;
 			children = (
+				F82BC90B2EA92E8C009920B2 /* README_JSON.md */,
 				F8C970E92EA842FA002A2D74 /* strokedata */,
 				F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */,
 				F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */,
@@ -153,6 +158,7 @@
 				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
 				F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */,
 				F883385D2EA1421900F636D9 /* Products */,
+				F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,7 +185,7 @@
 		F8C970E92EA842FA002A2D74 /* strokedata */ = {
 			isa = PBXGroup;
 			children = (
-				F8C970E82EA842FA002A2D74 /* kanastrokes.json */,
+				F82BC90E2EA9312B009920B2 /* kanastrokes.json */,
 			);
 			path = strokedata;
 			sourceTree = "<group>";
@@ -301,8 +307,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8C970EF2EA84444002A2D74 /* kanastrokes.json in Resources */,
+				F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */,
 				F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */,
+				F82BC90D2EA92E8C009920B2 /* README_JSON.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8C970F02EA84454002A2D74 /* kanastrokes.json in Resources */,
+				F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +325,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8C970EE2EA84399002A2D74 /* kanastrokes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +345,7 @@
 				F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */,
 				F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */,
 				F88943D12EA144E8001C8FB9 /* Models.swift in Sources */,
+				F82BC8FE2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
 				F82B04FF2EA6E30D000FEA0B /* LessonView.swift in Sources */,
 				F8E970522EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift in Sources */,
 				F8D1E45E2EA69648006039CC /* StrokeDataConverter.swift in Sources */,
@@ -357,6 +364,7 @@
 				F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */,
 				F8D1E4672EA69754006039CC /* ProgressRepository.swift in Sources */,
 				F8D1E46A2EA6988F006039CC /* LessonViewModel.swift in Sources */,
+				F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
 				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 				F8D1E4662EA69721006039CC /* AppEnvironment.swift in Sources */,
 				F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */,
@@ -512,7 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -559,7 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -666,12 +674,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = KanjiKanaTrainer;
 				XROS_DEPLOYMENT_TARGET = 26.1;
 			};
@@ -691,12 +700,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = KanjiKanaTrainer;
 				XROS_DEPLOYMENT_TARGET = 26.1;
 			};
