@@ -108,6 +108,7 @@
 		F82BC94D2EA93D65009920B2 /* STEP2_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = STEP2_COMPLETE.md; sourceTree = "<group>"; };
 		F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTraits.swift; sourceTree = "<group>"; };
 		F82BC9532EA94075009920B2 /* license.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = license.md; sourceTree = "<group>"; };
+		F82BC9712EA9552F009920B2 /* KanjiKanaTrainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KanjiKanaTrainer-Info.plist"; sourceTree = "<group>"; };
 		F883385C2EA1421900F636D9 /* KanjiKanaTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KanjiKanaTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88338692EA1421900F636D9 /* KanjiKanaTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88338732EA1421900F636D9 /* KanjiKanaTrainerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +183,7 @@
 		F88338532EA1421900F636D9 = {
 			isa = PBXGroup;
 			children = (
+				F82BC9712EA9552F009920B2 /* KanjiKanaTrainer-Info.plist */,
 				F82BC9532EA94075009920B2 /* license.md */,
 				F8C970E92EA842FA002A2D74 /* strokedata */,
 				F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */,
@@ -606,14 +608,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KanjiKanaTrainer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = KanjiKanaTrainer;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -653,14 +657,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KanjiKanaTrainer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = KanjiKanaTrainer;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
