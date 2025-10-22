@@ -1,9 +1,5 @@
-//
-//  license.swift
-//  KanjiKanaTrainer
-//
-//  Created by Zahirudeen Premji on 10/22/25.
-//
+#  license.md
+
 '''
 kFontCopyrightName: "Zahirudeen Premji"
 kFontCopyrightYear: 2025

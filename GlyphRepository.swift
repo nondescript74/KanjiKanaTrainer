@@ -49,6 +49,42 @@ struct GlyphBundleRepository: GlyphRepository {
         return map
     }()
     
+    // Compound numbers 11-30
+    // Using negative numbers as keys to distinguish from Unicode codepoints
+    private static let compoundNumbers: [Int: (literal: String, readings: [String], meaning: [String], components: [Int])] = {
+        var map: [Int: (literal: String, readings: [String], meaning: [String], components: [Int])] = [:]
+        let entries: [(Int, String, [String], [String], [Int])] = [
+            // 11-19: ten + units
+            (11, "十一", ["shí yī", "sap6 jat1"], ["eleven"], [0x5341, 0x4E00]),
+            (12, "十二", ["shí èr", "sap6 ji6"], ["twelve"], [0x5341, 0x4E8C]),
+            (13, "十三", ["shí sān", "sap6 saam1"], ["thirteen"], [0x5341, 0x4E09]),
+            (14, "十四", ["shí sì", "sap6 sei3"], ["fourteen"], [0x5341, 0x56DB]),
+            (15, "十五", ["shí wǔ", "sap6 ng5"], ["fifteen"], [0x5341, 0x4E94]),
+            (16, "十六", ["shí liù", "sap6 luk6"], ["sixteen"], [0x5341, 0x516D]),
+            (17, "十七", ["shí qī", "sap6 cat1"], ["seventeen"], [0x5341, 0x4E03]),
+            (18, "十八", ["shí bā", "sap6 baat3"], ["eighteen"], [0x5341, 0x516B]),
+            (19, "十九", ["shí jiǔ", "sap6 gau2"], ["nineteen"], [0x5341, 0x4E5D]),
+            // 20: two-ten
+            (20, "二十", ["èr shí", "ji6 sap6"], ["twenty"], [0x4E8C, 0x5341]),
+            // 21-29: two-ten + units
+            (21, "二十一", ["èr shí yī", "ji6 sap6 jat1"], ["twenty-one"], [0x4E8C, 0x5341, 0x4E00]),
+            (22, "二十二", ["èr shí èr", "ji6 sap6 ji6"], ["twenty-two"], [0x4E8C, 0x5341, 0x4E8C]),
+            (23, "二十三", ["èr shí sān", "ji6 sap6 saam1"], ["twenty-three"], [0x4E8C, 0x5341, 0x4E09]),
+            (24, "二十四", ["èr shí sì", "ji6 sap6 sei3"], ["twenty-four"], [0x4E8C, 0x5341, 0x56DB]),
+            (25, "二十五", ["èr shí wǔ", "ji6 sap6 ng5"], ["twenty-five"], [0x4E8C, 0x5341, 0x4E94]),
+            (26, "二十六", ["èr shí liù", "ji6 sap6 luk6"], ["twenty-six"], [0x4E8C, 0x5341, 0x516D]),
+            (27, "二十七", ["èr shí qī", "ji6 sap6 cat1"], ["twenty-seven"], [0x4E8C, 0x5341, 0x4E03]),
+            (28, "二十八", ["èr shí bā", "ji6 sap6 baat3"], ["twenty-eight"], [0x4E8C, 0x5341, 0x516B]),
+            (29, "二十九", ["èr shí jiǔ", "ji6 sap6 gau2"], ["twenty-nine"], [0x4E8C, 0x5341, 0x4E5D]),
+            // 30: three-ten
+            (30, "三十", ["sān shí", "saam1 sap6"], ["thirty"], [0x4E09, 0x5341]),
+        ]
+        for (num, lit, readings, meanings, components) in entries {
+            map[num] = (literal: lit, readings: readings, meaning: meanings, components: components)
+        }
+        return map
+    }()
+    
     private static let hiragana: [UInt32: (literal: String, readings: [String])] = {
         var map: [UInt32: (literal: String, readings: [String])] = [:]
         // Core GOJŪON (U+3041..U+3096) including small kana and voiced/p-sounds
@@ -130,21 +166,46 @@ struct GlyphBundleRepository: GlyphRepository {
     }()
 
     func glyph(for id: CharacterID) async throws -> CharacterGlyph {
+        // Check if this is a compound number (negative codepoint)
+        if id.codepoint < 0 {
+            let number = -id.codepoint
+            if let payload = Self.compoundNumbers[number] {
+                // Combine strokes from all component characters
+                var allStrokes: [StrokePath] = []
+                for componentCodepoint in payload.components {
+                    if let componentStrokes = ChineseStrokeDataLoader.shared.loadStrokes(for: UInt32(componentCodepoint)) {
+                        allStrokes.append(contentsOf: componentStrokes)
+                    }
+                }
+                
+                return CharacterGlyph(
+                    script: id.script,
+                    codepoint: id.codepoint,
+                    literal: payload.literal,
+                    readings: payload.readings,
+                    meaning: payload.meaning,
+                    strokes: allStrokes,
+                    difficulty: payload.components.count, // Difficulty based on number of components
+                    components: payload.components
+                )
+            }
+        }
+        
         // Look up by codepoint in all available maps
         if let payload = Self.hiragana[UInt32(id.codepoint)] {
             // Load stroke data from JSON on-demand
             let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? []
-            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1)
+            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1, components: nil)
         }
         if let payload = Self.katakana[UInt32(id.codepoint)] {
             // Load stroke data from JSON on-demand
             let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? []
-            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1)
+            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1, components: nil)
         }
         if let payload = Self.hanzi[UInt32(id.codepoint)] {
             // Load Chinese character stroke data
             let strokes = ChineseStrokeDataLoader.shared.loadStrokes(for: UInt32(id.codepoint)) ?? []
-            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: payload.meaning, strokes: strokes, difficulty: 1)
+            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: payload.meaning, strokes: strokes, difficulty: 1, components: nil)
         }
         throw GlyphBundleError.missingGlyph(script: id.script, codepoint: UInt32(id.codepoint))
     }

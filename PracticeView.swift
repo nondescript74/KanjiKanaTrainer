@@ -16,13 +16,13 @@ struct PracticeView: View {
     var body: some View {
         VStack(spacing: 12) {
             Text(viewModel.glyph.literal)
-                .font(.system(size: 72))
+                .font(.system(size: adaptiveCharacterFontSize))
                 .padding(.top, 20)
             Text(viewModel.glyph.meaning.joined(separator: ", "))
                 .foregroundStyle(.secondary)
 
             CanvasRepresentable(drawing: $drawing)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(width: adaptiveCanvasSize, height: adaptiveCanvasSize)
                 .background(Color(UIColor.systemGray6))
                 .cornerRadius(12)
                 .overlay(RoundedRectangle(cornerRadius: 12)
@@ -63,7 +63,8 @@ struct PracticeView: View {
                 readings: ["ichi", "hitotsu"],
                 meaning: ["one"],
                 strokes: [],
-                difficulty: 1
+                difficulty: 1,
+                components: []
             ),
             env: AppEnvironment(
                 glyphs: GlyphBundleRepository(),
