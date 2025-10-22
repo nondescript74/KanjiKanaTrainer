@@ -163,6 +163,10 @@ struct StrokeDataDebugView: View {
                     NavigationLink("Test Lesson View") {
                         TestLessonIntegration()
                     }
+                    
+                    NavigationLink("Stroke Data Correction Tool") {
+                        StrokeDataCorrectionTool()
+                    }
                 }
             }
             .navigationTitle("Stroke Data Debug")
