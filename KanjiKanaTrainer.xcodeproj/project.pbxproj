@@ -11,9 +11,30 @@
 		F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
 		F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */; };
 		F82BC8FE2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */; };
-		F82BC90D2EA92E8C009920B2 /* README_JSON.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90B2EA92E8C009920B2 /* README_JSON.md */; };
 		F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90E2EA9312B009920B2 /* kanastrokes.json */; };
 		F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90E2EA9312B009920B2 /* kanastrokes.json */; };
+		F82BC91B2EA9329C009920B2 /* license in Sources */ = {isa = PBXBuildFile; fileRef = F82BC91A2EA93299009920B2 /* license */; };
+		F82BC91C2EA9329C009920B2 /* license in Sources */ = {isa = PBXBuildFile; fileRef = F82BC91A2EA93299009920B2 /* license */; };
+		F82BC91E2EA934EB009920B2 /* download_chinese_numbers.py in Resources */ = {isa = PBXBuildFile; fileRef = F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */; };
+		F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */ = {isa = PBXBuildFile; fileRef = F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */; };
+		F82BC9212EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */; };
+		F82BC9222EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */; };
+		F82BC9242EA935B3009920B2 /* CHINESE_SETUP.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9232EA935B3009920B2 /* CHINESE_SETUP.md */; };
+		F82BC9252EA935B3009920B2 /* CHINESE_SETUP.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9232EA935B3009920B2 /* CHINESE_SETUP.md */; };
+		F82BC9272EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9262EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md */; };
+		F82BC9282EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9262EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md */; };
+		F82BC92A2EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9292EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md */; };
+		F82BC92B2EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9292EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md */; };
+		F82BC92D2EA935FE009920B2 /* QUICKSTART.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC92C2EA935FE009920B2 /* QUICKSTART.md */; };
+		F82BC92E2EA935FE009920B2 /* QUICKSTART.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC92C2EA935FE009920B2 /* QUICKSTART.md */; };
+		F82BC9302EA93605009920B2 /* PICKER_ALTERNATIVES.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC92F2EA93605009920B2 /* PICKER_ALTERNATIVES.md */; };
+		F82BC9312EA93605009920B2 /* PICKER_ALTERNATIVES.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC92F2EA93605009920B2 /* PICKER_ALTERNATIVES.md */; };
+		F82BC9362EA936FD009920B2 /* FIX_U3007.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9352EA936FD009920B2 /* FIX_U3007.md */; };
+		F82BC9372EA936FD009920B2 /* FIX_U3007.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9352EA936FD009920B2 /* FIX_U3007.md */; };
+		F82BC9392EA93742009920B2 /* UPDATED_CHARACTER_LIST.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9382EA93742009920B2 /* UPDATED_CHARACTER_LIST.md */; };
+		F82BC93A2EA93742009920B2 /* UPDATED_CHARACTER_LIST.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9382EA93742009920B2 /* UPDATED_CHARACTER_LIST.md */; };
+		F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC93B2EA937BF009920B2 /* chinesenumbers.json */; };
+		F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC93B2EA937BF009920B2 /* chinesenumbers.json */; };
 		F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C72EA144E8001C8FB9 /* RootView.swift */; };
 		F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */; };
 		F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */; };
@@ -63,8 +84,18 @@
 /* Begin PBXFileReference section */
 		F82B04FE2EA6E30D000FEA0B /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataCorrectionTool.swift; sourceTree = "<group>"; };
-		F82BC90B2EA92E8C009920B2 /* README_JSON.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_JSON.md; sourceTree = "<group>"; };
 		F82BC90E2EA9312B009920B2 /* kanastrokes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kanastrokes.json; sourceTree = "<group>"; };
+		F82BC91A2EA93299009920B2 /* license */ = {isa = PBXFileReference; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
+		F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = download_chinese_numbers.py; sourceTree = "<group>"; };
+		F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseStrokeDataLoader.swift; sourceTree = "<group>"; };
+		F82BC9232EA935B3009920B2 /* CHINESE_SETUP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHINESE_SETUP.md; sourceTree = "<group>"; };
+		F82BC9262EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHINESE_NUMBERS_REFERENCE.md; sourceTree = "<group>"; };
+		F82BC9292EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IMPLEMENTATION_SUMMARY.md; sourceTree = "<group>"; };
+		F82BC92C2EA935FE009920B2 /* QUICKSTART.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = QUICKSTART.md; sourceTree = "<group>"; };
+		F82BC92F2EA93605009920B2 /* PICKER_ALTERNATIVES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PICKER_ALTERNATIVES.md; sourceTree = "<group>"; };
+		F82BC9352EA936FD009920B2 /* FIX_U3007.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FIX_U3007.md; sourceTree = "<group>"; };
+		F82BC9382EA93742009920B2 /* UPDATED_CHARACTER_LIST.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UPDATED_CHARACTER_LIST.md; sourceTree = "<group>"; };
+		F82BC93B2EA937BF009920B2 /* chinesenumbers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = chinesenumbers.json; sourceTree = "<group>"; };
 		F883385C2EA1421900F636D9 /* KanjiKanaTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KanjiKanaTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88338692EA1421900F636D9 /* KanjiKanaTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88338732EA1421900F636D9 /* KanjiKanaTrainerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,7 +170,7 @@
 		F88338532EA1421900F636D9 = {
 			isa = PBXGroup;
 			children = (
-				F82BC90B2EA92E8C009920B2 /* README_JSON.md */,
+				F82BC91A2EA93299009920B2 /* license */,
 				F8C970E92EA842FA002A2D74 /* strokedata */,
 				F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */,
 				F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */,
@@ -159,6 +190,15 @@
 				F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */,
 				F883385D2EA1421900F636D9 /* Products */,
 				F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */,
+				F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */,
+				F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */,
+				F82BC9232EA935B3009920B2 /* CHINESE_SETUP.md */,
+				F82BC9262EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md */,
+				F82BC9292EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md */,
+				F82BC92C2EA935FE009920B2 /* QUICKSTART.md */,
+				F82BC92F2EA93605009920B2 /* PICKER_ALTERNATIVES.md */,
+				F82BC9352EA936FD009920B2 /* FIX_U3007.md */,
+				F82BC9382EA93742009920B2 /* UPDATED_CHARACTER_LIST.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +225,7 @@
 		F8C970E92EA842FA002A2D74 /* strokedata */ = {
 			isa = PBXGroup;
 			children = (
+				F82BC93B2EA937BF009920B2 /* chinesenumbers.json */,
 				F82BC90E2EA9312B009920B2 /* kanastrokes.json */,
 			);
 			path = strokedata;
@@ -307,9 +348,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F82BC9372EA936FD009920B2 /* FIX_U3007.md in Resources */,
 				F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */,
+				F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */,
+				F82BC93A2EA93742009920B2 /* UPDATED_CHARACTER_LIST.md in Resources */,
+				F82BC92A2EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md in Resources */,
+				F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
+				F82BC9252EA935B3009920B2 /* CHINESE_SETUP.md in Resources */,
+				F82BC9302EA93605009920B2 /* PICKER_ALTERNATIVES.md in Resources */,
 				F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */,
-				F82BC90D2EA92E8C009920B2 /* README_JSON.md in Resources */,
+				F82BC9272EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md in Resources */,
+				F82BC92D2EA935FE009920B2 /* QUICKSTART.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +366,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F82BC9392EA93742009920B2 /* UPDATED_CHARACTER_LIST.md in Resources */,
+				F82BC9242EA935B3009920B2 /* CHINESE_SETUP.md in Resources */,
+				F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */,
+				F82BC92E2EA935FE009920B2 /* QUICKSTART.md in Resources */,
+				F82BC9362EA936FD009920B2 /* FIX_U3007.md in Resources */,
 				F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */,
+				F82BC92B2EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md in Resources */,
+				F82BC91E2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
+				F82BC9312EA93605009920B2 /* PICKER_ALTERNATIVES.md in Resources */,
+				F82BC9282EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +404,9 @@
 				F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */,
 				F88943D12EA144E8001C8FB9 /* Models.swift in Sources */,
 				F82BC8FE2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
+				F82BC91B2EA9329C009920B2 /* license in Sources */,
 				F82B04FF2EA6E30D000FEA0B /* LessonView.swift in Sources */,
+				F82BC9212EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */,
 				F8E970522EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift in Sources */,
 				F8D1E45E2EA69648006039CC /* StrokeDataConverter.swift in Sources */,
 				F8D1E45F2EA69648006039CC /* StrokeDataDebugView.swift in Sources */,
@@ -359,6 +419,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */,
+				F82BC9222EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */,
+				F82BC91C2EA9329C009920B2 /* license in Sources */,
 				F8D1E4682EA69776006039CC /* Models.swift in Sources */,
 				F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
 				F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */,
@@ -520,7 +582,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -567,7 +629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

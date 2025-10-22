@@ -18,8 +18,37 @@ private enum GlyphBundleError: Error, LocalizedError {
 }
 
 struct GlyphBundleRepository: GlyphRepository {
-    // A minimal, embedded bundle of glyph data for the Japanese syllabaries.
+    // A minimal, embedded bundle of glyph data for the Japanese syllabaries and Chinese numbers.
     // Keyed by Unicode scalar value (codepoint) per script.
+    
+    // Chinese numbers 0-10 and useful additional characters
+    private static let hanzi: [UInt32: (literal: String, readings: [String], meaning: [String])] = {
+        var map: [UInt32: (literal: String, readings: [String], meaning: [String])] = [:]
+        let entries: [(UInt32, String, [String], [String])] = [
+            // Numbers 0-10
+            (0x96F6, "零", ["líng", "ling4"], ["zero"]),
+            (0x4E00, "一", ["yī", "ji1"], ["one"]),
+            (0x4E8C, "二", ["èr", "ji6"], ["two"]),
+            (0x4E09, "三", ["sān", "saam1"], ["three"]),
+            (0x56DB, "四", ["sì", "sei3"], ["four"]),
+            (0x4E94, "五", ["wǔ", "ng5"], ["five"]),
+            (0x516D, "六", ["liù", "luk6"], ["six"]),
+            (0x4E03, "七", ["qī", "cat1"], ["seven"]),
+            (0x516B, "八", ["bā", "baat3"], ["eight"]),
+            (0x4E5D, "九", ["jiǔ", "gau2"], ["nine"]),
+            (0x5341, "十", ["shí", "sap6"], ["ten"]),
+            // Additional useful characters
+            (0x767E, "百", ["bǎi", "baak3"], ["hundred"]),
+            (0x5343, "千", ["qiān", "cin1"], ["thousand"]),
+            (0x4E07, "万", ["wàn", "maan6"], ["ten thousand"]),
+            (0x5104, "億", ["yì", "jik1"], ["hundred million"]),
+        ]
+        for (codepoint, lit, readings, meanings) in entries {
+            map[codepoint] = (literal: lit, readings: readings, meaning: meanings)
+        }
+        return map
+    }()
+    
     private static let hiragana: [UInt32: (literal: String, readings: [String])] = {
         var map: [UInt32: (literal: String, readings: [String])] = [:]
         // Core GOJŪON (U+3041..U+3096) including small kana and voiced/p-sounds
@@ -101,7 +130,7 @@ struct GlyphBundleRepository: GlyphRepository {
     }()
 
     func glyph(for id: CharacterID) async throws -> CharacterGlyph {
-        // Look up by codepoint in both syllabary maps, independent of Script enum details.
+        // Look up by codepoint in all available maps
         if let payload = Self.hiragana[UInt32(id.codepoint)] {
             // Load stroke data from JSON on-demand
             let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? []
@@ -111,6 +140,11 @@ struct GlyphBundleRepository: GlyphRepository {
             // Load stroke data from JSON on-demand
             let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? []
             return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1)
+        }
+        if let payload = Self.hanzi[UInt32(id.codepoint)] {
+            // Load Chinese character stroke data
+            let strokes = ChineseStrokeDataLoader.shared.loadStrokes(for: UInt32(id.codepoint)) ?? []
+            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: payload.meaning, strokes: strokes, difficulty: 1)
         }
         throw GlyphBundleError.missingGlyph(script: id.script, codepoint: UInt32(id.codepoint))
     }
