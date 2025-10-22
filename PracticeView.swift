@@ -54,24 +54,28 @@ struct PracticeView: View {
 }
 
 #Preview {
-    NavigationStack {
-        PracticeView(viewModel: PracticeViewModel(
-            glyph: CharacterGlyph(
-                script: .kanji,
-                codepoint: 0x4E00,
-                literal: "一",
-                readings: ["ichi", "hitotsu"],
-                meaning: ["one"],
-                strokes: [],
-                difficulty: 1,
-                components: []
-            ),
-            env: AppEnvironment(
-                glyphs: GlyphBundleRepository(),
-                progress: SwiftDataProgressStore(),
-                evaluator: DefaultAttemptEvaluator()
-            )
-        ))
+    if #available(iOS 16.0, *) {
+        NavigationStack {
+            PracticeView(viewModel: PracticeViewModel(
+                glyph: CharacterGlyph(
+                    script: .kanji,
+                    codepoint: 0x4E00,
+                    literal: "一",
+                    readings: ["ichi", "hitotsu"],
+                    meaning: ["one"],
+                    strokes: [],
+                    difficulty: 1,
+                    components: []
+                ),
+                env: AppEnvironment(
+                    glyphs: GlyphBundleRepository(),
+                    progress: SwiftDataProgressStore(),
+                    evaluator: DefaultAttemptEvaluator()
+                )
+            ))
+        }
+    } else {
+        // Fallback on earlier versions
     }
 }
 
