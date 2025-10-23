@@ -17,28 +17,8 @@
 		F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */ = {isa = PBXBuildFile; fileRef = F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */; };
 		F82BC9212EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */; };
 		F82BC9222EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */; };
-		F82BC9242EA935B3009920B2 /* CHINESE_SETUP.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9232EA935B3009920B2 /* CHINESE_SETUP.md */; };
-		F82BC9252EA935B3009920B2 /* CHINESE_SETUP.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9232EA935B3009920B2 /* CHINESE_SETUP.md */; };
-		F82BC9272EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9262EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md */; };
-		F82BC9282EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9262EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md */; };
-		F82BC92A2EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9292EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md */; };
-		F82BC92B2EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9292EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md */; };
-		F82BC92D2EA935FE009920B2 /* QUICKSTART.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC92C2EA935FE009920B2 /* QUICKSTART.md */; };
-		F82BC92E2EA935FE009920B2 /* QUICKSTART.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC92C2EA935FE009920B2 /* QUICKSTART.md */; };
-		F82BC9302EA93605009920B2 /* PICKER_ALTERNATIVES.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC92F2EA93605009920B2 /* PICKER_ALTERNATIVES.md */; };
-		F82BC9312EA93605009920B2 /* PICKER_ALTERNATIVES.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC92F2EA93605009920B2 /* PICKER_ALTERNATIVES.md */; };
-		F82BC9362EA936FD009920B2 /* FIX_U3007.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9352EA936FD009920B2 /* FIX_U3007.md */; };
-		F82BC9372EA936FD009920B2 /* FIX_U3007.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9352EA936FD009920B2 /* FIX_U3007.md */; };
-		F82BC9392EA93742009920B2 /* UPDATED_CHARACTER_LIST.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9382EA93742009920B2 /* UPDATED_CHARACTER_LIST.md */; };
-		F82BC93A2EA93742009920B2 /* UPDATED_CHARACTER_LIST.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9382EA93742009920B2 /* UPDATED_CHARACTER_LIST.md */; };
 		F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC93B2EA937BF009920B2 /* chinesenumbers.json */; };
 		F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC93B2EA937BF009920B2 /* chinesenumbers.json */; };
-		F82BC9482EA93D47009920B2 /* COMPOUND_NUMBERS_FEATURE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9472EA93D47009920B2 /* COMPOUND_NUMBERS_FEATURE.md */; };
-		F82BC9492EA93D47009920B2 /* COMPOUND_NUMBERS_FEATURE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9472EA93D47009920B2 /* COMPOUND_NUMBERS_FEATURE.md */; };
-		F82BC94B2EA93D4A009920B2 /* NUMBERS_0-30_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC94A2EA93D4A009920B2 /* NUMBERS_0-30_REFERENCE.md */; };
-		F82BC94C2EA93D4A009920B2 /* NUMBERS_0-30_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC94A2EA93D4A009920B2 /* NUMBERS_0-30_REFERENCE.md */; };
-		F82BC94E2EA93D65009920B2 /* STEP2_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC94D2EA93D65009920B2 /* STEP2_COMPLETE.md */; };
-		F82BC94F2EA93D65009920B2 /* STEP2_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC94D2EA93D65009920B2 /* STEP2_COMPLETE.md */; };
 		F82BC9512EA93FE2009920B2 /* DeviceTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */; };
 		F82BC9522EA93FE2009920B2 /* DeviceTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */; };
 		F82BC9542EA94075009920B2 /* license.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9532EA94075009920B2 /* license.md */; };
@@ -95,17 +75,7 @@
 		F82BC90E2EA9312B009920B2 /* kanastrokes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kanastrokes.json; sourceTree = "<group>"; };
 		F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = download_chinese_numbers.py; sourceTree = "<group>"; };
 		F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseStrokeDataLoader.swift; sourceTree = "<group>"; };
-		F82BC9232EA935B3009920B2 /* CHINESE_SETUP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHINESE_SETUP.md; sourceTree = "<group>"; };
-		F82BC9262EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHINESE_NUMBERS_REFERENCE.md; sourceTree = "<group>"; };
-		F82BC9292EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IMPLEMENTATION_SUMMARY.md; sourceTree = "<group>"; };
-		F82BC92C2EA935FE009920B2 /* QUICKSTART.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = QUICKSTART.md; sourceTree = "<group>"; };
-		F82BC92F2EA93605009920B2 /* PICKER_ALTERNATIVES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PICKER_ALTERNATIVES.md; sourceTree = "<group>"; };
-		F82BC9352EA936FD009920B2 /* FIX_U3007.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FIX_U3007.md; sourceTree = "<group>"; };
-		F82BC9382EA93742009920B2 /* UPDATED_CHARACTER_LIST.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UPDATED_CHARACTER_LIST.md; sourceTree = "<group>"; };
 		F82BC93B2EA937BF009920B2 /* chinesenumbers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = chinesenumbers.json; sourceTree = "<group>"; };
-		F82BC9472EA93D47009920B2 /* COMPOUND_NUMBERS_FEATURE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = COMPOUND_NUMBERS_FEATURE.md; sourceTree = "<group>"; };
-		F82BC94A2EA93D4A009920B2 /* NUMBERS_0-30_REFERENCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "NUMBERS_0-30_REFERENCE.md"; sourceTree = "<group>"; };
-		F82BC94D2EA93D65009920B2 /* STEP2_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = STEP2_COMPLETE.md; sourceTree = "<group>"; };
 		F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTraits.swift; sourceTree = "<group>"; };
 		F82BC9532EA94075009920B2 /* license.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = license.md; sourceTree = "<group>"; };
 		F82BC9712EA9552F009920B2 /* KanjiKanaTrainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KanjiKanaTrainer-Info.plist"; sourceTree = "<group>"; };
@@ -151,6 +121,11 @@
 		F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = KanjiKanaTrainerUITests;
+			sourceTree = "<group>";
+		};
+		F8A231962EAADDCB00DE6818 /* Steps */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Steps;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -206,16 +181,7 @@
 				F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */,
 				F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */,
 				F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */,
-				F82BC9232EA935B3009920B2 /* CHINESE_SETUP.md */,
-				F82BC9262EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md */,
-				F82BC9292EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md */,
-				F82BC92C2EA935FE009920B2 /* QUICKSTART.md */,
-				F82BC92F2EA93605009920B2 /* PICKER_ALTERNATIVES.md */,
-				F82BC9352EA936FD009920B2 /* FIX_U3007.md */,
-				F82BC9382EA93742009920B2 /* UPDATED_CHARACTER_LIST.md */,
-				F82BC9472EA93D47009920B2 /* COMPOUND_NUMBERS_FEATURE.md */,
-				F82BC94A2EA93D4A009920B2 /* NUMBERS_0-30_REFERENCE.md */,
-				F82BC94D2EA93D65009920B2 /* STEP2_COMPLETE.md */,
+				F8A231962EAADDCB00DE6818 /* Steps */,
 				F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */,
 			);
 			sourceTree = "<group>";
@@ -264,6 +230,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				F8A231962EAADDCB00DE6818 /* Steps */,
+			);
 			name = KanjiKanaTrainer;
 			packageProductDependencies = (
 			);
@@ -286,6 +255,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
+				F8A231962EAADDCB00DE6818 /* Steps */,
 			);
 			name = KanjiKanaTrainerTests;
 			packageProductDependencies = (
@@ -366,21 +336,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F82BC94E2EA93D65009920B2 /* STEP2_COMPLETE.md in Resources */,
-				F82BC9372EA936FD009920B2 /* FIX_U3007.md in Resources */,
 				F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */,
 				F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */,
-				F82BC94C2EA93D4A009920B2 /* NUMBERS_0-30_REFERENCE.md in Resources */,
-				F82BC93A2EA93742009920B2 /* UPDATED_CHARACTER_LIST.md in Resources */,
-				F82BC92A2EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md in Resources */,
 				F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
-				F82BC9252EA935B3009920B2 /* CHINESE_SETUP.md in Resources */,
-				F82BC9302EA93605009920B2 /* PICKER_ALTERNATIVES.md in Resources */,
 				F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */,
 				F82BC9542EA94075009920B2 /* license.md in Resources */,
-				F82BC9482EA93D47009920B2 /* COMPOUND_NUMBERS_FEATURE.md in Resources */,
-				F82BC9272EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md in Resources */,
-				F82BC92D2EA935FE009920B2 /* QUICKSTART.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,19 +349,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82BC9552EA94075009920B2 /* license.md in Resources */,
-				F82BC9392EA93742009920B2 /* UPDATED_CHARACTER_LIST.md in Resources */,
-				F82BC94B2EA93D4A009920B2 /* NUMBERS_0-30_REFERENCE.md in Resources */,
-				F82BC94F2EA93D65009920B2 /* STEP2_COMPLETE.md in Resources */,
-				F82BC9242EA935B3009920B2 /* CHINESE_SETUP.md in Resources */,
 				F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */,
-				F82BC92E2EA935FE009920B2 /* QUICKSTART.md in Resources */,
-				F82BC9362EA936FD009920B2 /* FIX_U3007.md in Resources */,
-				F82BC9492EA93D47009920B2 /* COMPOUND_NUMBERS_FEATURE.md in Resources */,
 				F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */,
-				F82BC92B2EA935C2009920B2 /* IMPLEMENTATION_SUMMARY.md in Resources */,
 				F82BC91E2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
-				F82BC9312EA93605009920B2 /* PICKER_ALTERNATIVES.md in Resources */,
-				F82BC9282EA935BC009920B2 /* CHINESE_NUMBERS_REFERENCE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,7 +558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -657,7 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

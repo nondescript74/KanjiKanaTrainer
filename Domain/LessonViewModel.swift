@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import CoreGraphics
+import AVFoundation
 
 @MainActor
 final class LessonViewModel: ObservableObject {
@@ -19,6 +20,7 @@ final class LessonViewModel: ObservableObject {
     private let env: AppEnvironment
     private let glyphID: CharacterID
     private var animationTask: Task<Void, Never>?
+    private let speechSynthesizer = AVSpeechSynthesizer()
 
     init(id: CharacterID, env: AppEnvironment) {
         self.glyphID = id
@@ -119,6 +121,37 @@ final class LessonViewModel: ObservableObject {
         
         // All strokes complete
         demoState = .completed
+        
+        // Speak the character phonetically once after all strokes are complete
+        if let g = glyph {
+            speakCharacter(g)
+        }
+    }
+    
+    // MARK: - Speech Synthesis
+    
+    private func speakCharacter(_ glyph: CharacterGlyph) {
+        // Stop any ongoing speech
+        if speechSynthesizer.isSpeaking {
+            speechSynthesizer.stopSpeaking(at: .immediate)
+        }
+        
+        let utterance = AVSpeechUtterance(string: glyph.literal)
+        
+        // Set language based on script
+        switch glyph.script {
+        case .kana:
+            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        case .kanji:
+            utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        case .hanzi:
+            utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+        }
+        
+        // Adjust speech rate for better clarity
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate * 0.8
+        
+        speechSynthesizer.speak(utterance)
     }
     
     // Convert StrokePath to CGPoint array
