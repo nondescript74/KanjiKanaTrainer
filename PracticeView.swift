@@ -14,39 +14,48 @@ struct PracticeView: View {
     @State private var drawing = PKDrawing()
 
     var body: some View {
-        VStack(spacing: 12) {
-            Text(viewModel.glyph.literal)
-                .font(.system(size: adaptiveCharacterFontSize))
-                .padding(.top, 20)
-            Text(viewModel.glyph.meaning.joined(separator: ", "))
-                .foregroundStyle(.secondary)
+        GeometryReader { geometry in
+            VStack(spacing: 12) {
+                Text(viewModel.glyph.literal)
+                    .font(.system(size: adaptiveCharacterFontSize))
+                    .padding(.top, 20)
+                Text(viewModel.glyph.meaning.joined(separator: ", "))
+                    .foregroundStyle(.secondary)
 
-            CanvasRepresentable(drawing: $drawing)
-                .frame(width: adaptiveCanvasSize, height: adaptiveCanvasSize)
-                .background(Color(UIColor.systemGray6))
-                .cornerRadius(12)
-                .overlay(RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.secondary.opacity(0.3)))
-                .padding(.horizontal)
+                // Use GeometryReader to calculate available space for canvas
+                let availableHeight = geometry.size.height - 300 // Reserve space for text, buttons, score
+                let maxCanvasSize = min(geometry.size.width - 40, availableHeight) // 40 for horizontal padding
+                let canvasSize = min(adaptiveCanvasSize, maxCanvasSize)
+                
+                CanvasRepresentable(drawing: $drawing)
+                    .frame(width: canvasSize, height: canvasSize)
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(12)
+                    .overlay(RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.secondary.opacity(0.3)))
+                    .padding(.horizontal)
 
-            HStack {
-                Button("Clear") { 
-                    drawing = PKDrawing()
-                    viewModel.clearScore()
+                HStack {
+                    Button("Clear") { 
+                        drawing = PKDrawing()
+                        viewModel.clearScore()
+                    }
+                    .buttonStyle(.bordered)
+                    Spacer()
+                    Button("Evaluate") { 
+                        viewModel.evaluate(drawing)
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.bordered)
-                Spacer()
-                Button("Evaluate") { 
-                    viewModel.evaluate(drawing)
-                }
-                .buttonStyle(.borderedProminent)
-            }
-            .padding()
+                .padding()
 
-            if let score = viewModel.score {
-                Text("Score: \(Int(score.total * 100))%")
-                    .font(.headline)
-                    .foregroundStyle(score.total > 0.8 ? .green : .orange)
+                if let score = viewModel.score {
+                    Text("Score: \(Int(score.total * 100))%")
+                        .font(.headline)
+                        .foregroundStyle(score.total > 0.8 ? .green : .orange)
+                }
+                
+                Spacer(minLength: 0) // Push everything up but allow flexibility
             }
         }
         .navigationTitle("Practice")
