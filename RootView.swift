@@ -21,19 +21,44 @@ struct RootView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    .padding(.horizontal)
+                    .padding()
                     
-                    NavigationLink("Lesson Demo") {
-                        LessonViewLoader(script: selectedScript, env: env)
+                    HStack {
+                        NavigationLink {
+                            LessonViewLoader(script: selectedScript, env: env)
+                        } label: {
+                            Label {
+                                Text("Lesson Demo")
+                            } icon: {
+                                Image("machine_writing_Icon")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 60, height: 80)
+                            }
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.large)
+                        .padding(.horizontal)
+                        
+                        
+                        
+                        NavigationLink {
+                            PracticeViewLoader(script: selectedScript, env: env)
+                        } label: {
+                            Label {
+                                Text("Practice Random Character")
+                            } icon: {
+                                Image("child_writing_icon")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 60, height: 80)
+                            }
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.large)
+                        .padding(.horizontal)
+                        
                     }
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
-                    
-                    NavigationLink("Practice Random Character") {
-                        PracticeViewLoader(script: selectedScript, env: env)
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.large)
                     
                     Spacer()
                     
@@ -250,4 +275,8 @@ struct PracticeViewLoader: View {
             return CharacterID(script: .hanzi, codepoint: codepoint)
         }
     }
+}
+
+#Preview {
+    RootView()
 }
