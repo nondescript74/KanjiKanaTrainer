@@ -11,6 +11,9 @@ import PencilKit
 struct SequentialPracticeView: View {
     @StateObject var viewModel: SequentialPracticeViewModel
     @State private var drawing = PKDrawing()
+    @State private var showFirstTimeHelp = true
+    @State private var showEvaluationTip = false
+    @State private var showNavigationTip = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -27,6 +30,13 @@ struct SequentialPracticeView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 8)
+                
+                // Contextual tip for evaluation
+                SequentialPracticeHelp.InlineTip(
+                    icon: "hand.draw",
+                    message: "Draw the character, then tap Evaluate to see your score",
+                    isVisible: $showEvaluationTip
+                )
                 
                 if viewModel.isLoading {
                     Spacer()
@@ -73,19 +83,51 @@ struct SequentialPracticeView: View {
                             viewModel.clearScore()
                         }
                         .buttonStyle(.bordered)
+                        .practiceTooltip("Clear your drawing and start over")
+                        
                         Spacer()
+                        
                         Button("Evaluate") {
                             viewModel.evaluate(drawing)
+                            // Show navigation tip after first evaluation
+                            if viewModel.currentIndex == 0 && !showNavigationTip {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    withAnimation {
+                                        showNavigationTip = true
+                                    }
+                                }
+                            }
                         }
                         .buttonStyle(.borderedProminent)
+                        .practiceTooltip("Check how well you drew the character")
                     }
                     .padding(.horizontal)
 
                     if let score = viewModel.score {
-                        Text("Score: \(Int(score.total * 100))%")
-                            .font(.headline)
-                            .foregroundStyle(score.total > 0.8 ? .green : .orange)
+                        VStack(spacing: 4) {
+                            Text("Score: \(Int(score.total * 100))%")
+                                .font(.headline)
+                                .foregroundStyle(score.total > 0.8 ? .green : .orange)
+                            
+                            if score.total > 0.8 {
+                                Text("Great job! 🎉")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                Text("Try paying attention to stroke order")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
                     }
+                    
+                    // Navigation tip
+                    SequentialPracticeHelp.InlineTip(
+                        icon: "arrow.left.arrow.right",
+                        message: "Use Next to continue, or Previous to review earlier characters",
+                        color: .green,
+                        isVisible: $showNavigationTip
+                    )
                     
                     // Navigation buttons
                     HStack(spacing: 20) {
@@ -93,12 +135,14 @@ struct SequentialPracticeView: View {
                             Task {
                                 drawing = PKDrawing()
                                 await viewModel.previousGlyph()
+                                showNavigationTip = false
                             }
                         } label: {
                             Label("Previous", systemImage: "chevron.left")
                         }
                         .buttonStyle(.bordered)
                         .disabled(!viewModel.hasPrevious)
+                        .practiceTooltip("Go back to review the previous character")
                         
                         Spacer()
                         
@@ -112,11 +156,21 @@ struct SequentialPracticeView: View {
                             }
                             .buttonStyle(.borderedProminent)
                             .tint(.green)
+                            .practiceTooltip("You've finished this set!")
                         } else {
                             Button {
                                 Task {
                                     drawing = PKDrawing()
                                     await viewModel.nextGlyph()
+                                    showNavigationTip = false
+                                    // Show evaluation tip for new character
+                                    if !showEvaluationTip {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                            withAnimation {
+                                                showEvaluationTip = true
+                                            }
+                                        }
+                                    }
                                 }
                             } label: {
                                 Label("Next", systemImage: "chevron.right")
@@ -124,6 +178,7 @@ struct SequentialPracticeView: View {
                             }
                             .buttonStyle(.borderedProminent)
                             .disabled(!viewModel.hasNext)
+                            .practiceTooltip("Move to the next character")
                         }
                     }
                     .padding(.horizontal)
@@ -135,8 +190,30 @@ struct SequentialPracticeView: View {
         }
         .navigationTitle("Practice")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    withAnimation {
+                        showFirstTimeHelp = true
+                    }
+                } label: {
+                    Image(systemName: "questionmark.circle")
+                }
+            }
+        }
+        .overlay {
+            SequentialPracticeHelp.PracticeOverlay(isPresented: $showFirstTimeHelp)
+        }
         .task {
             await viewModel.loadCurrentGlyph()
+            // Show evaluation tip after a brief delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                if !showFirstTimeHelp {
+                    withAnimation {
+                        showEvaluationTip = true
+                    }
+                }
+            }
         }
     }
 }
