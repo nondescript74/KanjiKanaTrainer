@@ -23,6 +23,14 @@
 		F82BC9522EA93FE2009920B2 /* DeviceTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */; };
 		F82BC9542EA94075009920B2 /* license.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9532EA94075009920B2 /* license.md */; };
 		F82BC9552EA94075009920B2 /* license.md in Resources */ = {isa = PBXBuildFile; fileRef = F82BC9532EA94075009920B2 /* license.md */; };
+		F84A63572EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */; };
+		F84A63582EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */; };
+		F84A635A2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63592EB80DB300E4C662 /* SequentialPracticeView.swift */; };
+		F84A635B2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63592EB80DB300E4C662 /* SequentialPracticeView.swift */; };
+		F84A635D2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A635C2EB80DDD00E4C662 /* ViewHelpers.swift */; };
+		F84A635E2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A635C2EB80DDD00E4C662 /* ViewHelpers.swift */; };
+		F84A63602EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md in Resources */ = {isa = PBXBuildFile; fileRef = F84A635F2EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md */; };
+		F84A63612EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md in Resources */ = {isa = PBXBuildFile; fileRef = F84A635F2EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md */; };
 		F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C72EA144E8001C8FB9 /* RootView.swift */; };
 		F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */; };
 		F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */; };
@@ -79,6 +87,10 @@
 		F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTraits.swift; sourceTree = "<group>"; };
 		F82BC9532EA94075009920B2 /* license.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = license.md; sourceTree = "<group>"; };
 		F82BC9712EA9552F009920B2 /* KanjiKanaTrainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KanjiKanaTrainer-Info.plist"; sourceTree = "<group>"; };
+		F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialPracticeViewModel.swift; sourceTree = "<group>"; };
+		F84A63592EB80DB300E4C662 /* SequentialPracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialPracticeView.swift; sourceTree = "<group>"; };
+		F84A635C2EB80DDD00E4C662 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
+		F84A635F2EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SEQUENTIAL_PRACTICE_FEATURE.md; sourceTree = "<group>"; };
 		F883385C2EA1421900F636D9 /* KanjiKanaTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KanjiKanaTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88338692EA1421900F636D9 /* KanjiKanaTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88338732EA1421900F636D9 /* KanjiKanaTrainerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanjiKanaTrainerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +195,10 @@
 				F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */,
 				F8A231962EAADDCB00DE6818 /* Steps */,
 				F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */,
+				F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */,
+				F84A63592EB80DB300E4C662 /* SequentialPracticeView.swift */,
+				F84A635C2EB80DDD00E4C662 /* ViewHelpers.swift */,
+				F84A635F2EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -339,6 +355,7 @@
 				F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */,
 				F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */,
 				F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
+				F84A63612EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md in Resources */,
 				F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */,
 				F82BC9542EA94075009920B2 /* license.md in Resources */,
 			);
@@ -349,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82BC9552EA94075009920B2 /* license.md in Resources */,
+				F84A63602EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md in Resources */,
 				F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */,
 				F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */,
 				F82BC91E2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
@@ -370,11 +388,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */,
+				F84A635A2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */,
 				F8A336A52EA2BEE3001DCD01 /* PracticeView.swift in Sources */,
 				F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */,
 				F8A336A72EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 				F82BC9512EA93FE2009920B2 /* DeviceTraits.swift in Sources */,
+				F84A635E2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */,
 				F8A336AB2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
+				F84A63572EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */,
 				F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */,
 				F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */,
 				F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */,
@@ -405,9 +426,12 @@
 				F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
 				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 				F8D1E4662EA69721006039CC /* AppEnvironment.swift in Sources */,
+				F84A635B2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */,
 				F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */,
 				F8D1E45A2EA69648006039CC /* StrokeDataConverter.swift in Sources */,
 				F8D1E45B2EA69648006039CC /* StrokeDataDebugView.swift in Sources */,
+				F84A63582EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */,
+				F84A635D2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */,
 				F8D1E45C2EA69648006039CC /* StrokeDataLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,7 +582,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -607,7 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
