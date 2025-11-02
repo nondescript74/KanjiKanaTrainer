@@ -23,42 +23,63 @@ struct RootView: View {
                     .pickerStyle(.segmented)
                     .padding()
                     
-                    HStack {
-                        NavigationLink {
-                            LessonViewLoader(script: selectedScript, env: env)
-                        } label: {
-                            Label {
-                                Text("Lesson Demo")
-                            } icon: {
-                                Image("machine_writing_Icon")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 60, height: 80)
+                    VStack(spacing: 16) {
+                        HStack {
+                            Spacer()
+                            NavigationLink {
+                                LessonViewLoader(script: selectedScript, env: env)
+                            } label: {
+                                Label {
+                                    Text("Demo")
+                                } icon: {
+                                    Image("machine_writing_Icon")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 60, height: 80)
+                                }
+                                .padding()
+                                .background(Color(.systemGray3))
+                            }
+                            
+                            Spacer()
+                            
+                            NavigationLink {
+                                PracticeViewLoader(script: selectedScript, env: env)
+                            } label: {
+                                Label {
+                                    Text("Practice")
+                                } icon: {
+                                    Image("child_writing_icon")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 60, height: 80)
+                                }
+                            }
+                            .padding()
+                            .background(Color(.systemGray3))
+                            Spacer()
+                        }
+                        
+                        // Sequential practice option for Chinese Numbers
+                        if selectedScript == .chineseNumbers {
+                            NavigationLink {
+                                SequentialPracticeView(viewModel: .chineseNumbers1to10(env: env))
+                            } label: {
+                                HStack {
+                                    Image(systemName: "list.number")
+                                        .font(.title2)
+                                    Text("Practice Numbers 1-10 Sequentially")
+                                        .font(.headline)
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.accentColor.opacity(0.1))
+                                .foregroundStyle(.primary)
+                                .cornerRadius(12)
                             }
                         }
-                        .buttonStyle(.bordered)
-                        .controlSize(.large)
-                        .padding(.horizontal)
-                        
-                        
-                        
-                        NavigationLink {
-                            PracticeViewLoader(script: selectedScript, env: env)
-                        } label: {
-                            Label {
-                                Text("Practice Random Character")
-                            } icon: {
-                                Image("child_writing_icon")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 60, height: 80)
-                            }
-                        }
-                        .buttonStyle(.bordered)
-                        .controlSize(.large)
-                        .padding(.horizontal)
-                        
                     }
+                    .padding(.horizontal)
                     
                     Spacer()
                     
