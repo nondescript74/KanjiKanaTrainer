@@ -5,9 +5,9 @@
       location = "self:">
    </FileRef>
    <FileRef
-      location = "group:download_kana_strokes_json_fixed.py">
+      location = "group:SequentialPracticeViewModel.swift">
    </FileRef>
    <FileRef
-      location = "group:download_kana_strokes_json_fixed.py">
+      location = "group:ChineseNumberSetSelector.swift">
    </FileRef>
 </Workspace>
