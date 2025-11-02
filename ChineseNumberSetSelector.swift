@@ -79,10 +79,10 @@ struct ChineseNumberSetSelector: View {
     var body: some View {
         List {
             Section {
-                Text("Choose a number set to practice sequentially")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                SequentialPracticeHelp.SetSelectorBanner()
             }
+            .listRowInsets(EdgeInsets())
+            .listRowBackground(Color.clear)
             
             Section("Basic Numbers") {
                 NavigationLink {

@@ -5,9 +5,9 @@
       location = "self:">
    </FileRef>
    <FileRef
-      location = "group:SequentialPracticeViewModel.swift">
+      location = "group:SequentialPracticeHelp.swift">
    </FileRef>
    <FileRef
-      location = "group:ChineseNumberSetSelector.swift">
+      location = "group:CONTEXTUAL_HELP_IMPLEMENTATION.md">
    </FileRef>
 </Workspace>
