@@ -63,12 +63,12 @@ struct RootView: View {
                         // Sequential practice option for Chinese Numbers
                         if selectedScript == .chineseNumbers {
                             NavigationLink {
-                                SequentialPracticeView(viewModel: .chineseNumbers1to10(env: env))
+                                ChineseNumberSetSelector(env: env)
                             } label: {
                                 HStack {
                                     Image(systemName: "list.number")
                                         .font(.title2)
-                                    Text("Practice Numbers 1-10 Sequentially")
+                                    Text("Sequential Practice Sets")
                                         .font(.headline)
                                 }
                                 .frame(maxWidth: .infinity)
