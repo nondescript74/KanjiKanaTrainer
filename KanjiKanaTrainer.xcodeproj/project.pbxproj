@@ -64,6 +64,18 @@
 		F89B2CDD2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */; };
 		F89B2CDF2EB95C0100415104 /* LICENSE_SCROLL_FIX.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDE2EB95C0100415104 /* LICENSE_SCROLL_FIX.md */; };
 		F89B2CE02EB95C0100415104 /* LICENSE_SCROLL_FIX.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDE2EB95C0100415104 /* LICENSE_SCROLL_FIX.md */; };
+		F89B2D092EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */; };
+		F89B2D0A2EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */; };
+		F89B2D0C2EB95E3900415104 /* SequentialDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */; };
+		F89B2D0D2EB95E3900415104 /* SequentialDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */; };
+		F89B2D0F2EB95E6800415104 /* SequentialDemoHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */; };
+		F89B2D102EB95E6800415104 /* SequentialDemoHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */; };
+		F89B2D122EB95E9200415104 /* DemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D112EB95E9200415104 /* DemoSetSelector.swift */; };
+		F89B2D132EB95E9200415104 /* DemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D112EB95E9200415104 /* DemoSetSelector.swift */; };
+		F89B2D152EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */; };
+		F89B2D162EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */; };
+		F89B2D182EB95F3200415104 /* SEQUENTIAL_DEMO_IMPLEMENTATION.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2D172EB95F3200415104 /* SEQUENTIAL_DEMO_IMPLEMENTATION.md */; };
+		F89B2D192EB95F3200415104 /* SEQUENTIAL_DEMO_IMPLEMENTATION.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2D172EB95F3200415104 /* SEQUENTIAL_DEMO_IMPLEMENTATION.md */; };
 		F8A336A52EA2BEE3001DCD01 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */; };
 		F8A336A72EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
 		F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
@@ -140,6 +152,12 @@
 		F89B2CD82EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_FLOW_DIAGRAMS.md; sourceTree = "<group>"; };
 		F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_IMPLEMENTATION_COMPLETE.md; sourceTree = "<group>"; };
 		F89B2CDE2EB95C0100415104 /* LICENSE_SCROLL_FIX.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_SCROLL_FIX.md; sourceTree = "<group>"; };
+		F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialDemoViewModel.swift; sourceTree = "<group>"; };
+		F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialDemoView.swift; sourceTree = "<group>"; };
+		F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialDemoHelp.swift; sourceTree = "<group>"; };
+		F89B2D112EB95E9200415104 /* DemoSetSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSetSelector.swift; sourceTree = "<group>"; };
+		F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseDemoSetSelector.swift; sourceTree = "<group>"; };
+		F89B2D172EB95F3200415104 /* SEQUENTIAL_DEMO_IMPLEMENTATION.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SEQUENTIAL_DEMO_IMPLEMENTATION.md; sourceTree = "<group>"; };
 		F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRepresentable.swift; sourceTree = "<group>"; };
@@ -251,6 +269,12 @@
 				F89B2CD82EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md */,
 				F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */,
 				F89B2CDE2EB95C0100415104 /* LICENSE_SCROLL_FIX.md */,
+				F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */,
+				F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */,
+				F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */,
+				F89B2D112EB95E9200415104 /* DemoSetSelector.swift */,
+				F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */,
+				F89B2D172EB95F3200415104 /* SEQUENTIAL_DEMO_IMPLEMENTATION.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -416,6 +440,7 @@
 				F89B2C9D2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md in Resources */,
 				F82BC9542EA94075009920B2 /* license.md in Resources */,
 				F89B2CDC2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */,
+				F89B2D182EB95F3200415104 /* SEQUENTIAL_DEMO_IMPLEMENTATION.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F89B2CE02EB95C0100415104 /* LICENSE_SCROLL_FIX.md in Resources */,
+				F89B2D192EB95F3200415104 /* SEQUENTIAL_DEMO_IMPLEMENTATION.md in Resources */,
 				F89B2CDA2EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md in Resources */,
 				F89B2CD32EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */,
 				F89B2CD62EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md in Resources */,
@@ -462,7 +488,10 @@
 				F8A336AB2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
 				F84A63572EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */,
 				F89B2CCA2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */,
+				F89B2D0D2EB95E3900415104 /* SequentialDemoView.swift in Sources */,
+				F89B2D152EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */,
 				F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */,
+				F89B2D122EB95E9200415104 /* DemoSetSelector.swift in Sources */,
 				F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */,
 				F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */,
 				F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */,
@@ -474,8 +503,10 @@
 				F82BC9212EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */,
 				F84A63B62EB811F700E4C662 /* ChineseNumberSetSelector.swift in Sources */,
 				F89B2CC72EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */,
+				F89B2D0A2EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */,
 				F8E970522EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift in Sources */,
 				F8D1E45E2EA69648006039CC /* StrokeDataConverter.swift in Sources */,
+				F89B2D102EB95E6800415104 /* SequentialDemoHelp.swift in Sources */,
 				F8D1E45F2EA69648006039CC /* StrokeDataDebugView.swift in Sources */,
 				F84A642F2EB8146500E4C662 /* SequentialPracticeHelp.swift in Sources */,
 				F8D1E4602EA69648006039CC /* StrokeDataLoader.swift in Sources */,
@@ -490,14 +521,19 @@
 				F82BC9222EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */,
 				F82BC9522EA93FE2009920B2 /* DeviceTraits.swift in Sources */,
 				F8D1E4682EA69776006039CC /* Models.swift in Sources */,
+				F89B2D092EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */,
 				F89B2C9A2EB9571300415104 /* KanaSetSelector.swift in Sources */,
+				F89B2D0C2EB95E3900415104 /* SequentialDemoView.swift in Sources */,
 				F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
+				F89B2D162EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */,
 				F84A63B72EB811F700E4C662 /* ChineseNumberSetSelector.swift in Sources */,
 				F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */,
 				F8D1E4672EA69754006039CC /* ProgressRepository.swift in Sources */,
 				F8D1E46A2EA6988F006039CC /* LessonViewModel.swift in Sources */,
+				F89B2D132EB95E9200415104 /* DemoSetSelector.swift in Sources */,
 				F89B2CC82EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */,
 				F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
+				F89B2D0F2EB95E6800415104 /* SequentialDemoHelp.swift in Sources */,
 				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 				F8D1E4662EA69721006039CC /* AppEnvironment.swift in Sources */,
 				F84A635B2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */,
@@ -660,7 +696,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -709,7 +745,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

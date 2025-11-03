@@ -60,6 +60,30 @@ struct RootView: View {
                             Spacer()
                         }
                         
+                        // Sequential demo option for all scripts
+                        NavigationLink {
+                            switch selectedScript {
+                            case .hiragana:
+                                DemoSetSelector(env: env, script: .hiragana)
+                            case .katakana:
+                                DemoSetSelector(env: env, script: .katakana)
+                            case .chineseNumbers:
+                                ChineseDemoSetSelector(env: env)
+                            }
+                        } label: {
+                            HStack {
+                                Image(systemName: "play.rectangle.on.rectangle")
+                                    .font(.title2)
+                                Text("Sequential Demo Sets")
+                                    .font(.headline)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.green.opacity(0.1))
+                            .foregroundStyle(.primary)
+                            .cornerRadius(12)
+                        }
+                        
                         // Sequential practice option for all scripts
                         NavigationLink {
                             switch selectedScript {
