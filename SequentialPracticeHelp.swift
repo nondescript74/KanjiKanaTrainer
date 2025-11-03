@@ -12,8 +12,13 @@ struct SequentialPracticeHelp {
     
     /// Help banner for the number set selector
     struct SetSelectorBanner: View {
+        let scriptName: String
         @AppStorage("hasSeenSequentialPracticeHelp") private var hasSeenHelp = false
         @State private var isExpanded = false
+        
+        init(scriptName: String = "Chinese Numbers") {
+            self.scriptName = scriptName
+        }
         
         var body: some View {
             if !hasSeenHelp || isExpanded {
@@ -21,7 +26,7 @@ struct SequentialPracticeHelp {
                     HStack {
                         Image(systemName: "lightbulb.fill")
                             .foregroundStyle(.yellow)
-                        Text("Sequential Practice")
+                        Text("Sequential Practice - \(scriptName)")
                             .font(.headline)
                         Spacer()
                         Button {

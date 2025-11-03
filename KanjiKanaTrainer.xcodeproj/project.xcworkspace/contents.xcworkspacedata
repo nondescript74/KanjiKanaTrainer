@@ -4,10 +4,4 @@
    <FileRef
       location = "self:">
    </FileRef>
-   <FileRef
-      location = "group:SequentialPracticeHelp.swift">
-   </FileRef>
-   <FileRef
-      location = "group:CONTEXTUAL_HELP_IMPLEMENTATION.md">
-   </FileRef>
 </Workspace>

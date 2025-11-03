@@ -79,7 +79,7 @@ struct ChineseNumberSetSelector: View {
     var body: some View {
         List {
             Section {
-                SequentialPracticeHelp.SetSelectorBanner()
+                SequentialPracticeHelp.SetSelectorBanner(scriptName: "Chinese Numbers")
             }
             .listRowInsets(EdgeInsets())
             .listRowBackground(Color.clear)
