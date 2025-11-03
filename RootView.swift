@@ -60,23 +60,28 @@ struct RootView: View {
                             Spacer()
                         }
                         
-                        // Sequential practice option for Chinese Numbers
-                        if selectedScript == .chineseNumbers {
-                            NavigationLink {
+                        // Sequential practice option for all scripts
+                        NavigationLink {
+                            switch selectedScript {
+                            case .hiragana:
+                                KanaSetSelector(env: env, script: .hiragana)
+                            case .katakana:
+                                KanaSetSelector(env: env, script: .katakana)
+                            case .chineseNumbers:
                                 ChineseNumberSetSelector(env: env)
-                            } label: {
-                                HStack {
-                                    Image(systemName: "list.number")
-                                        .font(.title2)
-                                    Text("Sequential Practice Sets")
-                                        .font(.headline)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.accentColor.opacity(0.1))
-                                .foregroundStyle(.primary)
-                                .cornerRadius(12)
                             }
+                        } label: {
+                            HStack {
+                                Image(systemName: "list.number")
+                                    .font(.title2)
+                                Text("Sequential Practice Sets")
+                                    .font(.headline)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.accentColor.opacity(0.1))
+                            .foregroundStyle(.primary)
+                            .cornerRadius(12)
                         }
                     }
                     .padding(.horizontal)
