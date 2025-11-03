@@ -46,6 +46,24 @@
 		F89B2C9B2EB9571300415104 /* KanaSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2C992EB9571300415104 /* KanaSetSelector.swift */; };
 		F89B2C9D2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2C9C2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md */; };
 		F89B2C9E2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2C9C2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md */; };
+		F89B2CC72EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CC62EB9594500415104 /* LicenseAcceptanceViewModel.swift */; };
+		F89B2CC82EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CC62EB9594500415104 /* LicenseAcceptanceViewModel.swift */; };
+		F89B2CCA2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CC92EB9595C00415104 /* LicenseAcceptanceView.swift */; };
+		F89B2CCB2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CC92EB9595C00415104 /* LicenseAcceptanceView.swift */; };
+		F89B2CCD2EB9596C00415104 /* LicenseGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */; };
+		F89B2CCE2EB9596C00415104 /* LicenseGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */; };
+		F89B2CD02EB9598700415104 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCF2EB9598700415104 /* SettingsView.swift */; };
+		F89B2CD12EB9598700415104 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCF2EB9598700415104 /* SettingsView.swift */; };
+		F89B2CD32EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CD22EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md */; };
+		F89B2CD42EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CD22EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md */; };
+		F89B2CD62EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CD52EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md */; };
+		F89B2CD72EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CD52EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md */; };
+		F89B2CD92EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CD82EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md */; };
+		F89B2CDA2EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CD82EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md */; };
+		F89B2CDC2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */; };
+		F89B2CDD2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */; };
+		F89B2CDF2EB95C0100415104 /* LICENSE_SCROLL_FIX.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDE2EB95C0100415104 /* LICENSE_SCROLL_FIX.md */; };
+		F89B2CE02EB95C0100415104 /* LICENSE_SCROLL_FIX.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDE2EB95C0100415104 /* LICENSE_SCROLL_FIX.md */; };
 		F8A336A52EA2BEE3001DCD01 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */; };
 		F8A336A72EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
 		F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
@@ -113,6 +131,15 @@
 		F88943C72EA144E8001C8FB9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F89B2C992EB9571300415104 /* KanaSetSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaSetSelector.swift; sourceTree = "<group>"; };
 		F89B2C9C2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SEQUENTIAL_PRACTICE_EXPANSION.md; sourceTree = "<group>"; };
+		F89B2CC62EB9594500415104 /* LicenseAcceptanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAcceptanceViewModel.swift; sourceTree = "<group>"; };
+		F89B2CC92EB9595C00415104 /* LicenseAcceptanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAcceptanceView.swift; sourceTree = "<group>"; };
+		F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseGateView.swift; sourceTree = "<group>"; };
+		F89B2CCF2EB9598700415104 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F89B2CD22EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_SYSTEM_IMPLEMENTATION.md; sourceTree = "<group>"; };
+		F89B2CD52EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_QUICK_REFERENCE.md; sourceTree = "<group>"; };
+		F89B2CD82EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_FLOW_DIAGRAMS.md; sourceTree = "<group>"; };
+		F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_IMPLEMENTATION_COMPLETE.md; sourceTree = "<group>"; };
+		F89B2CDE2EB95C0100415104 /* LICENSE_SCROLL_FIX.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_SCROLL_FIX.md; sourceTree = "<group>"; };
 		F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRepresentable.swift; sourceTree = "<group>"; };
@@ -215,6 +242,15 @@
 				F84A63B52EB811F700E4C662 /* ChineseNumberSetSelector.swift */,
 				F89B2C992EB9571300415104 /* KanaSetSelector.swift */,
 				F89B2C9C2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md */,
+				F89B2CC62EB9594500415104 /* LicenseAcceptanceViewModel.swift */,
+				F89B2CC92EB9595C00415104 /* LicenseAcceptanceView.swift */,
+				F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */,
+				F89B2CCF2EB9598700415104 /* SettingsView.swift */,
+				F89B2CD22EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md */,
+				F89B2CD52EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md */,
+				F89B2CD82EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md */,
+				F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */,
+				F89B2CDE2EB95C0100415104 /* LICENSE_SCROLL_FIX.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -369,12 +405,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */,
+				F89B2CDF2EB95C0100415104 /* LICENSE_SCROLL_FIX.md in Resources */,
+				F89B2CD42EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */,
+				F89B2CD72EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md in Resources */,
+				F89B2CD92EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md in Resources */,
 				F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */,
 				F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
 				F84A63612EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md in Resources */,
 				F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */,
 				F89B2C9D2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md in Resources */,
 				F82BC9542EA94075009920B2 /* license.md in Resources */,
+				F89B2CDC2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,10 +423,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F89B2CE02EB95C0100415104 /* LICENSE_SCROLL_FIX.md in Resources */,
+				F89B2CDA2EB95A9900415104 /* LICENSE_FLOW_DIAGRAMS.md in Resources */,
+				F89B2CD32EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */,
+				F89B2CD62EB95A1500415104 /* LICENSE_QUICK_REFERENCE.md in Resources */,
 				F89B2C9E2EB9582200415104 /* SEQUENTIAL_PRACTICE_EXPANSION.md in Resources */,
 				F82BC9552EA94075009920B2 /* license.md in Resources */,
 				F84A63602EB80DF000E4C662 /* SEQUENTIAL_PRACTICE_FEATURE.md in Resources */,
 				F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */,
+				F89B2CDD2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */,
 				F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */,
 				F82BC91E2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
 			);
@@ -415,15 +461,19 @@
 				F84A635E2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */,
 				F8A336AB2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
 				F84A63572EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */,
+				F89B2CCA2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */,
 				F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */,
 				F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */,
 				F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */,
 				F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */,
 				F88943D12EA144E8001C8FB9 /* Models.swift in Sources */,
 				F82BC8FE2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
+				F89B2CD02EB9598700415104 /* SettingsView.swift in Sources */,
 				F82B04FF2EA6E30D000FEA0B /* LessonView.swift in Sources */,
+				F89B2CCE2EB9596C00415104 /* LicenseGateView.swift in Sources */,
 				F82BC9212EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */,
 				F84A63B62EB811F700E4C662 /* ChineseNumberSetSelector.swift in Sources */,
+				F89B2CC72EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */,
 				F8E970522EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift in Sources */,
 				F8D1E45E2EA69648006039CC /* StrokeDataConverter.swift in Sources */,
 				F8D1E45F2EA69648006039CC /* StrokeDataDebugView.swift in Sources */,
@@ -446,15 +496,19 @@
 				F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */,
 				F8D1E4672EA69754006039CC /* ProgressRepository.swift in Sources */,
 				F8D1E46A2EA6988F006039CC /* LessonViewModel.swift in Sources */,
+				F89B2CC82EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */,
 				F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
 				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 				F8D1E4662EA69721006039CC /* AppEnvironment.swift in Sources */,
 				F84A635B2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */,
+				F89B2CCB2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */,
 				F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */,
 				F8D1E45A2EA69648006039CC /* StrokeDataConverter.swift in Sources */,
 				F8D1E45B2EA69648006039CC /* StrokeDataDebugView.swift in Sources */,
+				F89B2CD12EB9598700415104 /* SettingsView.swift in Sources */,
 				F84A642E2EB8146500E4C662 /* SequentialPracticeHelp.swift in Sources */,
 				F84A63582EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */,
+				F89B2CCD2EB9596C00415104 /* LicenseGateView.swift in Sources */,
 				F84A635D2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */,
 				F8D1E45C2EA69648006039CC /* StrokeDataLoader.swift in Sources */,
 			);
@@ -606,7 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -655,7 +709,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

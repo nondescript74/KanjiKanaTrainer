@@ -97,6 +97,16 @@ struct RootView: View {
                 }
                 .padding()
                 .navigationTitle("KanjiKana Trainer")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink {
+                            SettingsView()
+                        } label: {
+                            Image(systemName: "gear")
+                                .foregroundStyle(.blue)
+                        }
+                    }
+                }
             }
         } else {
             // Fallback on earlier versions
