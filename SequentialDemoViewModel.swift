@@ -281,6 +281,180 @@ extension SequentialDemoViewModel {
         return SequentialDemoViewModel(glyphIDs: ids, env: env)
     }
     
+    // MARK: - Chinese Common Characters (100 characters)
+    
+    /// Body Parts & People (8 characters)
+    static func chineseBodyParts(env: AppEnvironment) -> SequentialDemoViewModel {
+        let codepoints: [Int] = [
+            0x4EBA, // 人 person
+            0x53E3, // 口 mouth
+            0x624B, // 手 hand
+            0x76EE, // 目 eye
+            0x8033, // 耳 ear
+            0x5FC3, // 心 heart
+            0x5973, // 女 woman
+            0x5B50  // 子 child
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialDemoViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Nature & Elements (17 characters)
+    static func chineseNature(env: AppEnvironment) -> SequentialDemoViewModel {
+        let codepoints: [Int] = [
+            0x65E5, // 日 sun/day
+            0x6708, // 月 moon/month
+            0x6C34, // 水 water
+            0x706B, // 火 fire
+            0x6728, // 木 wood
+            0x91D1, // 金 gold/metal
+            0x571F, // 土 earth
+            0x5929, // 天 sky
+            0x5730, // 地 ground
+            0x5C71, // 山 mountain
+            0x7530, // 田 field
+            0x77F3, // 石 stone
+            0x98CE, // 风 wind
+            0x4E91, // 云 cloud
+            0x96E8, // 雨 rain
+            0x96EA, // 雪 snow
+            0x7535  // 电 electricity
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialDemoViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Size & Direction (11 characters)
+    static func chineseSizeDirection(env: AppEnvironment) -> SequentialDemoViewModel {
+        let codepoints: [Int] = [
+            0x5927, // 大 big
+            0x5C0F, // 小 small
+            0x4E2D, // 中 middle
+            0x4E0A, // 上 up
+            0x4E0B, // 下 down
+            0x5DE6, // 左 left
+            0x53F3, // 右 right
+            0x957F, // 长 long
+            0x591A, // 多 many
+            0x5C11, // 少 few
+            0x9AD8  // 高 tall/high
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialDemoViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Common Objects & Animals (18 characters)
+    static func chineseObjects(env: AppEnvironment) -> SequentialDemoViewModel {
+        let codepoints: [Int] = [
+            0x95E8, // 门 door
+            0x9A6C, // 马 horse
+            0x725B, // 牛 ox
+            0x7F8A, // 羊 sheep
+            0x9E1F, // 鸟 bird
+            0x9C7C, // 鱼 fish
+            0x7C73, // 米 rice
+            0x7AF9, // 竹 bamboo
+            0x4E1D, // 丝 silk
+            0x866B, // 虫 insect
+            0x8D1D, // 贝 shell
+            0x89C1, // 见 see
+            0x8F66, // 车 vehicle
+            0x5200, // 刀 knife
+            0x529B, // 力 strength
+            0x53C8, // 又 again
+            0x6587, // 文 culture
+            0x65B9  // 方 square
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialDemoViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Pronouns & Common Words (10 characters)
+    static func chinesePronouns(env: AppEnvironment) -> SequentialDemoViewModel {
+        let codepoints: [Int] = [
+            0x4E0D, // 不 not
+            0x4E5F, // 也 also
+            0x4E86, // 了 completed
+            0x5728, // 在 at/in
+            0x6709, // 有 have
+            0x6211, // 我 I
+            0x4F60, // 你 you
+            0x4ED6, // 他 he
+            0x5979, // 她 she
+            0x597D  // 好 good
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialDemoViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Common Verbs (18 characters)
+    static func chineseVerbs(env: AppEnvironment) -> SequentialDemoViewModel {
+        let codepoints: [Int] = [
+            0x6765, // 来 come
+            0x53BB, // 去 go
+            0x51FA, // 出 exit
+            0x5165, // 入 enter
+            0x5403, // 吃 eat
+            0x559D, // 喝 drink
+            0x770B, // 看 look/see
+            0x542C, // 听 listen
+            0x8BF4, // 说 speak
+            0x8BFB, // 读 read
+            0x5199, // 写 write
+            0x8D70, // 走 walk
+            0x98DE, // 飞 fly
+            0x5750, // 坐 sit
+            0x7AD9, // 站 stand
+            0x7231, // 爱 love
+            0x7B11, // 笑 laugh
+            0x54ED  // 哭 cry
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialDemoViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// More Common Words (8 characters)
+    static func chineseCommonWords(env: AppEnvironment) -> SequentialDemoViewModel {
+        let codepoints: [Int] = [
+            0x672C, // 本 root/book
+            0x767D, // 白 white
+            0x7EA2, // 红 red
+            0x5F00, // 开 open
+            0x751F, // 生 life/grow
+            0x5B66, // 学 study
+            0x5DE5, // 工 work
+            0x7528  // 用 use
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialDemoViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// All 100 Common Characters
+    static func chineseCommonAll(env: AppEnvironment) -> SequentialDemoViewModel {
+        let codepoints: [Int] = [
+            // Body Parts & People (8)
+            0x4EBA, 0x53E3, 0x624B, 0x76EE, 0x8033, 0x5FC3, 0x5973, 0x5B50,
+            // Nature & Elements (17)
+            0x65E5, 0x6708, 0x6C34, 0x706B, 0x6728, 0x91D1, 0x571F, 0x5929,
+            0x5730, 0x5C71, 0x7530, 0x77F3, 0x98CE, 0x4E91, 0x96E8, 0x96EA, 0x7535,
+            // Size & Direction (11)
+            0x5927, 0x5C0F, 0x4E2D, 0x4E0A, 0x4E0B, 0x5DE6, 0x53F3, 0x957F,
+            0x591A, 0x5C11, 0x9AD8,
+            // Common Objects & Animals (18)
+            0x95E8, 0x9A6C, 0x725B, 0x7F8A, 0x9E1F, 0x9C7C, 0x7C73, 0x7AF9,
+            0x4E1D, 0x866B, 0x8D1D, 0x89C1, 0x8F66, 0x5200, 0x529B, 0x53C8, 0x6587, 0x65B9,
+            // Pronouns & Common Words (10)
+            0x4E0D, 0x4E5F, 0x4E86, 0x5728, 0x6709, 0x6211, 0x4F60, 0x4ED6, 0x5979, 0x597D,
+            // Common Verbs (18)
+            0x6765, 0x53BB, 0x51FA, 0x5165, 0x5403, 0x559D, 0x770B, 0x542C,
+            0x8BF4, 0x8BFB, 0x5199, 0x8D70, 0x98DE, 0x5750, 0x7AD9, 0x7231, 0x7B11, 0x54ED,
+            // More Common Words (8)
+            0x672C, 0x767D, 0x7EA2, 0x5F00, 0x751F, 0x5B66, 0x5DE5, 0x7528
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialDemoViewModel(glyphIDs: ids, env: env)
+    }
+    
     // MARK: - Hiragana
     
     static func hiraganaVowels(env: AppEnvironment) -> SequentialDemoViewModel {

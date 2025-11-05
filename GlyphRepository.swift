@@ -21,13 +21,13 @@ struct GlyphBundleRepository: GlyphRepository {
     // A minimal, embedded bundle of glyph data for the Japanese syllabaries and Chinese numbers.
     // Keyed by Unicode scalar value (codepoint) per script.
     
-    // Chinese numbers 0-10 and useful additional characters
+    // Chinese numbers 0-10, useful additional characters, and 100 common characters
     private static let hanzi: [UInt32: (literal: String, readings: [String], meaning: [String])] = {
         var map: [UInt32: (literal: String, readings: [String], meaning: [String])] = [:]
         let entries: [(UInt32, String, [String], [String])] = [
             // Numbers 0-10
             (0x96F6, "零", ["líng", "ling4"], ["zero"]),
-            (0x4E00, "一", ["yī", "ji1"], ["one"]),
+            (0x4E00, "一", ["yī", "jat1"], ["one"]),
             (0x4E8C, "二", ["èr", "ji6"], ["two"]),
             (0x4E09, "三", ["sān", "saam1"], ["three"]),
             (0x56DB, "四", ["sì", "sei3"], ["four"]),
@@ -42,6 +42,111 @@ struct GlyphBundleRepository: GlyphRepository {
             (0x5343, "千", ["qiān", "cin1"], ["thousand"]),
             (0x4E07, "万", ["wàn", "maan6"], ["ten thousand"]),
             (0x5104, "億", ["yì", "jik1"], ["hundred million"]),
+            
+            // 100 COMMON CHARACTERS FOR CHILDREN
+            // Body parts & People
+            (0x4EBA, "人", ["rén", "jan4"], ["person", "people"]),
+            (0x53E3, "口", ["kǒu", "hau2"], ["mouth"]),
+            (0x624B, "手", ["shǒu", "sau2"], ["hand"]),
+            (0x76EE, "目", ["mù", "muk6"], ["eye"]),
+            (0x8033, "耳", ["ěr", "ji5"], ["ear"]),
+            (0x5FC3, "心", ["xīn", "sam1"], ["heart"]),
+            (0x5973, "女", ["nǚ", "neoi5"], ["woman", "female"]),
+            (0x5B50, "子", ["zǐ", "zi2"], ["child"]),
+            
+            // Nature & Elements
+            (0x65E5, "日", ["rì", "jat6"], ["sun", "day"]),
+            (0x6708, "月", ["yuè", "jyut6"], ["moon", "month"]),
+            (0x6C34, "水", ["shuǐ", "seoi2"], ["water"]),
+            (0x706B, "火", ["huǒ", "fo2"], ["fire"]),
+            (0x6728, "木", ["mù", "muk6"], ["wood", "tree"]),
+            (0x91D1, "金", ["jīn", "gam1"], ["gold", "metal"]),
+            (0x571F, "土", ["tǔ", "tou2"], ["earth", "soil"]),
+            (0x5929, "天", ["tiān", "tin1"], ["sky", "heaven"]),
+            (0x5730, "地", ["dì", "dei6"], ["ground", "earth"]),
+            (0x5C71, "山", ["shān", "saan1"], ["mountain"]),
+            (0x7530, "田", ["tián", "tin4"], ["field"]),
+            (0x77F3, "石", ["shí", "sek6"], ["stone", "rock"]),
+            (0x98CE, "风", ["fēng", "fung1"], ["wind"]),
+            (0x4E91, "云", ["yún", "wan4"], ["cloud"]),
+            (0x96E8, "雨", ["yǔ", "jyu5"], ["rain"]),
+            (0x96EA, "雪", ["xuě", "syut3"], ["snow"]),
+            (0x7535, "电", ["diàn", "din6"], ["electricity", "lightning"]),
+            
+            // Size & Direction
+            (0x5927, "大", ["dà", "daai6"], ["big", "large"]),
+            (0x5C0F, "小", ["xiǎo", "siu2"], ["small", "little"]),
+            (0x4E2D, "中", ["zhōng", "zung1"], ["middle", "center"]),
+            (0x4E0A, "上", ["shàng", "soeng6"], ["up", "above"]),
+            (0x4E0B, "下", ["xià", "haa6"], ["down", "below"]),
+            (0x5DE6, "左", ["zuǒ", "zo2"], ["left"]),
+            (0x53F3, "右", ["yòu", "jau6"], ["right"]),
+            (0x957F, "长", ["cháng", "coeng4"], ["long"]),
+            (0x591A, "多", ["duō", "do1"], ["many", "much"]),
+            (0x5C11, "少", ["shǎo", "siu2"], ["few", "little"]),
+            (0x9AD8, "高", ["gāo", "gou1"], ["tall", "high"]),
+            
+            // Common Objects & Animals
+            (0x95E8, "门", ["mén", "mun4"], ["door", "gate"]),
+            (0x9A6C, "马", ["mǎ", "maa5"], ["horse"]),
+            (0x725B, "牛", ["niú", "ngau4"], ["ox", "cow"]),
+            (0x7F8A, "羊", ["yáng", "joeng4"], ["sheep", "goat"]),
+            (0x9E1F, "鸟", ["niǎo", "niu5"], ["bird"]),
+            (0x9C7C, "鱼", ["yú", "jyu4"], ["fish"]),
+            (0x7C73, "米", ["mǐ", "mai5"], ["rice"]),
+            (0x7AF9, "竹", ["zhú", "zuk1"], ["bamboo"]),
+            (0x4E1D, "丝", ["sī", "si1"], ["silk", "thread"]),
+            (0x866B, "虫", ["chóng", "cung4"], ["insect", "worm"]),
+            (0x8D1D, "贝", ["bèi", "bui3"], ["shell"]),
+            (0x89C1, "见", ["jiàn", "gin3"], ["see", "meet"]),
+            (0x8F66, "车", ["chē", "ce1"], ["vehicle", "car"]),
+            (0x5200, "刀", ["dāo", "dou1"], ["knife"]),
+            (0x529B, "力", ["lì", "lik6"], ["power", "strength"]),
+            (0x53C8, "又", ["yòu", "jau6"], ["again", "also"]),
+            (0x6587, "文", ["wén", "man4"], ["language", "culture"]),
+            (0x65B9, "方", ["fāng", "fong1"], ["square", "direction"]),
+            
+            // Pronouns & Common Words
+            (0x4E0D, "不", ["bù", "bat1"], ["not", "no"]),
+            (0x4E5F, "也", ["yě", "jaa5"], ["also", "too"]),
+            (0x4E86, "了", ["le", "liu5"], ["completed action"]),
+            (0x5728, "在", ["zài", "zoi6"], ["at", "in", "exist"]),
+            (0x6709, "有", ["yǒu", "jau5"], ["have", "exist"]),
+            (0x6211, "我", ["wǒ", "ngo5"], ["I", "me"]),
+            (0x4F60, "你", ["nǐ", "nei5"], ["you"]),
+            (0x4ED6, "他", ["tā", "taa1"], ["he", "him"]),
+            (0x5979, "她", ["tā", "taa1"], ["she", "her"]),
+            (0x597D, "好", ["hǎo", "hou2"], ["good", "well"]),
+            
+            // Common Verbs
+            (0x6765, "来", ["lái", "loi4"], ["come"]),
+            (0x53BB, "去", ["qù", "heoi3"], ["go"]),
+            (0x51FA, "出", ["chū", "ceot1"], ["exit", "go out"]),
+            (0x5165, "入", ["rù", "jap6"], ["enter"]),
+            (0x5403, "吃", ["chī", "hek3"], ["eat"]),
+            (0x559D, "喝", ["hē", "hot3"], ["drink"]),
+            (0x770B, "看", ["kàn", "hon3"], ["look", "see", "watch"]),
+            (0x542C, "听", ["tīng", "teng1"], ["listen", "hear"]),
+            (0x8BF4, "说", ["shuō", "syut3"], ["speak", "say"]),
+            (0x8BFB, "读", ["dú", "duk6"], ["read"]),
+            (0x5199, "写", ["xiě", "se2"], ["write"]),
+            (0x8D70, "走", ["zǒu", "zau2"], ["walk", "go"]),
+            (0x98DE, "飞", ["fēi", "fei1"], ["fly"]),
+            (0x5750, "坐", ["zuò", "co5"], ["sit"]),
+            (0x7AD9, "站", ["zhàn", "zaam6"], ["stand", "station"]),
+            (0x7231, "爱", ["ài", "oi3"], ["love"]),
+            (0x7B11, "笑", ["xiào", "siu3"], ["laugh", "smile"]),
+            (0x54ED, "哭", ["kū", "huk1"], ["cry"]),
+            
+            // More Common Words
+            (0x672C, "本", ["běn", "bun2"], ["root", "origin", "book"]),
+            (0x767D, "白", ["bái", "baak6"], ["white"]),
+            (0x7EA2, "红", ["hóng", "hung4"], ["red"]),
+            (0x5F00, "开", ["kāi", "hoi1"], ["open", "start"]),
+            (0x751F, "生", ["shēng", "saang1"], ["birth", "life", "grow"]),
+            (0x5B66, "学", ["xué", "hok6"], ["study", "learn"]),
+            (0x5DE5, "工", ["gōng", "gung1"], ["work", "worker"]),
+            (0x7528, "用", ["yòng", "jung6"], ["use"]),
         ]
         for (codepoint, lit, readings, meanings) in entries {
             map[codepoint] = (literal: lit, readings: readings, meaning: meanings)
