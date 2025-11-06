@@ -13,113 +13,143 @@ struct RootView: View {
     var body: some View {
         if #available(iOS 16.0, *) {
             NavigationStack {
-                VStack(spacing: 24) {
-                    // Script selection
-                    Picker("Script", selection: $selectedScript) {
-                        ForEach(KanaScript.allCases, id: \.self) { script in
-                            Text(script.rawValue).tag(script)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                    .padding()
-                    
-                    VStack(spacing: 16) {
-                        HStack {
-                            Spacer()
-                            NavigationLink {
-                                LessonViewLoader(script: selectedScript, env: env)
-                            } label: {
-                                Label {
-                                    Text("Demo")
-                                } icon: {
-                                    Image("machine_writing_Icon")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 60, height: 80)
-                                }
-                                .padding()
-                                .background(Color(.systemGray3))
-                            }
+                ScrollView {
+                    VStack(spacing: 32) {
+                        // Script selection card
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Choose Your Script")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.primary)
                             
-                            Spacer()
-                            
-                            NavigationLink {
-                                PracticeViewLoader(script: selectedScript, env: env)
-                            } label: {
-                                Label {
-                                    Text("Practice")
-                                } icon: {
-                                    Image("child_writing_icon")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 60, height: 80)
+                            Picker("Script", selection: $selectedScript) {
+                                ForEach(KanaScript.allCases, id: \.self) { script in
+                                    Text(script.rawValue).tag(script)
                                 }
                             }
-                            .padding()
-                            .background(Color(.systemGray3))
-                            Spacer()
+                            .pickerStyle(.segmented)
+                        }
+                        .padding()
+                        .background {
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color(.systemBackground))
+                                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+                        }
+                        .padding(.horizontal)
+                        
+                        // Quick Actions - Large buttons in 2x2 grid
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Quick Start")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .padding(.horizontal)
+                            
+                            LazyVGrid(columns: [
+                                GridItem(.flexible(), spacing: 16),
+                                GridItem(.flexible(), spacing: 16)
+                            ], spacing: 16) {
+                                // Demo Card
+                                NavigationLink {
+                                    LessonViewLoader(script: selectedScript, env: env)
+                                } label: {
+                                    QuickActionCard(
+                                        title: "Demo",
+                                        subtitle: "Watch & Learn",
+                                        icon: "play.circle.fill",
+                                        customImage: "machine_writing_Icon",
+                                        gradient: LinearGradient(
+                                            colors: [Color.blue, Color.blue.opacity(0.7)],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                    )
+                                }
+                                .buttonStyle(CardButtonStyle())
+                                
+                                // Practice Card
+                                NavigationLink {
+                                    PracticeViewLoader(script: selectedScript, env: env)
+                                } label: {
+                                    QuickActionCard(
+                                        title: "Practice",
+                                        subtitle: "Draw & Master",
+                                        icon: "pencil.and.scribble",
+                                        customImage: "child_writing_icon",
+                                        gradient: LinearGradient(
+                                            colors: [Color.green, Color.green.opacity(0.7)],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                    )
+                                }
+                                .buttonStyle(CardButtonStyle())
+                            }
+                            .padding(.horizontal)
                         }
                         
-                        // Sequential demo option for all scripts
-                        NavigationLink {
-                            switch selectedScript {
-                            case .hiragana:
-                                DemoSetSelector(env: env, script: .hiragana)
-                            case .katakana:
-                                DemoSetSelector(env: env, script: .katakana)
-                            case .chineseNumbers:
-                                ChineseDemoSetSelector(env: env)
+                        // Sequential Practice Section
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Structured Learning")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .padding(.horizontal)
+                            
+                            VStack(spacing: 12) {
+                                // Sequential Demo Sets
+                                NavigationLink {
+                                    switch selectedScript {
+                                    case .hiragana:
+                                        DemoSetSelector(env: env, script: .hiragana)
+                                    case .katakana:
+                                        DemoSetSelector(env: env, script: .katakana)
+                                    case .chineseNumbers:
+                                        ChineseDemoSetSelector(env: env)
+                                    }
+                                } label: {
+                                    FeatureCard(
+                                        title: "Sequential Demo Sets",
+                                        subtitle: "Step-by-step demonstrations",
+                                        icon: "play.rectangle.on.rectangle.fill",
+                                        accentColor: .orange
+                                    )
+                                }
+                                .buttonStyle(CardButtonStyle())
+                                
+                                // Sequential Practice Sets
+                                NavigationLink {
+                                    switch selectedScript {
+                                    case .hiragana:
+                                        KanaSetSelector(env: env, script: .hiragana)
+                                    case .katakana:
+                                        KanaSetSelector(env: env, script: .katakana)
+                                    case .chineseNumbers:
+                                        ChineseNumberSetSelector(env: env)
+                                    }
+                                } label: {
+                                    FeatureCard(
+                                        title: "Sequential Practice Sets",
+                                        subtitle: "Organized practice sessions",
+                                        icon: "list.number",
+                                        accentColor: .purple
+                                    )
+                                }
+                                .buttonStyle(CardButtonStyle())
                             }
-                        } label: {
-                            HStack {
-                                Image(systemName: "play.rectangle.on.rectangle")
-                                    .font(.title2)
-                                Text("Sequential Demo Sets")
-                                    .font(.headline)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.green.opacity(0.1))
-                            .foregroundStyle(.primary)
-                            .cornerRadius(12)
+                            .padding(.horizontal)
                         }
                         
-                        // Sequential practice option for all scripts
-                        NavigationLink {
-                            switch selectedScript {
-                            case .hiragana:
-                                KanaSetSelector(env: env, script: .hiragana)
-                            case .katakana:
-                                KanaSetSelector(env: env, script: .katakana)
-                            case .chineseNumbers:
-                                ChineseNumberSetSelector(env: env)
-                            }
-                        } label: {
-                            HStack {
-                                Image(systemName: "list.number")
-                                    .font(.title2)
-                                Text("Sequential Practice Sets")
-                                    .font(.headline)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.accentColor.opacity(0.1))
-                            .foregroundStyle(.primary)
-                            .cornerRadius(12)
+                        Spacer(minLength: 20)
+                        
+                        // Version and build number
+                        if let versionBuild = versionAndBuildNumber() {
+                            Text(versionBuild)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
                         }
                     }
-                    .padding(.horizontal)
-                    
-                    Spacer()
-                    
-                    // Version and build number
-                    if let versionBuild = versionAndBuildNumber() {
-                        Text(versionBuild)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
+                    .padding(.vertical)
                 }
-                .padding()
+                .background(Color(.systemGroupedBackground))
                 .navigationTitle("KanjiKana Trainer")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -334,6 +364,121 @@ struct PracticeViewLoader: View {
             let codepoint = allNumbers.randomElement()!
             return CharacterID(script: .hanzi, codepoint: codepoint)
         }
+    }
+}
+
+// MARK: - Custom Card Components
+
+/// Large card for quick action buttons (Demo/Practice)
+struct QuickActionCard: View {
+    let title: String
+    let subtitle: String
+    let icon: String
+    let customImage: String?
+    let gradient: LinearGradient
+    
+    init(title: String, subtitle: String, icon: String, customImage: String? = nil, gradient: LinearGradient) {
+        self.title = title
+        self.subtitle = subtitle
+        self.icon = icon
+        self.customImage = customImage
+        self.gradient = gradient
+    }
+    
+    var body: some View {
+        VStack(spacing: 12) {
+            // Icon section
+            ZStack {
+                Circle()
+                    .fill(.white.opacity(0.2))
+                    .frame(width: 80, height: 80)
+                
+                if let customImage = customImage {
+                    Image(customImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                } else {
+                    Image(systemName: icon)
+                        .font(.system(size: 36))
+                        .foregroundStyle(.white)
+                }
+            }
+            
+            // Text section
+            VStack(spacing: 4) {
+                Text(title)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundStyle(.white.opacity(0.9))
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 180)
+        .background(gradient)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 4)
+    }
+}
+
+/// Feature card for sequential practice/demo sets
+struct FeatureCard: View {
+    let title: String
+    let subtitle: String
+    let icon: String
+    let accentColor: Color
+    
+    var body: some View {
+        HStack(spacing: 16) {
+            // Icon
+            ZStack {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(accentColor.opacity(0.15))
+                    .frame(width: 60, height: 60)
+                
+                Image(systemName: icon)
+                    .font(.system(size: 28))
+                    .foregroundStyle(accentColor)
+            }
+            
+            // Text
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
+                
+                Text(subtitle)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            
+            Spacer()
+            
+            // Chevron
+            Image(systemName: "chevron.right")
+                .font(.body)
+                .foregroundStyle(.secondary)
+        }
+        .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color(.systemBackground))
+                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        }
+    }
+}
+
+/// Custom button style for cards
+struct CardButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .opacity(configuration.isPressed ? 0.9 : 1.0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
     }
 }
 
