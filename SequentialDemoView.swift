@@ -226,9 +226,13 @@ struct SequentialDemoView: View {
                         Image(systemName: "play.circle.fill")
                             .font(.system(size: 60))
                             .foregroundStyle(.blue.opacity(0.6))
-                        Text("Tap Play to Start")
+                        Text("Tap to Start")
                             .font(.headline)
                             .foregroundStyle(.secondary)
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.startDemo()
                     }
                 }
             }
