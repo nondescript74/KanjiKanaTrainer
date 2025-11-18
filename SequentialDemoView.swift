@@ -220,21 +220,7 @@ struct SequentialDemoView: View {
                     .frame(width: adaptiveCanvasSize, height: adaptiveCanvasSize)
                 }
                 
-                // Demo state overlay
-                if viewModel.demoState == .idle {
-                    VStack(spacing: 12) {
-                        Image(systemName: "play.circle.fill")
-                            .font(.system(size: 60))
-                            .foregroundStyle(.blue.opacity(0.6))
-                        Text("Tap to Start")
-                            .font(.headline)
-                            .foregroundStyle(.secondary)
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        viewModel.startDemo()
-                    }
-                }
+                // Demo state overlay removed - use Play Demo button instead
             }
             
             // Stroke progress
