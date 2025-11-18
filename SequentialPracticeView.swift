@@ -11,7 +11,8 @@ import PencilKit
 struct SequentialPracticeView: View {
     @StateObject var viewModel: SequentialPracticeViewModel
     @State private var drawing = PKDrawing()
-    @State private var showFirstTimeHelp = true
+    @AppStorage("hasSeenPracticeHelp") private var hasSeenPracticeHelp = false
+    @State private var showFirstTimeHelp = false
     @State private var showEvaluationTip = false
     @State private var showNavigationTip = false
     @Environment(\.dismiss) private var dismiss
@@ -205,6 +206,11 @@ struct SequentialPracticeView: View {
             SequentialPracticeHelp.PracticeOverlay(isPresented: $showFirstTimeHelp)
         }
         .task {
+            // Auto-show help for first-time users
+            if !hasSeenPracticeHelp {
+                showFirstTimeHelp = true
+            }
+            
             await viewModel.loadCurrentGlyph()
             // Show evaluation tip after a brief delay
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
