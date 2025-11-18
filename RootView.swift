@@ -7,7 +7,7 @@ struct RootView: View {
     enum KanaScript: String, CaseIterable {
         case hiragana = "Hiragana"
         case katakana = "Katakana"
-        case chineseNumbers = "Chinese Numbers"
+        case chineseNumbers = "Chinese"
     }
     
     var body: some View {

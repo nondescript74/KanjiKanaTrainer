@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F817AA952EBBFBAE004239B0 /* CHINESE_CHARACTERS_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F817AA942EBBFBAE004239B0 /* CHINESE_CHARACTERS_REFERENCE.md */; };
-		F817AA962EBBFBAE004239B0 /* CHINESE_CHARACTERS_REFERENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F817AA942EBBFBAE004239B0 /* CHINESE_CHARACTERS_REFERENCE.md */; };
-		F817AA9B2EBBFC14004239B0 /* QUICK_START_100_CHARACTERS.md in Resources */ = {isa = PBXBuildFile; fileRef = F817AA9A2EBBFC14004239B0 /* QUICK_START_100_CHARACTERS.md */; };
-		F817AA9C2EBBFC14004239B0 /* QUICK_START_100_CHARACTERS.md in Resources */ = {isa = PBXBuildFile; fileRef = F817AA9A2EBBFC14004239B0 /* QUICK_START_100_CHARACTERS.md */; };
 		F817AAB32EBC0581004239B0 /* chinese_stroke_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */; };
 		F82B04FF2EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
 		F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
@@ -40,7 +36,6 @@
 		F84A642F2EB8146500E4C662 /* SequentialPracticeHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A642D2EB8146500E4C662 /* SequentialPracticeHelp.swift */; };
 		F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C72EA144E8001C8FB9 /* RootView.swift */; };
 		F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */; };
-		F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */; };
 		F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */; };
 		F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */; };
 		F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */; };
@@ -55,10 +50,6 @@
 		F89B2CCE2EB9596C00415104 /* LicenseGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */; };
 		F89B2CD02EB9598700415104 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCF2EB9598700415104 /* SettingsView.swift */; };
 		F89B2CD12EB9598700415104 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCF2EB9598700415104 /* SettingsView.swift */; };
-		F89B2CD32EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CD22EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md */; };
-		F89B2CD42EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CD22EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md */; };
-		F89B2CDC2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */; };
-		F89B2CDD2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */; };
 		F89B2D092EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */; };
 		F89B2D0A2EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */; };
 		F89B2D0C2EB95E3900415104 /* SequentialDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */; };
@@ -81,7 +72,6 @@
 		F8D1E45E2EA69648006039CC /* StrokeDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */; };
 		F8D1E45F2EA69648006039CC /* StrokeDataDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */; };
 		F8D1E4602EA69648006039CC /* StrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */; };
-		F8D1E4662EA69721006039CC /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */; };
 		F8D1E4672EA69754006039CC /* ProgressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */; };
 		F8D1E4682EA69776006039CC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BD2EA144E8001C8FB9 /* Models.swift */; };
 		F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */; };
@@ -89,6 +79,8 @@
 		F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */; };
 		F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E9704F2EA6DF1300C1B090 /* Assets.xcassets */; };
 		F8E970522EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */; };
+		F8F5D8BA2ECD2169001AA0F8 /* PROJECT_HIERARCHY.md in Resources */ = {isa = PBXBuildFile; fileRef = F8F5D8B92ECD2169001AA0F8 /* PROJECT_HIERARCHY.md */; };
+		F8F5D8BB2ECD2169001AA0F8 /* PROJECT_HIERARCHY.md in Resources */ = {isa = PBXBuildFile; fileRef = F8F5D8B92ECD2169001AA0F8 /* PROJECT_HIERARCHY.md */; };
 		F8F833E72EBC13DF0050876F /* chinese_stroke_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */; };
 /* End PBXBuildFile section */
 
@@ -110,8 +102,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F817AA942EBBFBAE004239B0 /* CHINESE_CHARACTERS_REFERENCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHINESE_CHARACTERS_REFERENCE.md; sourceTree = "<group>"; };
-		F817AA9A2EBBFC14004239B0 /* QUICK_START_100_CHARACTERS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = QUICK_START_100_CHARACTERS.md; sourceTree = "<group>"; };
 		F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = chinese_stroke_data.json; sourceTree = "<group>"; };
 		F82B04FE2EA6E30D000FEA0B /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataCorrectionTool.swift; sourceTree = "<group>"; };
@@ -135,15 +125,12 @@
 		F88943BD2EA144E8001C8FB9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
 		F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeEvaluator.swift; sourceTree = "<group>"; };
-		F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		F88943C72EA144E8001C8FB9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F89B2C992EB9571300415104 /* KanaSetSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaSetSelector.swift; sourceTree = "<group>"; };
 		F89B2CC62EB9594500415104 /* LicenseAcceptanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAcceptanceViewModel.swift; sourceTree = "<group>"; };
 		F89B2CC92EB9595C00415104 /* LicenseAcceptanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAcceptanceView.swift; sourceTree = "<group>"; };
 		F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseGateView.swift; sourceTree = "<group>"; };
 		F89B2CCF2EB9598700415104 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		F89B2CD22EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_SYSTEM_IMPLEMENTATION.md; sourceTree = "<group>"; };
-		F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE_IMPLEMENTATION_COMPLETE.md; sourceTree = "<group>"; };
 		F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialDemoViewModel.swift; sourceTree = "<group>"; };
 		F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialDemoView.swift; sourceTree = "<group>"; };
 		F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialDemoHelp.swift; sourceTree = "<group>"; };
@@ -157,6 +144,7 @@
 		F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataLoader.swift; sourceTree = "<group>"; };
 		F8E9704F2EA6DF1300C1B090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiKanaTrainerApp.swift; sourceTree = "<group>"; };
+		F8F5D8B92ECD2169001AA0F8 /* PROJECT_HIERARCHY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PROJECT_HIERARCHY.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -203,6 +191,11 @@
 			path = Steps;
 			sourceTree = "<group>";
 		};
+		F8F5D8B82ECD1F7A001AA0F8 /* Environment */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Environment;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,12 +227,11 @@
 			isa = PBXGroup;
 			children = (
 				F817AA902EBBFA42004239B0 /* Chinese */,
-				F84A642D2EB8146500E4C662 /* SequentialPracticeHelp.swift */,
 				F82BC9712EA9552F009920B2 /* KanjiKanaTrainer-Info.plist */,
 				F82BC9532EA94075009920B2 /* license.md */,
 				F8C970E92EA842FA002A2D74 /* strokedata */,
 				F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */,
-				F88943C62EA144E8001C8FB9 /* AppEnvironment.swift */,
+				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
 				F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */,
 				F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */,
 				F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */,
@@ -261,6 +253,7 @@
 				F8A231962EAADDCB00DE6818 /* Steps */,
 				F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */,
 				F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */,
+				F84A642D2EB8146500E4C662 /* SequentialPracticeHelp.swift */,
 				F84A63592EB80DB300E4C662 /* SequentialPracticeView.swift */,
 				F84A635C2EB80DDD00E4C662 /* ViewHelpers.swift */,
 				F84A63B52EB811F700E4C662 /* ChineseNumberSetSelector.swift */,
@@ -269,15 +262,12 @@
 				F89B2CC92EB9595C00415104 /* LicenseAcceptanceView.swift */,
 				F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */,
 				F89B2CCF2EB9598700415104 /* SettingsView.swift */,
-				F89B2CD22EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md */,
-				F89B2CDB2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md */,
 				F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */,
 				F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */,
 				F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */,
 				F89B2D112EB95E9200415104 /* DemoSetSelector.swift */,
 				F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */,
-				F817AA942EBBFBAE004239B0 /* CHINESE_CHARACTERS_REFERENCE.md */,
-				F817AA9A2EBBFC14004239B0 /* QUICK_START_100_CHARACTERS.md */,
+				F8F5D8B92ECD2169001AA0F8 /* PROJECT_HIERARCHY.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -329,6 +319,7 @@
 			fileSystemSynchronizedGroups = (
 				F817AA902EBBFA42004239B0 /* Chinese */,
 				F8A231962EAADDCB00DE6818 /* Steps */,
+				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
 			);
 			name = KanjiKanaTrainer;
 			packageProductDependencies = (
@@ -354,6 +345,7 @@
 				F817AA902EBBFA42004239B0 /* Chinese */,
 				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
 				F8A231962EAADDCB00DE6818 /* Steps */,
+				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
 			);
 			name = KanjiKanaTrainerTests;
 			packageProductDependencies = (
@@ -436,14 +428,11 @@
 			files = (
 				F8F833E72EBC13DF0050876F /* chinese_stroke_data.json in Resources */,
 				F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */,
-				F817AA952EBBFBAE004239B0 /* CHINESE_CHARACTERS_REFERENCE.md in Resources */,
-				F89B2CD42EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */,
 				F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */,
 				F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
-				F817AA9C2EBBFC14004239B0 /* QUICK_START_100_CHARACTERS.md in Resources */,
 				F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */,
+				F8F5D8BA2ECD2169001AA0F8 /* PROJECT_HIERARCHY.md in Resources */,
 				F82BC9542EA94075009920B2 /* license.md in Resources */,
-				F89B2CDC2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,15 +440,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F89B2CD32EB959EF00415104 /* LICENSE_SYSTEM_IMPLEMENTATION.md in Resources */,
 				F817AAB32EBC0581004239B0 /* chinese_stroke_data.json in Resources */,
 				F82BC9552EA94075009920B2 /* license.md in Resources */,
 				F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */,
-				F89B2CDD2EB95AAE00415104 /* LICENSE_IMPLEMENTATION_COMPLETE.md in Resources */,
+				F8F5D8BB2ECD2169001AA0F8 /* PROJECT_HIERARCHY.md in Resources */,
 				F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */,
 				F82BC91E2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
-				F817AA962EBBFBAE004239B0 /* CHINESE_CHARACTERS_REFERENCE.md in Resources */,
-				F817AA9B2EBBFC14004239B0 /* QUICK_START_100_CHARACTERS.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +476,6 @@
 				F89B2CCA2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */,
 				F89B2D0D2EB95E3900415104 /* SequentialDemoView.swift in Sources */,
 				F89B2D152EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */,
-				F88943CB2EA144E8001C8FB9 /* AppEnvironment.swift in Sources */,
 				F89B2D122EB95E9200415104 /* DemoSetSelector.swift in Sources */,
 				F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */,
 				F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */,
@@ -535,7 +520,6 @@
 				F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
 				F89B2D0F2EB95E6800415104 /* SequentialDemoHelp.swift in Sources */,
 				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
-				F8D1E4662EA69721006039CC /* AppEnvironment.swift in Sources */,
 				F84A635B2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */,
 				F89B2CCB2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */,
 				F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */,
@@ -696,7 +680,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -745,7 +729,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
