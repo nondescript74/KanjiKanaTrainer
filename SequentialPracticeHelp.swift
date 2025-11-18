@@ -111,7 +111,7 @@ struct SequentialPracticeHelp {
         @Binding var isPresented: Bool
         
         var body: some View {
-            if isPresented && !hasSeenHelp {
+            if isPresented {
                 ZStack {
                     Color.black.opacity(0.5)
                         .ignoresSafeArea()
