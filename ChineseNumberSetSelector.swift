@@ -27,6 +27,14 @@ struct ChineseNumberSetSelector: View {
         case verbs = "verbs"
         case commonWords = "common"
         case all100 = "all100"
+        // First 100 Chinese Characters (Beginner Curriculum)
+        case first100All = "first100all"
+        case first100Greetings = "first100greet"
+        case first100Introduction = "first100intro"
+        case first100Family = "first100family"
+        case first100Time = "first100time"
+        case first100School = "first100school"
+        case first100Food = "first100food"
         
         var id: String { rawValue }
         
@@ -46,6 +54,14 @@ struct ChineseNumberSetSelector: View {
             case .verbs: return "Common Verbs"
             case .commonWords: return "More Common Words"
             case .all100: return "All 100 Common Characters"
+            // First 100
+            case .first100All: return "First 100 Characters (Complete)"
+            case .first100Greetings: return "Greetings & Politeness"
+            case .first100Introduction: return "Self-Introduction"
+            case .first100Family: return "Family Members"
+            case .first100Time: return "Time Expressions"
+            case .first100School: return "School & Learning"
+            case .first100Food: return "Food & Meals"
             }
         }
         
@@ -65,6 +81,14 @@ struct ChineseNumberSetSelector: View {
             case .verbs: return "来, 去, 出, 入, 吃, 喝, 看, 听, 说, 读..."
             case .commonWords: return "本, 白, 红, 开, 生, 学, 工, 用"
             case .all100: return "Complete set of 100 essential characters"
+            // First 100
+            case .first100All: return "Complete beginner set of 99 essential characters"
+            case .first100Greetings: return "好, 请, 谢, 再见, 问"
+            case .first100Introduction: return "我, 叫, 名字, 他, 什么"
+            case .first100Family: return "父, 母, 弟, 妹, 女儿, 子"
+            case .first100Time: return "今天, 明天, 星期, 上午, 下午"
+            case .first100School: return "大学, 小学, 学校, 老师, 同学"
+            case .first100Food: return "吃, 喝, 饭, 晚饭"
             }
         }
         
@@ -83,6 +107,14 @@ struct ChineseNumberSetSelector: View {
             case .verbs: return "figure.walk"
             case .commonWords: return "book.fill"
             case .all100: return "star.fill"
+            // First 100
+            case .first100All: return "star.circle.fill"
+            case .first100Greetings: return "hand.wave.fill"
+            case .first100Introduction: return "person.badge.plus"
+            case .first100Family: return "person.3.fill"
+            case .first100Time: return "clock.fill"
+            case .first100School: return "building.2.fill"
+            case .first100Food: return "fork.knife"
             }
         }
         
@@ -102,6 +134,14 @@ struct ChineseNumberSetSelector: View {
             case .verbs: return 18
             case .commonWords: return 8
             case .all100: return 100
+            // First 100
+            case .first100All: return 99
+            case .first100Greetings: return 6
+            case .first100Introduction: return 7
+            case .first100Family: return 7
+            case .first100Time: return 11
+            case .first100School: return 9
+            case .first100Food: return 4
             }
         }
         
@@ -121,6 +161,14 @@ struct ChineseNumberSetSelector: View {
             case .verbs: return .chineseVerbs(env: env)
             case .commonWords: return .chineseCommonWords(env: env)
             case .all100: return .chineseCommonAll(env: env)
+            // First 100
+            case .first100All: return .firstHundredChinese(env: env)
+            case .first100Greetings: return .firstHundredGreetings(env: env)
+            case .first100Introduction: return .firstHundredIntroduction(env: env)
+            case .first100Family: return .firstHundredFamily(env: env)
+            case .first100Time: return .firstHundredTime(env: env)
+            case .first100School: return .firstHundredSchool(env: env)
+            case .first100Food: return .firstHundredFood(env: env)
             }
         }
     }
@@ -220,6 +268,50 @@ struct ChineseNumberSetSelector: View {
                     SequentialPracticeView(viewModel: NumberSet.commonWords.createViewModel(env: env))
                 } label: {
                     NumberSetRow(set: .commonWords)
+                }
+            }
+            
+            Section("First 100 Beginner Characters") {
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.first100All.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .first100All)
+                }
+                
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.first100Greetings.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .first100Greetings)
+                }
+                
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.first100Introduction.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .first100Introduction)
+                }
+                
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.first100Family.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .first100Family)
+                }
+                
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.first100Time.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .first100Time)
+                }
+                
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.first100School.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .first100School)
+                }
+                
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.first100Food.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .first100Food)
                 }
             }
             

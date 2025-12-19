@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F817AAB32EBC0581004239B0 /* chinese_stroke_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */; };
+		F82736282EF5E98400A6AE00 /* CharacterGlyph+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82736272EF5E98400A6AE00 /* CharacterGlyph+Audio.swift */; };
+		F82736292EF5E98400A6AE00 /* CharacterGlyph+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82736272EF5E98400A6AE00 /* CharacterGlyph+Audio.swift */; };
+		F827362B2EF5E9B600A6AE00 /* AudioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827362A2EF5E9B600A6AE00 /* AudioButton.swift */; };
 		F82B04FF2EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
 		F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
 		F82BC8FE2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */; };
@@ -81,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = chinese_stroke_data.json; sourceTree = "<group>"; };
+		F82736272EF5E98400A6AE00 /* CharacterGlyph+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterGlyph+Audio.swift"; sourceTree = "<group>"; };
+		F827362A2EF5E9B600A6AE00 /* AudioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioButton.swift; sourceTree = "<group>"; };
 		F82B04FE2EA6E30D000FEA0B /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataCorrectionTool.swift; sourceTree = "<group>"; };
 		F82BC90E2EA9312B009920B2 /* kanastrokes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kanastrokes.json; sourceTree = "<group>"; };
@@ -127,6 +132,7 @@
 		F8C449652EF5DFE200EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainerTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				AUDIO_PRONUNCIATION_COMPLETE.md,
 				download_chinese_numbers.py,
 			);
 			target = F88338682EA1421900F636D9 /* KanjiKanaTrainerTests */;
@@ -144,10 +150,13 @@
 				chinese_stroke_fetcher.py,
 				COMPOUND_NUMBERS_FEATURE.md,
 				download_chinese_numbers.py,
+				FIRST_100_CHARACTERS_REFERENCE.md,
+				FIRST_100_CHINESE_CHARACTERS.md,
 				FIX_U3007.md,
 				FIX_UPSIDE_DOWN_CHARACTERS.md,
 				IMPLEMENTATION_CHECKLIST.md,
 				IMPLEMENTATION_SUMMARY.md,
+				INTEGRATION_GUIDE_FIRST_100.md,
 				LICENSE_FLOW_DIAGRAMS.md,
 				LICENSE_IMPLEMENTATION_COMPLETE.md,
 				LICENSE_QUICK_REFERENCE.md,
@@ -262,6 +271,7 @@
 				F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */,
 				F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */,
 				F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */,
+				F827362A2EF5E9B600A6AE00 /* AudioButton.swift */,
 				F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */,
 				F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */,
 				F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */,
@@ -294,6 +304,7 @@
 				F88943BD2EA144E8001C8FB9 /* Models.swift */,
 				F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */,
 				F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */,
+				F82736272EF5E98400A6AE00 /* CharacterGlyph+Audio.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -462,8 +473,10 @@
 				F89B2CCA2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */,
 				F89B2D0D2EB95E3900415104 /* SequentialDemoView.swift in Sources */,
 				F89B2D152EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */,
+				F827362B2EF5E9B600A6AE00 /* AudioButton.swift in Sources */,
 				F89B2D122EB95E9200415104 /* DemoSetSelector.swift in Sources */,
 				F88943CC2EA144E8001C8FB9 /* GlyphRepository.swift in Sources */,
+				F82736292EF5E98400A6AE00 /* CharacterGlyph+Audio.swift in Sources */,
 				F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */,
 				F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */,
 				F88943D12EA144E8001C8FB9 /* Models.swift in Sources */,
@@ -491,6 +504,7 @@
 				F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
 				F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */,
 				F8D1E4672EA69754006039CC /* ProgressRepository.swift in Sources */,
+				F82736282EF5E98400A6AE00 /* CharacterGlyph+Audio.swift in Sources */,
 				F8D1E46A2EA6988F006039CC /* LessonViewModel.swift in Sources */,
 				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
 				F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */,
@@ -647,7 +661,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
@@ -673,7 +687,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -697,7 +711,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
@@ -723,7 +737,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.headydiscy.KanjiKanaTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

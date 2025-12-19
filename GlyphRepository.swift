@@ -154,6 +154,240 @@ struct GlyphBundleRepository: GlyphRepository {
         return map
     }()
     
+//    // 100 First Chinese Characters - Basic learning set for beginners
+//    // This is a curated list of the most fundamental characters for learning Chinese
+//    // Based on the standard "First 100 Chinese Characters" curriculum
+//    private static let firstHundredHanzi: [UInt32: (literal: String, readings: [String], meaning: [String])] = {
+//        var map: [UInt32: (literal: String, readings: [String], meaning: [String])] = [:]
+//        let entries: [(UInt32, String, [String], [String])] = [
+//            // Column 1 (left)
+//            (0x4E00, "一", ["yī", "jat1"], ["one"]),
+//            (0x4E8C, "二", ["èr", "ji6"], ["two"]),
+//            (0x4E09, "三", ["sān", "saam1"], ["three"]),
+//            (0x56DB, "四", ["sì", "sei3"], ["four"]),
+//            (0x4E94, "五", ["wǔ", "ng5"], ["five"]),
+//            (0x516D, "六", ["liù", "luk6"], ["six"]),
+//            (0x4E03, "七", ["qī", "cat1"], ["seven"]),
+//            (0x516B, "八", ["bā", "baat3"], ["eight"]),
+//            (0x4E5D, "九", ["jiǔ", "gau2"], ["nine"]),
+//            (0x5341, "十", ["shí", "sap6"], ["ten"]),
+//            (0x65E5, "日", ["rì", "jat6"], ["sun", "day"]),
+//            (0x6708, "月", ["yuè", "jyut6"], ["moon", "month"]),
+//            (0x597D, "好", ["hǎo", "hou2"], ["good", "well"]),
+//            (0x9752, "青", ["qīng", "cing1"], ["green", "blue"]),
+//            (0x8BF7, "请", ["qǐng", "cing2"], ["please", "request"]),
+//            (0x8D35, "贵", ["guì", "gwai3"], ["expensive", "noble"]),
+//            (0x5174, "兴", ["xìng", "hing1"], ["interest", "excited"]),
+//            (0x4ED6, "他", ["tā", "taa1"], ["he", "him"]),
+//            (0x600E, "怎", ["zěn", "zam2"], ["how"]),
+//            (0x53EB, "叫", ["jiào", "giu3"], ["call", "be called"]),
+//            (0x4EC0, "什", ["shén", "sap6"], ["what"]),
+//            (0x4E48, "么", ["me", "mo1"], ["what"]),
+//            (0x540D, "名", ["míng", "ming4"], ["name"]),
+//            (0x5B57, "字", ["zì", "zi6"], ["character", "word"]),
+//            (0x6211, "我", ["wǒ", "ngo5"], ["I", "me"]),
+//            (0x5927, "大", ["dà", "daai6"], ["big", "large"]),
+//            (0x5B66, "学", ["xué", "hok6"], ["study", "learn"]),
+//            (0x4E2D, "中", ["zhōng", "zung1"], ["middle", "center", "China"]),
+//            (0x8001, "老", ["lǎo", "lou5"], ["old"]),
+//            (0x5E08, "师", ["shī", "si1"], ["teacher"]),
+//            (0x7236, "父", ["fù", "fu6"], ["father"]),
+//            (0x6BCD, "母", ["mǔ", "mou5"], ["mother"]),
+//            (0x6587, "文", ["wén", "man4"], ["language", "culture", "text"]),
+//            
+//            // Column 2 (middle)
+//            (0x5E02, "市", ["shì", "si5"], ["city", "market"]),
+//            (0x540C, "同", ["tóng", "tung4"], ["same", "together"]),
+//            (0x6821, "校", ["xiào", "haau6"], ["school"]),
+//            (0x5C0F, "小", ["xiǎo", "siu2"], ["small", "little"]),
+//            (0x6709, "有", ["yǒu", "jau5"], ["have", "exist"]),
+//            (0x670B, "朋", ["péng", "pang4"], ["friend"]),
+//            (0x53CB, "友", ["yǒu", "jau5"], ["friend"]),
+//            (0x95E8, "门", ["mén", "mun4"], ["door", "gate"]),
+//            (0x95EE, "问", ["wèn", "man6"], ["ask"]),
+//            (0x8C22, "谢", ["xiè", "ze6"], ["thank"]),
+//            (0x518D, "再", ["zài", "zoi3"], ["again"]),
+//            (0x89C1, "见", ["jiàn", "gin3"], ["see", "meet"]),
+//            (0x56FD, "国", ["guó", "gwok3"], ["country", "nation"]),
+//            (0x4EBA, "人", ["rén", "jan4"], ["person", "people"]),
+//            (0x9A6C, "马", ["mǎ", "maa5"], ["horse"]),
+//            (0x4E5F, "也", ["yě", "jaa5"], ["also", "too"]),
+//            (0x4E0D, "不", ["bù", "bat1"], ["not", "no"]),
+//            (0x8BFB, "读", ["dú", "duk6"], ["read"]),
+//            (0x5F97, "得", ["de", "dak1"], ["obtain", "must", "able"]),
+//            (0x4ECB, "介", ["jiè", "gaai3"], ["introduce"]),
+//            (0x7ECD, "绍", ["shào", "siu6"], ["introduce", "continue"]),
+//            (0x4F1F, "伟", ["wěi", "wai5"], ["great", "magnificent"]),
+//            (0x5F1F, "弟", ["dì", "dai6"], ["younger brother"]),
+//            (0x59B9, "妹", ["mèi", "mui6"], ["younger sister"]),
+//            (0x4F4F, "住", ["zhù", "zyu6"], ["live", "reside"]),
+//            (0x5728, "在", ["zài", "zoi6"], ["at", "in", "exist"]),
+//            (0x54EA, "哪", ["nǎ", "naa5"], ["which", "where"]),
+//            (0x5973, "女", ["nǚ", "neoi5"], ["woman", "female"]),
+//            (0x513F, "儿", ["ér", "ji4"], ["son", "child"]),
+//            (0x5B50, "子", ["zǐ", "zi2"], ["child", "son"]),
+//            (0x6D6A, "浪", ["làng", "long6"], ["wave"]),
+//            (0x6CA1, "没", ["méi", "mut6"], ["not have", "no"]),
+//            (0x4F5C, "作", ["zuò", "zok3"], ["do", "make"]),
+//            
+//            // Column 3 (right)
+//            (0x4E8B, "事", ["shì", "si6"], ["matter", "affair", "thing"]),
+//            (0x51C9, "凉", ["liáng", "loeng4"], ["cool", "cold"]),
+//            (0x95F2, "闲", ["xián", "haan4"], ["idle", "free time"]),
+//            (0x4F2F, "伯", ["bó", "baak3"], ["uncle", "elder"]),
+//            (0x591A, "多", ["duō", "do1"], ["many", "much"]),
+//            (0x5C11, "少", ["shǎo", "siu2"], ["few", "little"]),
+//            (0x4E24, "两", ["liǎng", "loeng5"], ["two", "both"]),
+//            (0x4ECA, "今", ["jīn", "gam1"], ["now", "today"]),
+//            (0x5929, "天", ["tiān", "tin1"], ["sky", "heaven", "day"]),
+//            (0x660E, "明", ["míng", "ming4"], ["bright", "clear"]),
+//            (0x5E74, "年", ["nián", "nin4"], ["year"]),
+//            (0x661F, "星", ["xīng", "sing1"], ["star"]),
+//            (0x671F, "期", ["qī", "kei4"], ["period", "term"]),
+//            (0x8349, "草", ["cǎo", "cou2"], ["grass"]),
+//            (0x4E0A, "上", ["shàng", "soeng6"], ["up", "above"]),
+//            (0x4E0B, "下", ["xià", "haa6"], ["down", "below"]),
+//            (0x5348, "午", ["wǔ", "ng5"], ["noon"]),
+//            (0x5403, "吃", ["chī", "hek3"], ["eat"]),
+//            (0x665A, "晚", ["wǎn", "maan5"], ["evening", "late"]),
+//            (0x996D, "饭", ["fàn", "faan6"], ["rice", "meal"]),
+//            (0x4E86, "了", ["le", "liu5"], ["completed action"]),
+//            (0x5462, "呢", ["ne", "ne1"], ["question particle"]),
+//            (0x5427, "吧", ["ba", "baa1"], ["suggestion particle"]),
+//            (0x548C, "和", ["hé", "wo4"], ["and", "with"]),
+//            (0x5F88, "很", ["hěn", "han2"], ["very"]),
+//            (0x559D, "喝", ["hē", "hot3"], ["drink"]),
+//            (0x8FD9, "这", ["zhè", "ze5"], ["this"]),
+//            (0x90A3, "那", ["nà", "naa5"], ["that"]),
+//            (0x52AA, "努", ["nǔ", "nou5"], ["strive", "exert"]),
+//            (0x529B, "力", ["lì", "lik6"], ["power", "strength"]),
+//            (0x6D77, "海", ["hǎi", "hoi2"], ["sea", "ocean"]),
+//            (0x53EF, "可", ["kě", "ho2"], ["can", "may"]),
+//            (0x4E50, "乐", ["lè", "lok6"], ["happy", "music"]),
+//        ]
+//        for (codepoint, lit, readings, meanings) in entries {
+//            map[codepoint] = (literal: lit, readings: readings, meaning: meanings)
+//        }
+//        return map
+//    }()
+    
+    // 100 First Chinese Characters - Basic learning set for beginners
+    // This is a curated list of the most fundamental characters for learning Chinese
+    // Based on the standard "First 100 Chinese Characters" curriculum
+    private static let firstHundredHanzi: [UInt32: (literal: String, readings: [String], meaning: [String])] = {
+        var map: [UInt32: (literal: String, readings: [String], meaning: [String])] = [:]
+        let entries: [(UInt32, String, [String], [String])] = [
+            // Column 1 (left) - Numbers & Foundation
+            (0x4E00, "一", ["yī", "jat1"], ["one"]),
+            (0x4E8C, "二", ["èr", "ji6"], ["two"]),
+            (0x4E09, "三", ["sān", "saam1"], ["three"]),
+            (0x56DB, "四", ["sì", "sei3"], ["four"]),
+            (0x4E94, "五", ["wǔ", "ng5"], ["five"]),
+            (0x516D, "六", ["liù", "luk6"], ["six"]),
+            (0x4E03, "七", ["qī", "cat1"], ["seven"]),
+            (0x516B, "八", ["bā", "baat3"], ["eight"]),
+            (0x4E5D, "九", ["jiǔ", "gau2"], ["nine"]),
+            (0x5341, "十", ["shí", "sap6"], ["ten"]),
+            (0x65E5, "日", ["rì", "jat6"], ["sun", "day"]),
+            (0x6708, "月", ["yuè", "jyut6"], ["moon", "month"]),
+            (0x597D, "好", ["hǎo", "hou2"], ["good", "well"]),
+            (0x9752, "青", ["qīng", "cing1"], ["green", "blue"]),
+            (0x8BF7, "请", ["qǐng", "cing2"], ["please", "request"]),
+            (0x8D35, "贵", ["guì", "gwai3"], ["expensive", "noble"]),
+            (0x5174, "兴", ["xìng", "hing1"], ["interest", "excited"]),
+            (0x4ED6, "他", ["tā", "taa1"], ["he", "him"]),
+            (0x600E, "怎", ["zěn", "zam2"], ["how"]),
+            (0x53EB, "叫", ["jiào", "giu3"], ["call", "be called"]),
+            (0x4EC0, "什", ["shén", "sap6"], ["what"]),
+            (0x4E48, "么", ["me", "mo1"], ["what"]),
+            (0x540D, "名", ["míng", "ming4"], ["name"]),
+            (0x5B57, "字", ["zì", "zi6"], ["character", "word"]),
+            (0x6211, "我", ["wǒ", "ngo5"], ["I", "me"]),
+            (0x5927, "大", ["dà", "daai6"], ["big", "large"]),
+            (0x5B66, "学", ["xué", "hok6"], ["study", "learn"]),
+            (0x4E2D, "中", ["zhōng", "zung1"], ["middle", "center", "China"]),
+            (0x8001, "老", ["lǎo", "lou5"], ["old"]),
+            (0x5E08, "师", ["shī", "si1"], ["teacher"]),
+            (0x7236, "父", ["fù", "fu6"], ["father"]),
+            (0x6BCD, "母", ["mǔ", "mou5"], ["mother"]),
+            (0x6587, "文", ["wén", "man4"], ["language", "culture", "text"]),
+            
+            // Column 2 (middle) - Social & Daily Life
+            (0x5E02, "市", ["shì", "si5"], ["city", "market"]),
+            (0x540C, "同", ["tóng", "tung4"], ["same", "together"]),
+            (0x6821, "校", ["xiào", "haau6"], ["school"]),
+            (0x5C0F, "小", ["xiǎo", "siu2"], ["small", "little"]),
+            (0x6709, "有", ["yǒu", "jau5"], ["have", "exist"]),
+            (0x670B, "朋", ["péng", "pang4"], ["friend"]),
+            (0x53CB, "友", ["yǒu", "jau5"], ["friend"]),
+            (0x95E8, "门", ["mén", "mun4"], ["door", "gate"]),
+            (0x95EE, "问", ["wèn", "man6"], ["ask"]),
+            (0x8C22, "谢", ["xiè", "ze6"], ["thank"]),
+            (0x518D, "再", ["zài", "zoi3"], ["again"]),
+            (0x89C1, "见", ["jiàn", "gin3"], ["see", "meet"]),
+            (0x56FD, "国", ["guó", "gwok3"], ["country", "nation"]),
+            (0x4EBA, "人", ["rén", "jan4"], ["person", "people"]),
+            (0x9A6C, "马", ["mǎ", "maa5"], ["horse"]),
+            (0x4E5F, "也", ["yě", "jaa5"], ["also", "too"]),
+            (0x4E0D, "不", ["bù", "bat1"], ["not", "no"]),
+            (0x8BFB, "读", ["dú", "duk6"], ["read"]),
+            (0x5F97, "得", ["de", "dak1"], ["obtain", "must", "able"]),
+            (0x4ECB, "介", ["jiè", "gaai3"], ["introduce"]),
+            (0x7ECD, "绍", ["shào", "siu6"], ["introduce", "continue"]),
+            (0x4F1F, "伟", ["wěi", "wai5"], ["great", "magnificent"]),
+            (0x5F1F, "弟", ["dì", "dai6"], ["younger brother"]),
+            (0x59B9, "妹", ["mèi", "mui6"], ["younger sister"]),
+            (0x4F4F, "住", ["zhù", "zyu6"], ["live", "reside"]),
+            (0x5728, "在", ["zài", "zoi6"], ["at", "in", "exist"]),
+            (0x54EA, "哪", ["nǎ", "naa5"], ["which", "where"]),
+            (0x5973, "女", ["nǚ", "neoi5"], ["woman", "female"]),
+            (0x513F, "儿", ["ér", "ji4"], ["son", "child"]),
+            (0x5B50, "子", ["zǐ", "zi2"], ["child", "son"]),
+            (0x6D6A, "浪", ["làng", "long6"], ["wave"]),
+            (0x6CA1, "没", ["méi", "mut6"], ["not have", "no"]),
+            (0x4F5C, "作", ["zuò", "zok3"], ["do", "make"]),
+            
+            // Column 3 (right) - Time & Actions
+            (0x4E8B, "事", ["shì", "si6"], ["matter", "affair", "thing"]),
+            (0x51C9, "凉", ["liáng", "loeng4"], ["cool", "cold"]),
+            (0x95F2, "闲", ["xián", "haan4"], ["idle", "free time"]),
+            (0x4F2F, "伯", ["bó", "baak3"], ["uncle", "elder"]),
+            (0x591A, "多", ["duō", "do1"], ["many", "much"]),
+            (0x5C11, "少", ["shǎo", "siu2"], ["few", "little"]),
+            (0x4E24, "两", ["liǎng", "loeng5"], ["two", "both"]),
+            (0x4ECA, "今", ["jīn", "gam1"], ["now", "today"]),
+            (0x5929, "天", ["tiān", "tin1"], ["sky", "heaven", "day"]),
+            (0x660E, "明", ["míng", "ming4"], ["bright", "clear"]),
+            (0x5E74, "年", ["nián", "nin4"], ["year"]),
+            (0x661F, "星", ["xīng", "sing1"], ["star"]),
+            (0x671F, "期", ["qī", "kei4"], ["period", "term"]),
+            (0x8349, "草", ["cǎo", "cou2"], ["grass"]),
+            (0x4E0A, "上", ["shàng", "soeng6"], ["up", "above"]),
+            (0x4E0B, "下", ["xià", "haa6"], ["down", "below"]),
+            (0x5348, "午", ["wǔ", "ng5"], ["noon"]),
+            (0x5403, "吃", ["chī", "hek3"], ["eat"]),
+            (0x665A, "晚", ["wǎn", "maan5"], ["evening", "late"]),
+            (0x996D, "饭", ["fàn", "faan6"], ["rice", "meal"]),
+            (0x4E86, "了", ["le", "liu5"], ["completed action"]),
+            (0x5462, "呢", ["ne", "ne1"], ["question particle"]),
+            (0x5427, "吧", ["ba", "baa1"], ["suggestion particle"]),
+            (0x548C, "和", ["hé", "wo4"], ["and", "with"]),
+            (0x5F88, "很", ["hěn", "han2"], ["very"]),
+            (0x559D, "喝", ["hē", "hot3"], ["drink"]),
+            (0x8FD9, "这", ["zhè", "ze5"], ["this"]),
+            (0x90A3, "那", ["nà", "naa5"], ["that"]),
+            (0x52AA, "努", ["nǔ", "nou5"], ["strive", "exert"]),
+            (0x529B, "力", ["lì", "lik6"], ["power", "strength"]),
+            (0x6D77, "海", ["hǎi", "hoi2"], ["sea", "ocean"]),
+            (0x53EF, "可", ["kě", "ho2"], ["can", "may"]),
+            (0x4E50, "乐", ["lè", "lok6"], ["happy", "music"]),
+        ]
+        for (codepoint, lit, readings, meanings) in entries {
+            map[codepoint] = (literal: lit, readings: readings, meaning: meanings)
+        }
+        return map
+    }()
+    
     // Compound numbers 11-30
     // Using negative numbers as keys to distinguish from Unicode codepoints
     private static let compoundNumbers: [Int: (literal: String, readings: [String], meaning: [String], components: [Int])] = {
@@ -306,6 +540,12 @@ struct GlyphBundleRepository: GlyphRepository {
             // Load stroke data from JSON on-demand
             let strokes = StrokeDataLoader.loadStrokes(for: UInt32(id.codepoint)) ?? []
             return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: [], strokes: strokes, difficulty: 1, components: nil)
+        }
+        // Check first hundred hanzi (beginner set) first - takes priority
+        if let payload = Self.firstHundredHanzi[UInt32(id.codepoint)] {
+            // Load Chinese character stroke data
+            let strokes = ChineseStrokeDataLoader.shared.loadStrokes(for: UInt32(id.codepoint)) ?? []
+            return CharacterGlyph(script: id.script, codepoint: id.codepoint, literal: payload.literal, readings: payload.readings, meaning: payload.meaning, strokes: strokes, difficulty: 1, components: nil)
         }
         if let payload = Self.hanzi[UInt32(id.codepoint)] {
             // Load Chinese character stroke data

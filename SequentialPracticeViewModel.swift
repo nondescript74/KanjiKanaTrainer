@@ -379,6 +379,124 @@ final class SequentialPracticeViewModel: ObservableObject {
         return SequentialPracticeViewModel(glyphIDs: ids, env: env)
     }
     
+    // MARK: - First 100 Chinese Characters (Beginner Curriculum)
+    
+    /// First 100 Chinese Characters - Complete Set (99 unique characters)
+    static func firstHundredChinese(env: AppEnvironment) -> SequentialPracticeViewModel {
+        let codepoints: [Int] = [
+            // Numbers 1-10
+            0x4E00, 0x4E8C, 0x4E09, 0x56DB, 0x4E94, 0x516D, 0x4E03, 0x516B, 0x4E5D, 0x5341,
+            // Column 1 continuation - Greetings & Identity
+            0x65E5, 0x6708, 0x597D, 0x9752, 0x8BF7, 0x8D35, 0x5174, 0x4ED6, 0x600E, 0x53EB,
+            0x4EC0, 0x4E48, 0x540D, 0x5B57, 0x6211, 0x5927, 0x5B66, 0x4E2D, 0x8001, 0x5E08,
+            0x7236, 0x6BCD, 0x6587,
+            // Column 2 - Social & Daily Life
+            0x5E02, 0x540C, 0x6821, 0x5C0F, 0x6709, 0x670B, 0x53CB, 0x95E8, 0x95EE, 0x8C22,
+            0x518D, 0x89C1, 0x56FD, 0x4EBA, 0x9A6C, 0x4E5F, 0x4E0D, 0x8BFB, 0x5F97, 0x4ECB,
+            0x7ECD, 0x4F1F, 0x5F1F, 0x59B9, 0x4F4F, 0x5728, 0x54EA, 0x5973, 0x513F, 0x5B50,
+            0x6D6A, 0x6CA1, 0x4F5C,
+            // Column 3 - Time & Actions
+            0x4E8B, 0x51C9, 0x95F2, 0x4F2F, 0x591A, 0x5C11, 0x4E24, 0x4ECA, 0x5929, 0x660E,
+            0x5E74, 0x661F, 0x671F, 0x8349, 0x4E0A, 0x4E0B, 0x5348, 0x5403, 0x665A, 0x996D,
+            0x4E86, 0x5462, 0x5427, 0x548C, 0x5F88, 0x559D, 0x8FD9, 0x90A3, 0x52AA, 0x529B,
+            0x6D77, 0x53EF, 0x4E50
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Greetings & Politeness (from First 100)
+    static func firstHundredGreetings(env: AppEnvironment) -> SequentialPracticeViewModel {
+        let codepoints: [Int] = [
+            0x597D,  // 好 good
+            0x8BF7,  // 请 please
+            0x8C22,  // 谢 thank
+            0x518D,  // 再 again
+            0x89C1,  // 见 see/meet
+            0x95EE   // 问 ask
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Self-Introduction (from First 100)
+    static func firstHundredIntroduction(env: AppEnvironment) -> SequentialPracticeViewModel {
+        let codepoints: [Int] = [
+            0x6211,  // 我 I/me
+            0x53EB,  // 叫 call/be called
+            0x540D,  // 名 name
+            0x5B57,  // 字 character/word
+            0x4ED6,  // 他 he
+            0x4EC0,  // 什 what
+            0x4E48   // 么 what
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Family Members (from First 100)
+    static func firstHundredFamily(env: AppEnvironment) -> SequentialPracticeViewModel {
+        let codepoints: [Int] = [
+            0x7236,  // 父 father
+            0x6BCD,  // 母 mother
+            0x5F1F,  // 弟 younger brother
+            0x59B9,  // 妹 younger sister
+            0x5973,  // 女 woman/female
+            0x513F,  // 儿 son/child
+            0x5B50   // 子 child/son
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Time Expressions (from First 100)
+    static func firstHundredTime(env: AppEnvironment) -> SequentialPracticeViewModel {
+        let codepoints: [Int] = [
+            0x4ECA,  // 今 now/today
+            0x5929,  // 天 sky/day
+            0x660E,  // 明 bright/clear
+            0x5E74,  // 年 year
+            0x6708,  // 月 moon/month
+            0x65E5,  // 日 sun/day
+            0x661F,  // 星 star
+            0x671F,  // 期 period
+            0x4E0A,  // 上 up/above
+            0x4E0B,  // 下 down/below
+            0x5348   // 午 noon
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// School & Learning (from First 100)
+    static func firstHundredSchool(env: AppEnvironment) -> SequentialPracticeViewModel {
+        let codepoints: [Int] = [
+            0x5927,  // 大 big
+            0x5C0F,  // 小 small
+            0x5B66,  // 学 study/learn
+            0x6821,  // 校 school
+            0x4E2D,  // 中 middle/center
+            0x8001,  // 老 old
+            0x5E08,  // 师 teacher
+            0x540C,  // 同 same/together
+            0x8BFB   // 读 read
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Food & Meals (from First 100)
+    static func firstHundredFood(env: AppEnvironment) -> SequentialPracticeViewModel {
+        let codepoints: [Int] = [
+            0x5403,  // 吃 eat
+            0x559D,  // 喝 drink
+            0x996D,  // 饭 rice/meal
+            0x665A   // 晚 evening/late
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
     // MARK: - Hiragana Sets
     
     /// Creates a sequential practice view model for basic Hiragana vowels (a, i, u, e, o)
