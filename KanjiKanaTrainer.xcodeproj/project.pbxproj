@@ -3,34 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F817AAB32EBC0581004239B0 /* chinese_stroke_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */; };
 		F82B04FF2EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
 		F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
-		F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */; };
 		F82BC8FE2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */; };
 		F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90E2EA9312B009920B2 /* kanastrokes.json */; };
 		F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90E2EA9312B009920B2 /* kanastrokes.json */; };
-		F82BC91E2EA934EB009920B2 /* download_chinese_numbers.py in Resources */ = {isa = PBXBuildFile; fileRef = F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */; };
-		F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */ = {isa = PBXBuildFile; fileRef = F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */; };
 		F82BC9212EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */; };
-		F82BC9222EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */; };
 		F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC93B2EA937BF009920B2 /* chinesenumbers.json */; };
 		F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC93B2EA937BF009920B2 /* chinesenumbers.json */; };
 		F82BC9512EA93FE2009920B2 /* DeviceTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */; };
-		F82BC9522EA93FE2009920B2 /* DeviceTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */; };
 		F84A63572EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */; };
-		F84A63582EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */; };
 		F84A635A2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63592EB80DB300E4C662 /* SequentialPracticeView.swift */; };
-		F84A635B2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63592EB80DB300E4C662 /* SequentialPracticeView.swift */; };
-		F84A635D2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A635C2EB80DDD00E4C662 /* ViewHelpers.swift */; };
 		F84A635E2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A635C2EB80DDD00E4C662 /* ViewHelpers.swift */; };
 		F84A63B62EB811F700E4C662 /* ChineseNumberSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63B52EB811F700E4C662 /* ChineseNumberSetSelector.swift */; };
-		F84A63B72EB811F700E4C662 /* ChineseNumberSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A63B52EB811F700E4C662 /* ChineseNumberSetSelector.swift */; };
-		F84A642E2EB8146500E4C662 /* SequentialPracticeHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A642D2EB8146500E4C662 /* SequentialPracticeHelp.swift */; };
 		F84A642F2EB8146500E4C662 /* SequentialPracticeHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A642D2EB8146500E4C662 /* SequentialPracticeHelp.swift */; };
 		F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C72EA144E8001C8FB9 /* RootView.swift */; };
 		F88943CA2EA144E8001C8FB9 /* StrokeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */; };
@@ -38,26 +28,16 @@
 		F88943CF2EA144E8001C8FB9 /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */; };
 		F88943D02EA144E8001C8FB9 /* ProgressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */; };
 		F88943D12EA144E8001C8FB9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BD2EA144E8001C8FB9 /* Models.swift */; };
-		F89B2C9A2EB9571300415104 /* KanaSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2C992EB9571300415104 /* KanaSetSelector.swift */; };
 		F89B2C9B2EB9571300415104 /* KanaSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2C992EB9571300415104 /* KanaSetSelector.swift */; };
 		F89B2CC72EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CC62EB9594500415104 /* LicenseAcceptanceViewModel.swift */; };
-		F89B2CC82EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CC62EB9594500415104 /* LicenseAcceptanceViewModel.swift */; };
 		F89B2CCA2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CC92EB9595C00415104 /* LicenseAcceptanceView.swift */; };
-		F89B2CCB2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CC92EB9595C00415104 /* LicenseAcceptanceView.swift */; };
-		F89B2CCD2EB9596C00415104 /* LicenseGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */; };
 		F89B2CCE2EB9596C00415104 /* LicenseGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCC2EB9596C00415104 /* LicenseGateView.swift */; };
 		F89B2CD02EB9598700415104 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCF2EB9598700415104 /* SettingsView.swift */; };
-		F89B2CD12EB9598700415104 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2CCF2EB9598700415104 /* SettingsView.swift */; };
-		F89B2D092EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */; };
 		F89B2D0A2EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D082EB95E2E00415104 /* SequentialDemoViewModel.swift */; };
-		F89B2D0C2EB95E3900415104 /* SequentialDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */; };
 		F89B2D0D2EB95E3900415104 /* SequentialDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0B2EB95E3900415104 /* SequentialDemoView.swift */; };
-		F89B2D0F2EB95E6800415104 /* SequentialDemoHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */; };
 		F89B2D102EB95E6800415104 /* SequentialDemoHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */; };
 		F89B2D122EB95E9200415104 /* DemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D112EB95E9200415104 /* DemoSetSelector.swift */; };
-		F89B2D132EB95E9200415104 /* DemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D112EB95E9200415104 /* DemoSetSelector.swift */; };
 		F89B2D152EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */; };
-		F89B2D162EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */; };
 		F8A336A52EA2BEE3001DCD01 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */; };
 		F8A336A72EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
 		F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
@@ -79,8 +59,6 @@
 		F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */; };
 		F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E9704F2EA6DF1300C1B090 /* Assets.xcassets */; };
 		F8E970522EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */; };
-		F8F5D8BA2ECD2169001AA0F8 /* PROJECT_HIERARCHY.md in Resources */ = {isa = PBXBuildFile; fileRef = F8F5D8B92ECD2169001AA0F8 /* PROJECT_HIERARCHY.md */; };
-		F8F5D8BB2ECD2169001AA0F8 /* PROJECT_HIERARCHY.md in Resources */ = {isa = PBXBuildFile; fileRef = F8F5D8B92ECD2169001AA0F8 /* PROJECT_HIERARCHY.md */; };
 		F8F833E72EBC13DF0050876F /* chinese_stroke_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */; };
 /* End PBXBuildFile section */
 
@@ -106,11 +84,9 @@
 		F82B04FE2EA6E30D000FEA0B /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataCorrectionTool.swift; sourceTree = "<group>"; };
 		F82BC90E2EA9312B009920B2 /* kanastrokes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kanastrokes.json; sourceTree = "<group>"; };
-		F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = download_chinese_numbers.py; sourceTree = "<group>"; };
 		F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseStrokeDataLoader.swift; sourceTree = "<group>"; };
 		F82BC93B2EA937BF009920B2 /* chinesenumbers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = chinesenumbers.json; sourceTree = "<group>"; };
 		F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTraits.swift; sourceTree = "<group>"; };
-		F82BC9712EA9552F009920B2 /* KanjiKanaTrainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KanjiKanaTrainer-Info.plist"; sourceTree = "<group>"; };
 		F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialPracticeViewModel.swift; sourceTree = "<group>"; };
 		F84A63592EB80DB300E4C662 /* SequentialPracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialPracticeView.swift; sourceTree = "<group>"; };
 		F84A635C2EB80DDD00E4C662 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
@@ -139,15 +115,66 @@
 		F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRepresentable.swift; sourceTree = "<group>"; };
 		F8B5863D2ECF7588005F8FD5 /* license.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = license.md; sourceTree = "<group>"; };
+		F8C449662EF5E0CD00EBD4EF /* KanjiKanaTrainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KanjiKanaTrainer-Info.plist"; sourceTree = "<group>"; };
 		F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataConverter.swift; sourceTree = "<group>"; };
 		F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataDebugView.swift; sourceTree = "<group>"; };
 		F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeDataLoader.swift; sourceTree = "<group>"; };
 		F8E9704F2EA6DF1300C1B090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiKanaTrainerApp.swift; sourceTree = "<group>"; };
-		F8F5D8B92ECD2169001AA0F8 /* PROJECT_HIERARCHY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PROJECT_HIERARCHY.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F8C449652EF5DFE200EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainerTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				download_chinese_numbers.py,
+			);
+			target = F88338682EA1421900F636D9 /* KanjiKanaTrainerTests */;
+		};
+		F8C449682EF5E0F600EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ACTUAL_FIX_CHINESE_DEMO.md,
+				ADDING_100_CHARACTERS_GUIDE.md,
+				CHINESE_100_CHARACTERS_IMPLEMENTATION.md,
+				CHINESE_CHARACTERS_REFERENCE.md,
+				CHINESE_FOLDER_CLEANUP.md,
+				CHINESE_NUMBERS_REFERENCE.md,
+				CHINESE_SETUP.md,
+				chinese_stroke_fetcher.py,
+				COMPOUND_NUMBERS_FEATURE.md,
+				download_chinese_numbers.py,
+				FIX_U3007.md,
+				FIX_UPSIDE_DOWN_CHARACTERS.md,
+				IMPLEMENTATION_CHECKLIST.md,
+				IMPLEMENTATION_SUMMARY.md,
+				LICENSE_FLOW_DIAGRAMS.md,
+				LICENSE_IMPLEMENTATION_COMPLETE.md,
+				LICENSE_QUICK_REFERENCE.md,
+				LICENSE_SCROLL_FIX.md,
+				LICENSE_SYSTEM_IMPLEMENTATION.md,
+				MOVE_DOCS_TO_STEPS_FOLDER.md,
+				"NUMBERS_0-30_REFERENCE.md",
+				PICKER_ALTERNATIVES.md,
+				PROJECT_HIERARCHY.md,
+				QUICK_START_100_CHARACTERS.md,
+				"QUICKSTART 2.md",
+				QUICKSTART.md,
+				README.md,
+				REAL_FIX_KEY_FORMAT_MISMATCH.md,
+				REGENERATE_JSON.md,
+				SEQUENTIAL_DEMO_IMPLEMENTATION.md,
+				SEQUENTIAL_PRACTICE_EXPANSION.md,
+				SEQUENTIAL_PRACTICE_FEATURE.md,
+				STEP2_COMPLETE.md,
+				STROKE_FETCHER_FIX.md,
+				test_urls.py,
+				TROUBLESHOOTING_CHINESE_DEMO.md,
+				UPDATED_CHARACTER_LIST.md,
+				WORKING_URLS.md,
+			);
+			target = F883385B2EA1421900F636D9 /* KanjiKanaTrainer */;
+		};
 		F8DD75B62EA43DDD00B50B76 /* Exceptions for "KanjiKanaTrainerTests" folder in "KanjiKanaTrainer" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -155,21 +182,9 @@
 			);
 			target = F883385B2EA1421900F636D9 /* KanjiKanaTrainer */;
 		};
-		F8F833DC2EBC089C0050876F /* Exceptions for "Steps" folder in "KanjiKanaTrainer" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				QUICKSTART.md,
-			);
-			target = F883385B2EA1421900F636D9 /* KanjiKanaTrainer */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F817AA902EBBFA42004239B0 /* Chinese */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Chinese;
-			sourceTree = "<group>";
-		};
 		F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -183,12 +198,13 @@
 			path = KanjiKanaTrainerUITests;
 			sourceTree = "<group>";
 		};
-		F8A231962EAADDCB00DE6818 /* Steps */ = {
+		F8A231962EAADDCB00DE6818 /* Docs */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				F8F833DC2EBC089C0050876F /* Exceptions for "Steps" folder in "KanjiKanaTrainer" target */,
+				F8C449682EF5E0F600EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainer" target */,
+				F8C449652EF5DFE200EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainerTests" target */,
 			);
-			path = Steps;
+			path = Docs;
 			sourceTree = "<group>";
 		};
 		F8F5D8B82ECD1F7A001AA0F8 /* Environment */ = {
@@ -201,24 +217,18 @@
 /* Begin PBXFrameworksBuildPhase section */
 		F88338592EA1421900F636D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F88338662EA1421900F636D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F88338702EA1421900F636D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -226,31 +236,12 @@
 		F88338532EA1421900F636D9 = {
 			isa = PBXGroup;
 			children = (
+				F8C449662EF5E0CD00EBD4EF /* KanjiKanaTrainer-Info.plist */,
 				F8B5863D2ECF7588005F8FD5 /* license.md */,
-				F817AA902EBBFA42004239B0 /* Chinese */,
-				F82BC9712EA9552F009920B2 /* KanjiKanaTrainer-Info.plist */,
+				F8A231962EAADDCB00DE6818 /* Docs */,
 				F8C970E92EA842FA002A2D74 /* strokedata */,
-				F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */,
-				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
-				F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */,
-				F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */,
-				F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */,
-				F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */,
-				F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */,
-				F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */,
-				F88943C72EA144E8001C8FB9 /* RootView.swift */,
-				F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */,
-				F82B04FE2EA6E30D000FEA0B /* LessonView.swift */,
-				F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */,
-				F8E9704F2EA6DF1300C1B090 /* Assets.xcassets */,
-				F88943BE2EA144E8001C8FB9 /* Domain */,
-				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
-				F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */,
-				F883385D2EA1421900F636D9 /* Products */,
-				F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */,
-				F82BC91D2EA934EB009920B2 /* download_chinese_numbers.py */,
 				F82BC9202EA934F5009920B2 /* ChineseStrokeDataLoader.swift */,
-				F8A231962EAADDCB00DE6818 /* Steps */,
+				F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */,
 				F82BC9502EA93FE2009920B2 /* DeviceTraits.swift */,
 				F84A63562EB80DAD00E4C662 /* SequentialPracticeViewModel.swift */,
 				F84A642D2EB8146500E4C662 /* SequentialPracticeHelp.swift */,
@@ -267,7 +258,23 @@
 				F89B2D0E2EB95E6800415104 /* SequentialDemoHelp.swift */,
 				F89B2D112EB95E9200415104 /* DemoSetSelector.swift */,
 				F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */,
-				F8F5D8B92ECD2169001AA0F8 /* PROJECT_HIERARCHY.md */,
+				F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */,
+				F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */,
+				F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */,
+				F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */,
+				F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */,
+				F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */,
+				F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */,
+				F88943C72EA144E8001C8FB9 /* RootView.swift */,
+				F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */,
+				F82B04FE2EA6E30D000FEA0B /* LessonView.swift */,
+				F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */,
+				F8E9704F2EA6DF1300C1B090 /* Assets.xcassets */,
+				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
+				F88943BE2EA144E8001C8FB9 /* Domain */,
+				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
+				F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */,
+				F883385D2EA1421900F636D9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,16 +321,11 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
-				F817AA902EBBFA42004239B0 /* Chinese */,
-				F8A231962EAADDCB00DE6818 /* Steps */,
+				F8A231962EAADDCB00DE6818 /* Docs */,
 				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
 			);
 			name = KanjiKanaTrainer;
-			packageProductDependencies = (
-			);
 			productName = KanjiKanaTrainer;
 			productReference = F883385C2EA1421900F636D9 /* KanjiKanaTrainer.app */;
 			productType = "com.apple.product-type.application";
@@ -342,14 +344,11 @@
 				F883386B2EA1421900F636D9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				F817AA902EBBFA42004239B0 /* Chinese */,
 				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
-				F8A231962EAADDCB00DE6818 /* Steps */,
+				F8A231962EAADDCB00DE6818 /* Docs */,
 				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
 			);
 			name = KanjiKanaTrainerTests;
-			packageProductDependencies = (
-			);
 			productName = KanjiKanaTrainerTests;
 			productReference = F88338692EA1421900F636D9 /* KanjiKanaTrainerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -371,8 +370,6 @@
 				F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */,
 			);
 			name = KanjiKanaTrainerUITests;
-			packageProductDependencies = (
-			);
 			productName = KanjiKanaTrainerUITests;
 			productReference = F88338732EA1421900F636D9 /* KanjiKanaTrainerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -385,7 +382,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					F883385B2EA1421900F636D9 = {
 						CreatedOnToolsVersion = 26.1;
@@ -409,7 +406,7 @@
 			);
 			mainGroup = F88338532EA1421900F636D9;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = F883385D2EA1421900F636D9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -424,44 +421,33 @@
 /* Begin PBXResourcesBuildPhase section */
 		F883385A2EA1421900F636D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F8F833E72EBC13DF0050876F /* chinese_stroke_data.json in Resources */,
 				F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */,
 				F8B5863F2ECF7588005F8FD5 /* license.md in Resources */,
 				F82BC93C2EA937BF009920B2 /* chinesenumbers.json in Resources */,
-				F82BC91F2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
 				F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */,
-				F8F5D8BA2ECD2169001AA0F8 /* PROJECT_HIERARCHY.md in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F88338672EA1421900F636D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F817AAB32EBC0581004239B0 /* chinese_stroke_data.json in Resources */,
 				F82BC93D2EA937BF009920B2 /* chinesenumbers.json in Resources */,
-				F8F5D8BB2ECD2169001AA0F8 /* PROJECT_HIERARCHY.md in Resources */,
 				F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */,
 				F8B5863E2ECF7588005F8FD5 /* license.md in Resources */,
-				F82BC91E2EA934EB009920B2 /* download_chinese_numbers.py in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F88338712EA1421900F636D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F88338582EA1421900F636D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F88943C92EA144E8001C8FB9 /* RootView.swift in Sources */,
 				F84A635A2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */,
@@ -496,51 +482,28 @@
 				F84A642F2EB8146500E4C662 /* SequentialPracticeHelp.swift in Sources */,
 				F8D1E4602EA69648006039CC /* StrokeDataLoader.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F88338652EA1421900F636D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */,
-				F82BC9222EA934F5009920B2 /* ChineseStrokeDataLoader.swift in Sources */,
-				F82BC9522EA93FE2009920B2 /* DeviceTraits.swift in Sources */,
 				F8D1E4682EA69776006039CC /* Models.swift in Sources */,
-				F89B2D092EB95E2E00415104 /* SequentialDemoViewModel.swift in Sources */,
-				F89B2C9A2EB9571300415104 /* KanaSetSelector.swift in Sources */,
-				F89B2D0C2EB95E3900415104 /* SequentialDemoView.swift in Sources */,
 				F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
-				F89B2D162EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */,
-				F84A63B72EB811F700E4C662 /* ChineseNumberSetSelector.swift in Sources */,
 				F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */,
 				F8D1E4672EA69754006039CC /* ProgressRepository.swift in Sources */,
 				F8D1E46A2EA6988F006039CC /* LessonViewModel.swift in Sources */,
-				F89B2D132EB95E9200415104 /* DemoSetSelector.swift in Sources */,
-				F89B2CC82EB9594500415104 /* LicenseAcceptanceViewModel.swift in Sources */,
-				F82BC8FD2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */,
-				F89B2D0F2EB95E6800415104 /* SequentialDemoHelp.swift in Sources */,
 				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
-				F84A635B2EB80DB300E4C662 /* SequentialPracticeView.swift in Sources */,
-				F89B2CCB2EB9595C00415104 /* LicenseAcceptanceView.swift in Sources */,
 				F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */,
 				F8D1E45A2EA69648006039CC /* StrokeDataConverter.swift in Sources */,
 				F8D1E45B2EA69648006039CC /* StrokeDataDebugView.swift in Sources */,
-				F89B2CD12EB9598700415104 /* SettingsView.swift in Sources */,
-				F84A642E2EB8146500E4C662 /* SequentialPracticeHelp.swift in Sources */,
-				F84A63582EB80DAD00E4C662 /* SequentialPracticeViewModel.swift in Sources */,
-				F89B2CCD2EB9596C00415104 /* LicenseGateView.swift in Sources */,
-				F84A635D2EB80DDD00E4C662 /* ViewHelpers.swift in Sources */,
 				F8D1E45C2EA69648006039CC /* StrokeDataLoader.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F883386F2EA1421900F636D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F8A336AD2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -558,7 +521,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		F883387B2EA1421900F636D9 /* Debug */ = {
+		F883387B2EA1421900F636D9 /* Debug configuration for PBXProject "KanjiKanaTrainer" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -592,6 +555,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -615,12 +579,13 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		F883387C2EA1421900F636D9 /* Release */ = {
+		F883387C2EA1421900F636D9 /* Release configuration for PBXProject "KanjiKanaTrainer" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -654,6 +619,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -670,17 +636,19 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
-		F883387E2EA1421900F636D9 /* Debug */ = {
+		F883387E2EA1421900F636D9 /* Debug configuration for PBXNativeTarget "KanjiKanaTrainer" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -701,7 +669,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
@@ -723,13 +691,14 @@
 			};
 			name = Debug;
 		};
-		F883387F2EA1421900F636D9 /* Release */ = {
+		F883387F2EA1421900F636D9 /* Release configuration for PBXNativeTarget "KanjiKanaTrainer" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -750,7 +719,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
@@ -772,12 +741,13 @@
 			};
 			name = Release;
 		};
-		F88338812EA1421900F636D9 /* Debug */ = {
+		F88338812EA1421900F636D9 /* Debug configuration for PBXNativeTarget "KanjiKanaTrainerTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
@@ -798,12 +768,13 @@
 			};
 			name = Debug;
 		};
-		F88338822EA1421900F636D9 /* Release */ = {
+		F88338822EA1421900F636D9 /* Release configuration for PBXNativeTarget "KanjiKanaTrainerTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
@@ -824,11 +795,12 @@
 			};
 			name = Release;
 		};
-		F88338842EA1421900F636D9 /* Debug */ = {
+		F88338842EA1421900F636D9 /* Debug configuration for PBXNativeTarget "KanjiKanaTrainerUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
@@ -850,11 +822,12 @@
 			};
 			name = Debug;
 		};
-		F88338852EA1421900F636D9 /* Release */ = {
+		F88338852EA1421900F636D9 /* Release configuration for PBXNativeTarget "KanjiKanaTrainerUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YKHW2TJ32G;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
@@ -882,37 +855,33 @@
 		F88338572EA1421900F636D9 /* Build configuration list for PBXProject "KanjiKanaTrainer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F883387B2EA1421900F636D9 /* Debug */,
-				F883387C2EA1421900F636D9 /* Release */,
+				F883387B2EA1421900F636D9 /* Debug configuration for PBXProject "KanjiKanaTrainer" */,
+				F883387C2EA1421900F636D9 /* Release configuration for PBXProject "KanjiKanaTrainer" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F883387D2EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F883387E2EA1421900F636D9 /* Debug */,
-				F883387F2EA1421900F636D9 /* Release */,
+				F883387E2EA1421900F636D9 /* Debug configuration for PBXNativeTarget "KanjiKanaTrainer" */,
+				F883387F2EA1421900F636D9 /* Release configuration for PBXNativeTarget "KanjiKanaTrainer" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F88338802EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F88338812EA1421900F636D9 /* Debug */,
-				F88338822EA1421900F636D9 /* Release */,
+				F88338812EA1421900F636D9 /* Debug configuration for PBXNativeTarget "KanjiKanaTrainerTests" */,
+				F88338822EA1421900F636D9 /* Release configuration for PBXNativeTarget "KanjiKanaTrainerTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F88338832EA1421900F636D9 /* Build configuration list for PBXNativeTarget "KanjiKanaTrainerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F88338842EA1421900F636D9 /* Debug */,
-				F88338852EA1421900F636D9 /* Release */,
+				F88338842EA1421900F636D9 /* Debug configuration for PBXNativeTarget "KanjiKanaTrainerUITests" */,
+				F88338852EA1421900F636D9 /* Release configuration for PBXNativeTarget "KanjiKanaTrainerUITests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
