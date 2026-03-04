@@ -1,6 +1,21 @@
-# Chinese Character Stroke Data Fetcher
+# KanjiKanaTrainer
 
-A Python tool to fetch stroke order data for 100 common Chinese characters that children typically learn. Perfect for building kanji/hanzi learning applications for iOS.
+iOS learning app focused on Kanji/Mandarin practice with a handwriting-first experience.
+
+## What it does
+
+- Captures strokes with PencilKit and evaluates writing form
+- Uses recognition + adaptive practice to target weak characters
+- Reinforces learning with animated SVG and AI-assisted mnemonics
+- Built as an on-device, privacy-friendly learning workflow
+
+## Tech stack
+
+- Swift / SwiftUI
+- PencilKit
+- Stroke processing + recognition pipeline
+- SVG animation
+- Local-first design with room for optional cloud sync
 
 ## ✨ Features
 
