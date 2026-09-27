@@ -1,21 +1,6 @@
-# KanjiKanaTrainer
+# Chinese stroke data fetcher
 
-iOS learning app focused on Kanji/Mandarin practice with a handwriting-first experience.
-
-## What it does
-
-- Captures strokes with PencilKit and evaluates writing form
-- Uses recognition + adaptive practice to target weak characters
-- Reinforces learning with animated SVG and AI-assisted mnemonics
-- Built as an on-device, privacy-friendly learning workflow
-
-## Tech stack
-
-- Swift / SwiftUI
-- PencilKit
-- Stroke processing + recognition pipeline
-- SVG animation
-- Local-first design with room for optional cloud sync
+This is the data-preparation script (`chinese_stroke_fetcher.py`) that builds the Chinese character stroke file used by KanjiKanaTrainer. For the app itself, see the [main README](../README.md).
 
 ## ✨ Features
 

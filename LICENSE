@@ -9,6 +9,10 @@ the copyright holder. Viewing this repository, and forking it through
 GitHub's own features, are permitted only to the extent required by the
 GitHub Terms of Service.
 
+Third-party data is excluded from this notice and remains under its original
+license: stroke data derived from KanjiVG (CC BY-SA 3.0, Ulrich Apel) and
+from hanzi-writer-data (Arphic Public License). See README.md.
+
 Any end-user license agreement included in this repository governs use of the
 application itself, if it is ever distributed; it does not grant any rights
 to the source code.
