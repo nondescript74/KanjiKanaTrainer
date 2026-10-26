@@ -7,11 +7,15 @@ paste into App Store Connect. Limits are Apple's; counts are checked by `AppStor
 
 - **Name:** KanjiKanaTrainer
 - **Subtitle (30):** Write Chinese & Japanese
-- **Primary category:** Education · **Secondary:** Reference
+- **Primary category:** Education · **Secondary:** Reference (was Entertainment / Education)
 - **Age rating:** 4+ (no objectionable content)
 - **App Privacy:** Data Not Collected (progress stays on the device; no account, no analytics)
 
-## Version page
+## Version page (iOS and macOS, version 5.0)
+
+Entered in App Store Connect 2026-10-26 and read back after reload: subtitle, categories,
+promotional text, description, keywords, copyright, review notes and contact, on both the iOS and
+macOS 5.0 pages. "What's New" is not offered for a first release.
 
 ### Promotional Text (170)
 
@@ -71,10 +75,10 @@ Copyright 2026 Zahirudeen Premji. All Rights Reserved
 
 ### App Review Information
 
-- **Sign-in required:** No (the app has no account). Currently ticked in App Store Connect; untick it.
+- **Sign-in required:** No (the app has no account); unticked.
 - **Notes:** No sign-in. Open any set, tap a character to watch the demo, then use Practice to write it and tap Evaluate.
 
 ## Still needed before submission
 
-- A build: the project's MARKETING_VERSION must match the App Store version (4.0); the app icon on the page comes from the uploaded build.
+- A build: the project's MARKETING_VERSION matches the App Store version (5.0); the app icon on the page comes from the uploaded build.
 - Screenshots: iPad 13" and iPhone 6.9" (demo, practice with a score, a set list).
