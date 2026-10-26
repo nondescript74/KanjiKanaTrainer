@@ -1,3 +1,4 @@
+import Foundation
 import Testing
 // The test target compiles StrokeEvaluator.swift and Models.swift itself (see the
 // project's test Sources phase), so the app module is not imported here.
