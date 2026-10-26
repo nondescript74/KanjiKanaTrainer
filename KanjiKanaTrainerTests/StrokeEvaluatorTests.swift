@@ -1,5 +1,6 @@
 import Testing
-@testable import KanjiKanaTrainer
+// The test target compiles StrokeEvaluator.swift and Models.swift itself (see the
+// project's test Sources phase), so the app module is not imported here.
 
 /// Checks the scorer the way a teacher would: the right strokes, in the right
 /// order and direction, roughly in the right place — at any size.

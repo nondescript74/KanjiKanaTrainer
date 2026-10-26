@@ -129,14 +129,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F8C449652EF5DFE200EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainerTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				AUDIO_PRONUNCIATION_COMPLETE.md,
-				download_chinese_numbers.py,
-			);
-			target = F88338682EA1421900F636D9 /* KanjiKanaTrainerTests */;
-		};
 		F8C449682EF5E0F600EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainer" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -168,7 +160,6 @@
 				PICKER_ALTERNATIVES.md,
 				PROJECT_HIERARCHY.md,
 				QUICK_START_100_CHARACTERS.md,
-				"QUICKSTART 2.md",
 				QUICKSTART.md,
 				README.md,
 				REAL_FIX_KEY_FORMAT_MISMATCH.md,
@@ -212,7 +203,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				F8C449682EF5E0F600EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainer" target */,
-				F8C449652EF5DFE200EBD4EF /* Exceptions for "Docs" folder in "KanjiKanaTrainerTests" target */,
 			);
 			path = Docs;
 			sourceTree = "<group>";
@@ -357,7 +347,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
-				F8A231962EAADDCB00DE6818 /* Docs */,
 				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
 			);
 			name = KanjiKanaTrainerTests;
