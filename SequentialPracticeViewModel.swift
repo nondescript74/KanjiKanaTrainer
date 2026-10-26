@@ -17,6 +17,7 @@ final class SequentialPracticeViewModel: ObservableObject {
     @Published var currentIndex: Int = 0
     @Published var currentGlyph: CharacterGlyph?
     @Published var score: PracticeScore?
+    @Published var progress: CharacterProgress?
     @Published var isLoading: Bool = false
     @Published var error: Error?
     
@@ -49,6 +50,7 @@ final class SequentialPracticeViewModel: ObservableObject {
         do {
             let id = glyphIDs[currentIndex]
             currentGlyph = try await env.glyphs.glyph(for: id)
+            progress = try? env.progress.progress(for: id)
         } catch {
             self.error = error
         }
@@ -88,6 +90,12 @@ final class SequentialPracticeViewModel: ObservableObject {
 
         let attemptScore = env.evaluator.evaluate(user: strokes, ideal: glyph.strokes)
         score = attemptScore
+        do {
+            try env.progress.record(glyph: glyph, score: attemptScore)
+            progress = try env.progress.progress(for: glyph.id)
+        } catch {
+            print("⚠️ Could not save progress: \(error)")
+        }
     }
     
     /// Creates a sequential practice view model for Chinese numbers 0-10

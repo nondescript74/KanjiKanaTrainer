@@ -59,3 +59,31 @@ let adaptiveCanvasSize: CGFloat = {
 //        }
 //    }
 //}
+
+/// Score, a short child-friendly hint, and saved progress for the character.
+struct ScoreFeedbackView: View {
+    let score: PracticeScore
+    let progress: CharacterProgress?
+
+    private var hint: String {
+        if score.total > 0.8 { return "Great job! 🎉" }
+        if score.orderAccuracy < score.shapeSimilarity { return "Watch the demo again and try the stroke order" }
+        return "Nice try! Make your strokes look more like the example"
+    }
+
+    var body: some View {
+        VStack(spacing: 4) {
+            Text("Score: \(Int((score.total * 100).rounded()))%")
+                .font(.headline)
+                .foregroundStyle(score.total > 0.8 ? .green : .orange)
+            Text(hint)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            if let progress {
+                Text("Best \(Int((progress.bestScore * 100).rounded()))% · \(progress.attempts) \(progress.attempts == 1 ? "try" : "tries")")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+}

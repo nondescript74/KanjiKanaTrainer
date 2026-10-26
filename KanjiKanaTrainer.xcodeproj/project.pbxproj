@@ -149,6 +149,7 @@
 				CHINESE_SETUP.md,
 				chinese_stroke_fetcher.py,
 				COMPOUND_NUMBERS_FEATURE.md,
+				CONTEXTUAL_HELP_IMPLEMENTATION.md,
 				download_chinese_numbers.py,
 				FIRST_100_CHARACTERS_REFERENCE.md,
 				FIRST_100_CHINESE_CHARACTERS.md,

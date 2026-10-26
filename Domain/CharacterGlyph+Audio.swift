@@ -9,111 +9,53 @@ import AVFoundation
 import Foundation
 import Combine
 
-/// Extension to add audio pronunciation capabilities to CharacterGlyph
+/// Extension to add audio pronunciation capabilities to CharacterGlyph.
+///
+/// Speech voices read characters, not romanisation: a Mandarin voice given the
+/// pinyin "yī" may spell it out or misread it, but given 一 it says yī. So every
+/// method here speaks the character itself, in the right voice, through one
+/// shared synthesizer (a local AVSpeechSynthesizer is released when the method
+/// returns and can cut the speech off).
 extension CharacterGlyph {
-    
-    /// Play the pronunciation of this character using iOS text-to-speech
+
+    /// Voice language for this glyph's script.
+    var speechLanguage: String {
+        switch script {
+        case .kana, .kanji: return "ja-JP"
+        case .hanzi: return "zh-CN"
+        }
+    }
+
+    /// Play the pronunciation of this character (Mandarin for hanzi, Japanese for kana/kanji).
     /// - Parameters:
-    ///   - language: Language code (default: "zh-CN" for Mandarin Chinese)
-    ///   - rate: Speech rate (default: 0.4 for learner-friendly pace)
+    ///   - language: Voice language; defaults to the script's language.
+    ///   - rate: Speech rate (default 0.4, a learner-friendly pace).
     @MainActor
     func playPronunciation(language: String? = nil, rate: Float = 0.4) {
-        guard !readings.isEmpty else {
-            #if DEBUG
-            print("⚠️ No pronunciation available for '\(literal)'")
-            #endif
-            return
-        }
-        
-        let synthesizer = AVSpeechSynthesizer()
-        
-        // Determine language based on script if not provided
-        let languageCode: String
-        if let language = language {
-            languageCode = language
-        } else {
-            switch script {
-            case .kana, .kanji:
-                languageCode = "ja-JP" // Japanese
-            case .hanzi:
-                languageCode = "zh-CN" // Mandarin Chinese
-            }
-        }
-        
-        // Use the first reading (Mandarin pinyin for Chinese, romaji for Japanese)
-        let pronunciation = readings[0]
-        let utterance = AVSpeechUtterance(string: pronunciation)
-        
-        // Configure voice
-        utterance.voice = AVSpeechSynthesisVoice(language: languageCode)
-        
-        // Slow down for learners
-        utterance.rate = rate
-        
-        // Optional: adjust pitch slightly for clarity
-        utterance.pitchMultiplier = 1.0
-        
-        // Add a slight pause before speaking
-        utterance.preUtteranceDelay = 0.1
-        
-        #if DEBUG
-        print("🔊 Playing pronunciation: '\(pronunciation)' for character '\(literal)' (language: \(languageCode))")
-        #endif
-        
-        synthesizer.speak(utterance)
+        SpeechSynthesizerManager.shared.speak(literal, language: language ?? speechLanguage, rate: rate)
     }
-    
-    /// Play the Cantonese pronunciation (uses second reading if available)
+
+    /// Play the Cantonese pronunciation of a Chinese character (Hong Kong voice).
+    @MainActor
+    func playCantonesePronunciation(rate: Float = 0.4) {
+        guard script == .hanzi else { return }
+        SpeechSynthesizerManager.shared.speak(literal, language: "zh-HK", rate: rate)
+    }
+
+    @available(*, deprecated, renamed: "playCantonesePronunciation(rate:)")
     @MainActor
     func playCantonesePromunication(rate: Float = 0.4) {
-        guard readings.count >= 2 else {
-            #if DEBUG
-            print("⚠️ No Cantonese pronunciation available for '\(literal)'")
-            #endif
-            return
-        }
-        
-        let synthesizer = AVSpeechSynthesizer()
-        let jyutping = readings[1] // Second reading is Cantonese jyutping
-        let utterance = AVSpeechUtterance(string: jyutping)
-        
-        // Use Hong Kong Cantonese voice
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-HK")
-        utterance.rate = rate
-        utterance.pitchMultiplier = 1.0
-        utterance.preUtteranceDelay = 0.1
-        
-        #if DEBUG
-        print("🔊 Playing Cantonese: '\(jyutping)' for character '\(literal)'")
-        #endif
-        
-        synthesizer.speak(utterance)
+        playCantonesePronunciation(rate: rate)
     }
-    
-    /// Play pronunciation with the literal character (useful for Chinese)
+
+    /// Play pronunciation with the literal character.
     @MainActor
     func playLiteralPronunciation(rate: Float = 0.5) {
-        let synthesizer = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: literal)
-        
-        let languageCode: String
-        switch script {
-        case .kana, .kanji:
-            languageCode = "ja-JP"
-        case .hanzi:
-            languageCode = "zh-CN"
-        }
-        
-        utterance.voice = AVSpeechSynthesisVoice(language: languageCode)
-        utterance.rate = rate
-        utterance.pitchMultiplier = 1.0
-        
-        #if DEBUG
-        print("🔊 Playing literal: '\(literal)' (language: \(languageCode))")
-        #endif
-        
-        synthesizer.speak(utterance)
+        playPronunciation(rate: rate)
     }
+
+    /// The romanised reading to show on screen (pinyin for hanzi, romaji for kana); not for speech.
+    var displayReading: String? { readings.first }
 }
 
 /// Shared speech synthesizer for stopping playback
@@ -124,6 +66,19 @@ class SpeechSynthesizerManager: ObservableObject {
     private let synthesizer = AVSpeechSynthesizer()
     
     private init() {}
+
+    /// Speak text in a given voice language, interrupting anything already playing.
+    func speak(_ text: String, language: String, rate: Float) {
+        stopSpeaking()
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: language)
+        utterance.rate = rate
+        utterance.preUtteranceDelay = 0.1
+        #if DEBUG
+        print("🔊 Speaking '\(text)' (\(language))")
+        #endif
+        synthesizer.speak(utterance)
+    }
     
     /// Stop any currently playing speech
     func stopSpeaking() {

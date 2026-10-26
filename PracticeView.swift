@@ -50,9 +50,7 @@ struct PracticeView: View {
                 .padding()
 
                 if let score = viewModel.score {
-                    Text("Score: \(Int(score.total * 100))%")
-                        .font(.headline)
-                        .foregroundStyle(score.total > 0.8 ? .green : .orange)
+                    ScoreFeedbackView(score: score, progress: viewModel.progress)
                 }
                 
                 Spacer(minLength: 0) // Push everything up but allow flexibility

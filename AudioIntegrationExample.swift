@@ -205,7 +205,7 @@ struct CharacterCard: View {
                 
                 if glyph.readings.count >= 2 {
                     Button(action: {
-                        glyph.playCantonesePromunication()
+                        glyph.playCantonesePronunciation()
                         isPlaying = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             isPlaying = false

@@ -105,21 +105,7 @@ struct SequentialPracticeView: View {
                     .padding(.horizontal)
 
                     if let score = viewModel.score {
-                        VStack(spacing: 4) {
-                            Text("Score: \(Int(score.total * 100))%")
-                                .font(.headline)
-                                .foregroundStyle(score.total > 0.8 ? .green : .orange)
-                            
-                            if score.total > 0.8 {
-                                Text("Great job! 🎉")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            } else {
-                                Text("Try paying attention to stroke order")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
+                        ScoreFeedbackView(score: score, progress: viewModel.progress)
                     }
                     
                     // Navigation tip

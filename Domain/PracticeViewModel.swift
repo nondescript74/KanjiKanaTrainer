@@ -15,10 +15,12 @@ final class PracticeViewModel: ObservableObject {
     let glyph: CharacterGlyph
     private let env: AppEnvironment
     @Published var score: PracticeScore?
+    @Published var progress: CharacterProgress?
 
     init(glyph: CharacterGlyph, env: AppEnvironment) {
         self.glyph = glyph
         self.env = env
+        self.progress = try? env.progress.progress(for: glyph.id)
     }
 
     func clearScore() {
@@ -37,6 +39,16 @@ final class PracticeViewModel: ObservableObject {
 
         let attemptScore = env.evaluator.evaluate(user: strokes, ideal: glyph.strokes)
         score = attemptScore
+        record(attemptScore, for: glyph)
+    }
+
+    private func record(_ attemptScore: PracticeScore, for glyph: CharacterGlyph) {
+        do {
+            try env.progress.record(glyph: glyph, score: attemptScore)
+            progress = try env.progress.progress(for: glyph.id)
+        } catch {
+            print("⚠️ Could not save progress: \(error)")
+        }
     }
 }
 
