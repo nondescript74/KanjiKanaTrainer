@@ -1,3 +1,5 @@
+<img src="Assets.xcassets/AppIcon.appiconset/AppIcon-256.png" width="128" alt="KanjiKanaTrainer app icon" align="right">
+
 # KanjiKanaTrainer
 
 An iPad and iPhone app for learning to **write** Chinese characters and Japanese kana by hand, one

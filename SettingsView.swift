@@ -17,10 +17,12 @@ struct SettingsView: View {
             // About Section
             Section {
                 HStack {
-                    Image(systemName: "app.fill")
-                        .font(.largeTitle)
-                        .foregroundStyle(.blue)
+                    Image("AppIconImage")
+                        .resizable()
+                        .scaledToFit()
                         .frame(width: 60, height: 60)
+                        .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
+                        .accessibilityHidden(true)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("KanjiKana Trainer")
