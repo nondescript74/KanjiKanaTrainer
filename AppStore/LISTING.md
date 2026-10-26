@@ -66,8 +66,11 @@ chinese,mandarin,hanzi,pinyin,kana,hiragana,katakana,stroke order,handwriting,ki
 
 ### URLs
 
-- **Support URL:** TO DECIDE — support.industriallystrong.com (used by CnZ Japan 2027) does not load (checked 2026-10-26); www.industriallystrong.com/kanji-story.html redirects to the home page.
-- **Marketing URL:** same page as support, or leave empty.
+- **Support URL:** https://support.industriallystrong.com/kanjikanatrainer/
+- **Marketing URL:** same page
+- **Privacy policy:** https://support.industriallystrong.com/privacy/#kanjikanatrainer
+- Site source: repo `nondescript74/industriallystrong-support` (GitHub Pages). The Cloudflare record
+  `CNAME support → nondescript74.github.io` (DNS only) is needed before the URLs resolve.
 
 ### Copyright
 
@@ -81,4 +84,5 @@ Copyright 2026 Zahirudeen Premji. All Rights Reserved
 ## Still needed before submission
 
 - A build: the project's MARKETING_VERSION matches the App Store version (5.0); the app icon on the page comes from the uploaded build.
+- Diane Byrne invited to the App Store Connect team (2026-10-26); add her to TestFlight group Internal1 once she accepts.
 - Screenshots: iPad 13" and iPhone 6.9" (demo, practice with a score, a set list).
