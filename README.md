@@ -89,7 +89,7 @@ SwiftData in the app's own store on the device. Nothing leaves the device.
 ## Build and test
 
 Open `KanjiKanaTrainer.xcodeproj` in Xcode, choose an iPad simulator or device, and run. Run the
-tests with **Product → Test** (⌘U). Requires iOS / iPadOS 26.1.
+tests with **Product → Test** (⌘U). Requires iOS / iPadOS 27.0.
 
 ## Third-party data
 

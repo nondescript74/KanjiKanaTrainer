@@ -1,0 +1,9 @@
+{
+  "id" : "ca72082d-2759-4910-bb79-9ccd2a826509",
+  "targets" : [
+    {
+      "id" : "03252FCF-3822-49DE-9262-45047CBF0C47",
+      "name" : "KanjiKanaTrainer"
+    }
+  ]
+}
