@@ -1,7 +1,8 @@
 import Foundation
 
 #if DEBUG
-/// Manual test runner for stroke data validation (not using XCTest)
+/// Manual self-check of the bundled stroke data, run from a debug build (not XCTest).
+/// Lives in the app target because it calls the app's loaders directly.
 struct StrokeDataTests {
     
     static func runAllTests() async {

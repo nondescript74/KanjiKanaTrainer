@@ -82,7 +82,7 @@ SwiftData in the app's own store on the device. Nothing leaves the device.
 | `ProgressRepository.swift` | Saved progress (SwiftData) |
 | `*SetSelector.swift`, `Sequential*.swift`, `LessonView.swift`, `PracticeView.swift` | Screens |
 | `strokedata/` | Stroke data: `kanastrokes.json`, `chinesenumbers.json`, `chinese_stroke_data.json` |
-| `KanjiKanaTrainerTests/` | Swift Testing tests, including `StrokeEvaluatorTests` |
+| `KanjiKanaTrainerTests/` | Swift Testing tests (`@testable import KanjiKanaTrainer`), including `StrokeEvaluatorTests` |
 | `Docs/` | Implementation notes and the data-preparation scripts |
 | `download_kana_strokes_json_fixed.py` | Rebuilds the kana stroke file from KanjiVG |
 

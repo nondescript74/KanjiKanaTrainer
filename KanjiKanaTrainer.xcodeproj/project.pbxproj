@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F817AAB32EBC0581004239B0 /* chinese_stroke_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */; };
-		F82736282EF5E98400A6AE00 /* CharacterGlyph+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82736272EF5E98400A6AE00 /* CharacterGlyph+Audio.swift */; };
 		F82736292EF5E98400A6AE00 /* CharacterGlyph+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82736272EF5E98400A6AE00 /* CharacterGlyph+Audio.swift */; };
 		F827362B2EF5E9B600A6AE00 /* AudioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827362A2EF5E9B600A6AE00 /* AudioButton.swift */; };
 		F82B04FF2EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
-		F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B04FE2EA6E30D000FEA0B /* LessonView.swift */; };
 		F82BC8FE2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BC8FC2EA91D4E009920B2 /* StrokeDataCorrectionTool.swift */; };
 		F82BC90F2EA9312B009920B2 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90E2EA9312B009920B2 /* kanastrokes.json */; };
 		F82BC9102EA9312B009920B2 /* kanastrokes.json in Resources */ = {isa = PBXBuildFile; fileRef = F82BC90E2EA9312B009920B2 /* kanastrokes.json */; };
@@ -43,23 +41,13 @@
 		F89B2D152EB95EAB00415104 /* ChineseDemoSetSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D142EB95EAB00415104 /* ChineseDemoSetSelector.swift */; };
 		F8A336A52EA2BEE3001DCD01 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A42EA2BEE3001DCD01 /* PracticeView.swift */; };
 		F8A336A72EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
-		F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336A62EA2BF21001DCD01 /* PracticeViewModel.swift */; };
 		F8A336AB2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
-		F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
 		F8A336AD2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */; };
 		F8B5863E2ECF7588005F8FD5 /* license.md in Resources */ = {isa = PBXBuildFile; fileRef = F8B5863D2ECF7588005F8FD5 /* license.md */; };
 		F8B5863F2ECF7588005F8FD5 /* license.md in Resources */ = {isa = PBXBuildFile; fileRef = F8B5863D2ECF7588005F8FD5 /* license.md */; };
-		F8D1E45A2EA69648006039CC /* StrokeDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */; };
-		F8D1E45B2EA69648006039CC /* StrokeDataDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */; };
-		F8D1E45C2EA69648006039CC /* StrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */; };
 		F8D1E45E2EA69648006039CC /* StrokeDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4552EA69648006039CC /* StrokeDataConverter.swift */; };
 		F8D1E45F2EA69648006039CC /* StrokeDataDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4562EA69648006039CC /* StrokeDataDebugView.swift */; };
 		F8D1E4602EA69648006039CC /* StrokeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1E4572EA69648006039CC /* StrokeDataLoader.swift */; };
-		F8D1E4672EA69754006039CC /* ProgressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BB2EA144E8001C8FB9 /* ProgressRepository.swift */; };
-		F8D1E4682EA69776006039CC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BD2EA144E8001C8FB9 /* Models.swift */; };
-		F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C32EA144E8001C8FB9 /* StrokeEvaluator.swift */; };
-		F8D1E46A2EA6988F006039CC /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943C02EA144E8001C8FB9 /* LessonViewModel.swift */; };
-		F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88943BA2EA144E8001C8FB9 /* GlyphRepository.swift */; };
 		F8E970512EA6DF1300C1B090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E9704F2EA6DF1300C1B090 /* Assets.xcassets */; };
 		F8E970522EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E970502EA6DF1300C1B090 /* KanjiKanaTrainerApp.swift */; };
 		F8F833E72EBC13DF0050876F /* chinese_stroke_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F817AAB22EBC0581004239B0 /* chinese_stroke_data.json */; };
@@ -176,21 +164,11 @@
 			);
 			target = F883385B2EA1421900F636D9 /* KanjiKanaTrainer */;
 		};
-		F8DD75B62EA43DDD00B50B76 /* Exceptions for "KanjiKanaTrainerTests" folder in "KanjiKanaTrainer" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				StrokeDataTests.swift,
-			);
-			target = F883385B2EA1421900F636D9 /* KanjiKanaTrainer */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F8DD75B62EA43DDD00B50B76 /* Exceptions for "KanjiKanaTrainerTests" folder in "KanjiKanaTrainer" target */,
-			);
 			path = KanjiKanaTrainerTests;
 			sourceTree = "<group>";
 		};
@@ -347,7 +325,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
-				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
 			);
 			name = KanjiKanaTrainerTests;
 			productName = KanjiKanaTrainerTests;
@@ -489,18 +466,6 @@
 		F88338652EA1421900F636D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				F82B05002EA6E30D000FEA0B /* LessonView.swift in Sources */,
-				F8D1E4682EA69776006039CC /* Models.swift in Sources */,
-				F8A336AC2EA2BF82001DCD01 /* CanvasRepresentable.swift in Sources */,
-				F8DD75B42EA43DA300B50B76 /* GlyphRepository.swift in Sources */,
-				F8D1E4672EA69754006039CC /* ProgressRepository.swift in Sources */,
-				F82736282EF5E98400A6AE00 /* CharacterGlyph+Audio.swift in Sources */,
-				F8D1E46A2EA6988F006039CC /* LessonViewModel.swift in Sources */,
-				F8A336A82EA2BF21001DCD01 /* PracticeViewModel.swift in Sources */,
-				F8D1E4692EA69817006039CC /* StrokeEvaluator.swift in Sources */,
-				F8D1E45A2EA69648006039CC /* StrokeDataConverter.swift in Sources */,
-				F8D1E45B2EA69648006039CC /* StrokeDataDebugView.swift in Sources */,
-				F8D1E45C2EA69648006039CC /* StrokeDataLoader.swift in Sources */,
 			);
 		};
 		F883386F2EA1421900F636D9 /* Sources */ = {
