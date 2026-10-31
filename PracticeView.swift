@@ -16,33 +16,27 @@ struct PracticeView: View {
     var body: some View {
         GeometryReader { geometry in
             if geometry.size.width > geometry.size.height {
-                // Landscape: canvas full height on the right; character, buttons and score scroll on the left.
+                // Landscape: the canvas fills the height on the right; character, buttons and score on the left.
                 HStack(alignment: .top, spacing: 16) {
-                    ScrollView {
-                        VStack(spacing: 12) {
-                            practiceHeader
-                            practiceButtons
-                            practiceScore
-                        }
+                    VStack(spacing: 12) {
+                        practiceHeader(fontSize: min(adaptiveCharacterFontSize, geometry.size.height * 0.2))
+                        practiceButtons
+                        practiceScore
+                        Spacer(minLength: 0)
                     }
-                    .frame(maxWidth: .infinity)
-                    practiceCanvas(size: max(200, min(geometry.size.height - 32, geometry.size.width * 0.6)))
+                    .frame(width: geometry.size.width * 0.38)
+                    FillSquare { side in practiceCanvas(size: side) }
                 }
-                .padding(.vertical)
+                .padding([.vertical, .trailing])
             } else {
                 VStack(spacing: 12) {
-                    practiceHeader
-
-                    // Use GeometryReader to calculate available space for canvas
-                    let availableHeight = geometry.size.height - 300 // Reserve space for text, buttons, score
-                    let maxCanvasSize = min(geometry.size.width - 40, availableHeight) // 40 for horizontal padding
-                    let canvasSize = min(adaptiveCanvasSize, maxCanvasSize)
-                    practiceCanvas(size: canvasSize)
+                    practiceHeader(fontSize: min(adaptiveCharacterFontSize, geometry.size.height * 0.14))
+                    FillSquare { side in practiceCanvas(size: side) }
+                        .padding(.horizontal)
                     practiceButtons
                     practiceScore
-
-                    Spacer(minLength: 0) // Push everything up but allow flexibility
                 }
+                .padding(.vertical, 8)
             }
         }
         .navigationTitle("Practice")
@@ -51,12 +45,15 @@ struct PracticeView: View {
     // MARK: - Layout pieces (shared by portrait and landscape)
 
     @ViewBuilder
-    private var practiceHeader: some View {
+    private func practiceHeader(fontSize: CGFloat) -> some View {
         Text(viewModel.glyph.literal)
-            .font(.system(size: adaptiveCharacterFontSize))
-            .padding(.top, 20)
+            .font(.system(size: fontSize))
+            .lineLimit(1)
+            .minimumScaleFactor(0.4)
         Text(viewModel.glyph.meaning.joined(separator: ", "))
             .foregroundStyle(.secondary)
+            .lineLimit(1)
+            .minimumScaleFactor(0.7)
     }
 
     private func practiceCanvas(size: CGFloat) -> some View {
@@ -66,7 +63,6 @@ struct PracticeView: View {
             .cornerRadius(12)
             .overlay(RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.secondary.opacity(0.3)))
-            .padding(.horizontal)
     }
 
     private var practiceButtons: some View {
@@ -85,11 +81,14 @@ struct PracticeView: View {
         .padding()
     }
 
-    @ViewBuilder
+    /// Fixed-height place for the score, so the canvas never changes size when it appears.
     private var practiceScore: some View {
-        if let score = viewModel.score {
-            ScoreFeedbackView(score: score, progress: viewModel.progress)
+        ZStack {
+            if let score = viewModel.score {
+                ScoreFeedbackView(score: score, progress: viewModel.progress)
+            }
         }
+        .frame(height: 56)
     }
 }
 

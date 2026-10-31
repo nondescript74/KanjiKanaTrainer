@@ -18,3 +18,19 @@ extension View {
         UIDevice.current.userInterfaceIdiom == .pad ? 120 : 72
     }
 }
+
+/// A square that takes all the space its container leaves over and stays square, so a canvas
+/// fits any device and orientation without fixed sizes. `reserve` is room kept below the
+/// square inside the same space (for a status line under a canvas).
+struct FillSquare<Content: View>: View {
+    var reserve: CGFloat = 0
+    @ViewBuilder var content: (CGFloat) -> Content
+
+    var body: some View {
+        GeometryReader { geometry in
+            let side = max(0, min(geometry.size.width, geometry.size.height - reserve))
+            content(side)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
+}

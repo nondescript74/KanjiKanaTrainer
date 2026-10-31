@@ -19,7 +19,8 @@ struct SequentialPracticeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 12) {
+            let landscape = geometry.size.width > geometry.size.height
+            VStack(spacing: 8) {
                 // Progress indicator
                 HStack {
                     Text("\(viewModel.currentNumber) of \(viewModel.totalCount)")
@@ -31,13 +32,6 @@ struct SequentialPracticeView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 8)
-                
-                // Contextual tip for evaluation
-                SequentialPracticeHelp.InlineTip(
-                    icon: "hand.draw",
-                    message: "Draw the character, then tap Evaluate to see your score",
-                    isVisible: $showEvaluationTip
-                )
                 
                 if viewModel.isLoading {
                     Spacer()
@@ -52,34 +46,49 @@ struct SequentialPracticeView: View {
                     )
                     Spacer()
                 } else if let glyph = viewModel.currentGlyph {
-                    if geometry.size.width > geometry.size.height {
-                        // Landscape: the canvas takes the full height on the right; the
-                        // character, buttons, score and navigation scroll on the left.
+                    if landscape {
+                        // Landscape: the canvas fills the height on the right; everything else on the left.
                         HStack(alignment: .top, spacing: 16) {
-                            ScrollView {
-                                VStack(spacing: 12) {
-                                    practiceHeader(glyph)
-                                    drawControls
-                                    practiceFooter
-                                }
+                            VStack(spacing: 8) {
+                                practiceHeader(glyph, fontSize: min(adaptiveCharacterFontSize, geometry.size.height * 0.18))
+                                drawControls
+                                scoreSlot
+                                Spacer(minLength: 0)
+                                navigationRow
                             }
-                            .frame(maxWidth: .infinity)
-                            practiceCanvas(size: landscapeCanvasSize(geometry.size))
+                            .frame(width: geometry.size.width * 0.38)
+                            FillSquare { side in practiceCanvas(size: side) }
                         }
+                        .padding(.trailing)
+                        .padding(.bottom, 8)
                     } else {
-                        practiceHeader(glyph)
-
-                        // Use GeometryReader to calculate available space for canvas
-                        let availableHeight = geometry.size.height - 380 // Reserve space for text, buttons, score, navigation
-                        let maxCanvasSize = min(geometry.size.width - 40, availableHeight) // 40 for horizontal padding
-                        let canvasSize = min(adaptiveCanvasSize, maxCanvasSize)
-                        practiceCanvas(size: canvasSize)
+                        practiceHeader(glyph, fontSize: min(adaptiveCharacterFontSize, geometry.size.height * 0.12))
+                        FillSquare { side in practiceCanvas(size: side) }
+                            .padding(.horizontal)
                         drawControls
-                        practiceFooter
+                        scoreSlot
+                        navigationRow
                     }
-                    
+                } else {
                     Spacer(minLength: 0)
                 }
+            }
+            // Tips float over the top of the screen instead of pushing the canvas down.
+            .overlay(alignment: .top) {
+                VStack(spacing: 4) {
+                    SequentialPracticeHelp.InlineTip(
+                        icon: "hand.draw",
+                        message: "Draw the character, then tap Evaluate to see your score",
+                        isVisible: $showEvaluationTip
+                    )
+                    SequentialPracticeHelp.InlineTip(
+                        icon: "arrow.left.arrow.right",
+                        message: "Use Next to continue, or Previous to review earlier characters",
+                        color: .green,
+                        isVisible: $showNavigationTip
+                    )
+                }
+                .padding(.top, 36)
             }
         }
         .navigationTitle("Practice")
@@ -136,28 +145,25 @@ struct SequentialPracticeView: View {
 // MARK: - Practice layout pieces (shared by portrait and landscape)
 
 extension SequentialPracticeView {
-    /// Landscape canvas: as tall as the screen allows below the progress row, at most 60% of the width.
-    func landscapeCanvasSize(_ size: CGSize) -> CGFloat {
-        max(200, min(size.height - 70, size.width * 0.6))
-    }
-
     @ViewBuilder
-    func practiceHeader(_ glyph: CharacterGlyph) -> some View {
+    func practiceHeader(_ glyph: CharacterGlyph, fontSize: CGFloat) -> some View {
         Text(glyph.literal)
-            .font(.system(size: adaptiveCharacterFontSize))
-            .padding(.top, 20)
+            .font(.system(size: fontSize))
+            .lineLimit(1)
+            .minimumScaleFactor(0.4)
         Text(glyph.meaning.joined(separator: ", "))
             .foregroundStyle(.secondary)
-        
-        // Show readings if available
+            .lineLimit(1)
+            .minimumScaleFactor(0.7)
         if !glyph.readings.isEmpty {
             Text(glyph.readings.joined(separator: ", "))
                 .font(.caption)
                 .foregroundStyle(.secondary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
     }
 
-    @ViewBuilder
     func practiceCanvas(size: CGFloat) -> some View {
         CanvasRepresentable(drawing: $drawing)
             .frame(width: size, height: size)
@@ -165,10 +171,8 @@ extension SequentialPracticeView {
             .cornerRadius(12)
             .overlay(RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.secondary.opacity(0.3)))
-            .padding(.horizontal)
     }
 
-    @ViewBuilder
     var drawControls: some View {
         HStack {
             Button("Clear") {
@@ -197,21 +201,19 @@ extension SequentialPracticeView {
         .padding(.horizontal)
     }
 
-    @ViewBuilder
-    var practiceFooter: some View {
-        if let score = viewModel.score {
-            ScoreFeedbackView(score: score, progress: viewModel.progress)
+    /// Fixed-height place for the score, so the canvas never changes size when it appears.
+    var scoreSlot: some View {
+        ZStack {
+            if let score = viewModel.score {
+                ScoreFeedbackView(score: score, progress: viewModel.progress)
+            }
         }
-        
-        // Navigation tip
-        SequentialPracticeHelp.InlineTip(
-            icon: "arrow.left.arrow.right",
-            message: "Use Next to continue, or Previous to review earlier characters",
-            color: .green,
-            isVisible: $showNavigationTip
-        )
-        
-        // Navigation buttons
+        .frame(height: 56)
+    }
+
+    @ViewBuilder
+    var navigationRow: some View {
+// Navigation buttons
         HStack(spacing: 20) {
             Button {
                 Task {

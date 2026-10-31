@@ -25,36 +25,30 @@ struct SequentialDemoView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else if let glyph = viewModel.currentGlyph {
                     if landscape {
-                        // Landscape: the canvas takes the full height on the right; the
-                        // character, controls and navigation scroll on the left.
+                        // Landscape: the canvas fills the height on the right; everything else on the left.
                         HStack(alignment: .top, spacing: 16) {
-                            ScrollView {
-                                VStack(spacing: 24) {
-                                    characterHeader(glyph: glyph)
-                                    controlButtons
-                                    navigationButtons
-                                }
+                            VStack(spacing: 12) {
+                                characterHeader(glyph: glyph, fontSize: min(adaptiveCharacterFontSize, geometry.size.height * 0.2))
+                                controlButtons
+                                Spacer(minLength: 0)
+                                navigationButtons
                             }
-                            .frame(maxWidth: .infinity)
-                            demoCanvas(glyph: glyph, side: landscapeDemoCanvasSide(geometry.size))
+                            .frame(width: geometry.size.width * 0.38)
+                            FillSquare(reserve: 28) { side in demoCanvas(glyph: glyph, side: side) }
                         }
                         .padding()
                     } else {
-                        ScrollView {
-                            VStack(spacing: 24) {
-                                characterHeader(glyph: glyph)
-                                demoCanvas(glyph: glyph, side: min(adaptiveCanvasSize, geometry.size.width - 32))
-                                controlButtons
-                                navigationButtons
-                            }
-                            .padding()
+                        VStack(spacing: 12) {
+                            characterHeader(glyph: glyph, fontSize: min(adaptiveCharacterFontSize, geometry.size.height * 0.1))
+                            FillSquare(reserve: 28) { side in demoCanvas(glyph: glyph, side: side) }
+                            controlButtons
+                            navigationButtons
                         }
+                        .padding()
                     }
                 } else if let error = viewModel.error {
-                    ScrollView {
-                        errorView(error: error)
-                            .padding()
-                    }
+                    errorView(error: error)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
         }
@@ -117,28 +111,27 @@ struct SequentialDemoView: View {
         .background(Color(UIColor.systemBackground))
     }
     
-    private func characterHeader(glyph: CharacterGlyph) -> some View {
-        VStack(spacing: 8) {
+    private func characterHeader(glyph: CharacterGlyph, fontSize: CGFloat) -> some View {
+        VStack(spacing: 4) {
             Text(glyph.literal)
-                .font(.system(size: adaptiveCharacterFontSize))
+                .font(.system(size: fontSize))
                 .fontWeight(.light)
+                .lineLimit(1)
+                .minimumScaleFactor(0.4)
             
             Text(glyph.meaning.joined(separator: ", "))
                 .font(.title3)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
         }
-        .padding()
+        .padding(12)
         .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color(UIColor.secondarySystemBackground))
         )
-    }
-    
-    /// Landscape canvas side: the height left after padding and the status line, at most 55% of the width.
-    private func landscapeDemoCanvasSide(_ size: CGSize) -> CGFloat {
-        max(200, min(size.height - 32 - 36, size.width * 0.55))
     }
     
     private func demoCanvas(glyph: CharacterGlyph, side: CGFloat) -> some View {
@@ -318,7 +311,6 @@ struct SequentialDemoView: View {
                     .frame(width: 44, height: 44)
             }
         }
-        .padding(.vertical)
     }
     
     private var navigationButtons: some View {
