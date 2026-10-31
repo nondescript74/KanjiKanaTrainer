@@ -398,15 +398,45 @@ final class SequentialPracticeViewModel: ObservableObject {
     /// Family Members (from First 100)
     static func firstHundredFamily(env: AppEnvironment) -> SequentialPracticeViewModel {
         let codepoints: [Int] = [
-            0x7236,  // 父 father
-            0x6BCD,  // 母 mother
+            0x7238,  // 爸 dad
+            0x5988,  // 妈 mom
+            0x54E5,  // 哥 older brother
+            0x59D0,  // 姐 older sister
             0x5F1F,  // 弟 younger brother
             0x59B9,  // 妹 younger sister
+            0x7236,  // 父 father
+            0x6BCD,  // 母 mother
             0x5973,  // 女 woman/female
             0x513F,  // 儿 son/child
             0x5B50   // 子 child/son
         ]
         let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Grandparents & relatives (Δ-167)
+    static func familyRelatives(env: AppEnvironment) -> SequentialPracticeViewModel {
+        let codepoints: [Int] = [
+            0x7237,  // 爷 grandpa (dad's dad)
+            0x5976,  // 奶 grandma (dad's mom)
+            0x5916,  // 外 mom's side (外公, 外婆)
+            0x516C,  // 公 grandpa (外公)
+            0x5A46,  // 婆 grandma (外婆)
+            0x53D4,  // 叔 uncle (dad's younger brother)
+            0x59E8,  // 姨 aunt (mom's sister)
+            0x8205,  // 舅 uncle (mom's brother)
+            0x59D1   // 姑 aunt (dad's sister)
+        ]
+        let ids = codepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
+        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+    
+    /// Any Chinese numbers 0-100, in the order given (compounds for 11-100)
+    static func chineseNumbers(_ numbers: [Int], env: AppEnvironment) -> SequentialPracticeViewModel {
+        var ids: [CharacterID] = []
+        for number in numbers {
+            ids.append(ChineseNumberIDs.id(for: number))
+        }
         return SequentialPracticeViewModel(glyphIDs: ids, env: env)
     }
     
@@ -793,8 +823,8 @@ final class SequentialPracticeViewModel: ObservableObject {
     }
 }
 
-/// Character IDs for the Chinese numbers 0-30, in counting order.
-/// 0-10 are single characters; 11-30 are compound glyphs (十一, 二十, 二十一 …)
+/// Character IDs for the Chinese numbers 0-100, in counting order.
+/// 0-10 are single characters; 11-100 are compound glyphs (十一, 二十, 二十一 …)
 /// served by `GlyphBundleRepository` under `CharacterID.compound`.
 enum ChineseNumberIDs {
     static let singles: [Int] = [
@@ -812,7 +842,7 @@ enum ChineseNumberIDs {
     ]
     
     static func id(for number: Int) -> CharacterID {
-        precondition((0...30).contains(number), "Chinese number sets cover 0-30")
+        precondition((0...100).contains(number), "Chinese number sets cover 0-100")
         return number <= 10
             ? CharacterID(script: .hanzi, codepoint: singles[number])
             : .compound(script: .hanzi, number: number)

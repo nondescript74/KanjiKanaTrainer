@@ -32,6 +32,15 @@ struct ChineseNumberSetSelector: View {
         case first100Greetings = "first100greet"
         case first100Introduction = "first100intro"
         case first100Family = "first100family"
+        case tensTo100 = "tens"
+        case numbers31to40 = "31-40"
+        case numbers41to50 = "41-50"
+        case numbers51to60 = "51-60"
+        case numbers61to70 = "61-70"
+        case numbers71to80 = "71-80"
+        case numbers81to90 = "81-90"
+        case numbers91to100 = "91-100"
+        case familyRelatives = "familyrelatives"
         case first100Time = "first100time"
         case first100School = "first100school"
         case first100Food = "first100food"
@@ -59,6 +68,15 @@ struct ChineseNumberSetSelector: View {
             case .first100Greetings: return "Greetings & Politeness"
             case .first100Introduction: return "Self-Introduction"
             case .first100Family: return "Family Members"
+            case .tensTo100: return "Tens 10-100"
+            case .numbers31to40: return "Numbers 31-40"
+            case .numbers41to50: return "Numbers 41-50"
+            case .numbers51to60: return "Numbers 51-60"
+            case .numbers61to70: return "Numbers 61-70"
+            case .numbers71to80: return "Numbers 71-80"
+            case .numbers81to90: return "Numbers 81-90"
+            case .numbers91to100: return "Numbers 91-100"
+            case .familyRelatives: return "Grandparents & Relatives"
             case .first100Time: return "Time Expressions"
             case .first100School: return "School & Learning"
             case .first100Food: return "Food & Meals"
@@ -85,7 +103,16 @@ struct ChineseNumberSetSelector: View {
             case .first100All: return "Complete beginner set of 99 essential characters"
             case .first100Greetings: return "好, 请, 谢, 再见, 问"
             case .first100Introduction: return "我, 叫, 名字, 他, 什么"
-            case .first100Family: return "父, 母, 弟, 妹, 女儿, 子"
+            case .first100Family: return "爸, 妈, 哥, 姐, 弟, 妹, 父, 母, 女, 儿, 子"
+            case .tensTo100: return "十, 二十, 三十... 一百"
+            case .numbers31to40: return "三十一, 三十二... 四十"
+            case .numbers41to50: return "四十一, 四十二... 五十"
+            case .numbers51to60: return "五十一, 五十二... 六十"
+            case .numbers61to70: return "六十一, 六十二... 七十"
+            case .numbers71to80: return "七十一, 七十二... 八十"
+            case .numbers81to90: return "八十一, 八十二... 九十"
+            case .numbers91to100: return "九十一, 九十二... 一百"
+            case .familyRelatives: return "爷, 奶, 外公, 外婆, 叔, 姨, 舅, 姑"
             case .first100Time: return "今天, 明天, 星期, 上午, 下午"
             case .first100School: return "大学, 小学, 学校, 老师, 同学"
             case .first100Food: return "吃, 喝, 饭, 晚饭"
@@ -112,6 +139,15 @@ struct ChineseNumberSetSelector: View {
             case .first100Greetings: return "hand.wave.fill"
             case .first100Introduction: return "person.badge.plus"
             case .first100Family: return "person.3.fill"
+            case .tensTo100: return "number.circle.fill"
+            case .numbers31to40: return "number.circle"
+            case .numbers41to50: return "number.circle"
+            case .numbers51to60: return "number.circle"
+            case .numbers61to70: return "number.circle"
+            case .numbers71to80: return "number.circle"
+            case .numbers81to90: return "number.circle"
+            case .numbers91to100: return "number.circle"
+            case .familyRelatives: return "figure.2.and.child.holdinghands"
             case .first100Time: return "clock.fill"
             case .first100School: return "building.2.fill"
             case .first100Food: return "fork.knife"
@@ -138,7 +174,16 @@ struct ChineseNumberSetSelector: View {
             case .first100All: return 99
             case .first100Greetings: return 6
             case .first100Introduction: return 7
-            case .first100Family: return 7
+            case .first100Family: return 11
+            case .tensTo100: return 10
+            case .numbers31to40: return 10
+            case .numbers41to50: return 10
+            case .numbers51to60: return 10
+            case .numbers61to70: return 10
+            case .numbers71to80: return 10
+            case .numbers81to90: return 10
+            case .numbers91to100: return 10
+            case .familyRelatives: return 9
             case .first100Time: return 11
             case .first100School: return 9
             case .first100Food: return 4
@@ -166,6 +211,15 @@ struct ChineseNumberSetSelector: View {
             case .first100Greetings: return .firstHundredGreetings(env: env)
             case .first100Introduction: return .firstHundredIntroduction(env: env)
             case .first100Family: return .firstHundredFamily(env: env)
+            case .tensTo100: return .chineseNumbers(Array(stride(from: 10, through: 100, by: 10)), env: env)
+            case .numbers31to40: return .chineseNumbers(Array(31...40), env: env)
+            case .numbers41to50: return .chineseNumbers(Array(41...50), env: env)
+            case .numbers51to60: return .chineseNumbers(Array(51...60), env: env)
+            case .numbers61to70: return .chineseNumbers(Array(61...70), env: env)
+            case .numbers71to80: return .chineseNumbers(Array(71...80), env: env)
+            case .numbers81to90: return .chineseNumbers(Array(81...90), env: env)
+            case .numbers91to100: return .chineseNumbers(Array(91...100), env: env)
+            case .familyRelatives: return .familyRelatives(env: env)
             case .first100Time: return .firstHundredTime(env: env)
             case .first100School: return .firstHundredSchool(env: env)
             case .first100Food: return .firstHundredFood(env: env)
@@ -208,6 +262,56 @@ struct ChineseNumberSetSelector: View {
                     SequentialPracticeView(viewModel: NumberSet.numbers20to30.createViewModel(env: env))
                 } label: {
                     NumberSetRow(set: .numbers20to30)
+                }
+            }
+            
+            Section("Numbers to 100") {
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.tensTo100.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .tensTo100)
+                }
+
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.numbers31to40.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .numbers31to40)
+                }
+
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.numbers41to50.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .numbers41to50)
+                }
+
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.numbers51to60.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .numbers51to60)
+                }
+
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.numbers61to70.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .numbers61to70)
+                }
+
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.numbers71to80.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .numbers71to80)
+                }
+
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.numbers81to90.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .numbers81to90)
+                }
+
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.numbers91to100.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .numbers91to100)
                 }
             }
             
@@ -294,6 +398,12 @@ struct ChineseNumberSetSelector: View {
                     SequentialPracticeView(viewModel: NumberSet.first100Family.createViewModel(env: env))
                 } label: {
                     NumberSetRow(set: .first100Family)
+                }
+                
+                NavigationLink {
+                    SequentialPracticeView(viewModel: NumberSet.familyRelatives.createViewModel(env: env))
+                } label: {
+                    NumberSetRow(set: .familyRelatives)
                 }
                 
                 NavigationLink {

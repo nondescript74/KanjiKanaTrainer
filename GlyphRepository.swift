@@ -381,6 +381,21 @@ struct GlyphBundleRepository: GlyphRepository {
             (0x6D77, "海", ["hǎi", "hoi2"], ["sea", "ocean"]),
             (0x53EF, "可", ["kě", "ho2"], ["can", "may"]),
             (0x4E50, "乐", ["lè", "lok6"], ["happy", "music"]),
+            
+            // Family members (Δ-167): pinyin first, Cantonese jyutping second
+            (0x7238, "爸", ["bà", "baa1"], ["dad"]),
+            (0x5988, "妈", ["mā", "maa1"], ["mom"]),
+            (0x54E5, "哥", ["gē", "go1"], ["older brother"]),
+            (0x59D0, "姐", ["jiě", "ze2"], ["older sister"]),
+            (0x7237, "爷", ["yé", "je4"], ["grandpa (dad's dad)"]),
+            (0x5976, "奶", ["nǎi", "naai5"], ["grandma (dad's mom)"]),
+            (0x5916, "外", ["wài", "ngoi6"], ["outside", "mom's side (外公, 外婆)"]),
+            (0x516C, "公", ["gōng", "gung1"], ["grandpa (外公, mom's dad)"]),
+            (0x5A46, "婆", ["pó", "po4"], ["grandma (外婆, mom's mom)"]),
+            (0x53D4, "叔", ["shū", "suk1"], ["uncle (dad's younger brother)"]),
+            (0x59E8, "姨", ["yí", "ji4"], ["aunt (mom's sister)"]),
+            (0x8205, "舅", ["jiù", "kau5"], ["uncle (mom's brother)"]),
+            (0x59D1, "姑", ["gū", "gu1"], ["aunt (dad's sister)"]),
         ]
         for (codepoint, lit, readings, meanings) in entries {
             map[codepoint] = (literal: lit, readings: readings, meaning: meanings)
@@ -388,38 +403,51 @@ struct GlyphBundleRepository: GlyphRepository {
         return map
     }()
     
-    // Compound numbers 11-30
-    // Using negative numbers as keys to distinguish from Unicode codepoints
+    // Compound numbers 11-100, generated from the digits.
+    // Using negative numbers as keys to distinguish from Unicode codepoints.
+    private static let digitNames: [(codepoint: Int, literal: String, pinyin: String, jyutping: String)] = [
+        (0x96F6, "零", "líng", "ling4"),
+        (0x4E00, "一", "yī", "jat1"),
+        (0x4E8C, "二", "èr", "ji6"),
+        (0x4E09, "三", "sān", "saam1"),
+        (0x56DB, "四", "sì", "sei3"),
+        (0x4E94, "五", "wǔ", "ng5"),
+        (0x516D, "六", "liù", "luk6"),
+        (0x4E03, "七", "qī", "cat1"),
+        (0x516B, "八", "bā", "baat3"),
+        (0x4E5D, "九", "jiǔ", "gau2")
+    ]
+    private static let ten = (codepoint: 0x5341, literal: "十", pinyin: "shí", jyutping: "sap6")
+    private static let hundred = (codepoint: 0x767E, literal: "百", pinyin: "bǎi", jyutping: "baak3")
+    
+    /// English words for 11-100 ("eleven", "thirty-one", "one hundred").
+    static func englishNumber(_ n: Int) -> String {
+        let ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+        let teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+        let tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+        if n == 100 { return "one hundred" }
+        if n < 10 { return ones[n] }
+        if n < 20 { return teens[n - 10] }
+        return n % 10 == 0 ? tens[n / 10] : "\(tens[n / 10])-\(ones[n % 10])"
+    }
+    
     private static let compoundNumbers: [Int: (literal: String, readings: [String], meaning: [String], components: [Int])] = {
         var map: [Int: (literal: String, readings: [String], meaning: [String], components: [Int])] = [:]
-        let entries: [(Int, String, [String], [String], [Int])] = [
-            // 11-19: ten + units
-            (11, "十一", ["shí yī", "sap6 jat1"], ["eleven"], [0x5341, 0x4E00]),
-            (12, "十二", ["shí èr", "sap6 ji6"], ["twelve"], [0x5341, 0x4E8C]),
-            (13, "十三", ["shí sān", "sap6 saam1"], ["thirteen"], [0x5341, 0x4E09]),
-            (14, "十四", ["shí sì", "sap6 sei3"], ["fourteen"], [0x5341, 0x56DB]),
-            (15, "十五", ["shí wǔ", "sap6 ng5"], ["fifteen"], [0x5341, 0x4E94]),
-            (16, "十六", ["shí liù", "sap6 luk6"], ["sixteen"], [0x5341, 0x516D]),
-            (17, "十七", ["shí qī", "sap6 cat1"], ["seventeen"], [0x5341, 0x4E03]),
-            (18, "十八", ["shí bā", "sap6 baat3"], ["eighteen"], [0x5341, 0x516B]),
-            (19, "十九", ["shí jiǔ", "sap6 gau2"], ["nineteen"], [0x5341, 0x4E5D]),
-            // 20: two-ten
-            (20, "二十", ["èr shí", "ji6 sap6"], ["twenty"], [0x4E8C, 0x5341]),
-            // 21-29: two-ten + units
-            (21, "二十一", ["èr shí yī", "ji6 sap6 jat1"], ["twenty-one"], [0x4E8C, 0x5341, 0x4E00]),
-            (22, "二十二", ["èr shí èr", "ji6 sap6 ji6"], ["twenty-two"], [0x4E8C, 0x5341, 0x4E8C]),
-            (23, "二十三", ["èr shí sān", "ji6 sap6 saam1"], ["twenty-three"], [0x4E8C, 0x5341, 0x4E09]),
-            (24, "二十四", ["èr shí sì", "ji6 sap6 sei3"], ["twenty-four"], [0x4E8C, 0x5341, 0x56DB]),
-            (25, "二十五", ["èr shí wǔ", "ji6 sap6 ng5"], ["twenty-five"], [0x4E8C, 0x5341, 0x4E94]),
-            (26, "二十六", ["èr shí liù", "ji6 sap6 luk6"], ["twenty-six"], [0x4E8C, 0x5341, 0x516D]),
-            (27, "二十七", ["èr shí qī", "ji6 sap6 cat1"], ["twenty-seven"], [0x4E8C, 0x5341, 0x4E03]),
-            (28, "二十八", ["èr shí bā", "ji6 sap6 baat3"], ["twenty-eight"], [0x4E8C, 0x5341, 0x516B]),
-            (29, "二十九", ["èr shí jiǔ", "ji6 sap6 gau2"], ["twenty-nine"], [0x4E8C, 0x5341, 0x4E5D]),
-            // 30: three-ten
-            (30, "三十", ["sān shí", "saam1 sap6"], ["thirty"], [0x4E09, 0x5341]),
-        ]
-        for (num, lit, readings, meanings, components) in entries {
-            map[num] = (literal: lit, readings: readings, meaning: meanings, components: components)
+        for n in 11...100 {
+            var parts: [(codepoint: Int, literal: String, pinyin: String, jyutping: String)] = []
+            if n == 100 {
+                parts = [digitNames[1], hundred]                   // 一百
+            } else {
+                if n / 10 > 1 { parts.append(digitNames[n / 10]) } // 二十 … 九十 (but 十一, not 一十一)
+                parts.append(ten)
+                if n % 10 > 0 { parts.append(digitNames[n % 10]) }
+            }
+            map[n] = (
+                literal: parts.map(\.literal).joined(),
+                readings: [parts.map(\.pinyin).joined(separator: " "), parts.map(\.jyutping).joined(separator: " ")],
+                meaning: [englishNumber(n)],
+                components: parts.map(\.codepoint)
+            )
         }
         return map
     }()

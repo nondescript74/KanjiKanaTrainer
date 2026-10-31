@@ -83,3 +83,40 @@ struct CompoundLayoutTests {
         #expect(ten.upperBound < three.lowerBound)
     }
 }
+
+/// The app target defaults to MainActor isolation (SWIFT_DEFAULT_ACTOR_ISOLATION),
+/// so suites that call app types synchronously must run on the main actor too.
+@MainActor
+struct NumbersTo100AndFamilyTests {
+
+    private let repo = GlyphBundleRepository()
+
+    @Test func numbersAboveThirtyAreWrittenAndReadCorrectly() async throws {
+        let g55 = try await repo.glyph(for: ChineseNumberIDs.id(for: 55))
+        #expect(g55.literal == "五十五")
+        #expect(g55.readings.first == "wǔ shí wǔ")
+        #expect(g55.meaning == ["fifty-five"])
+        #expect(try await repo.glyph(for: ChineseNumberIDs.id(for: 70)).literal == "七十")
+        let g100 = try await repo.glyph(for: ChineseNumberIDs.id(for: 100))
+        #expect(g100.literal == "一百")
+        #expect(g100.meaning == ["one hundred"])
+        #expect(g100.components == [0x4E00, 0x767E])
+    }
+
+    @Test func everyNumberFromZeroToOneHundredHasStrokes() async throws {
+        for n in 0...100 {
+            let glyph = try await repo.glyph(for: ChineseNumberIDs.id(for: n))
+            #expect(!glyph.strokes.isEmpty, "no strokes for \(n) \(glyph.literal)")
+        }
+    }
+
+    @Test func everyFamilyCharacterHasStrokesAndAMeaning() async throws {
+        for ch in "爸妈哥姐弟妹父母女儿子爷奶外公婆叔姨舅姑" {
+            let cp = Int(ch.unicodeScalars.first!.value)
+            let glyph = try await repo.glyph(for: CharacterID(script: .hanzi, codepoint: cp))
+            #expect(glyph.literal == String(ch))
+            #expect(!glyph.strokes.isEmpty, "no strokes for \(ch)")
+            #expect(!glyph.meaning.isEmpty, "no meaning for \(ch)")
+        }
+    }
+}
