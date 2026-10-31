@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AttemptEvaluator {
+nonisolated protocol AttemptEvaluator {
     func evaluate(user: [StrokePath], ideal: [StrokePath]) -> PracticeScore
 }
 
@@ -15,7 +15,7 @@ protocol AttemptEvaluator {
 /// the 100 Chinese characters are on the 0–1024 hanzi-writer grid). Both sides
 /// are normalised into the same unit box before anything is compared, so the
 /// score does not depend on canvas size or on which data file a glyph came from.
-struct DefaultAttemptEvaluator: AttemptEvaluator {
+nonisolated struct DefaultAttemptEvaluator: AttemptEvaluator {
 
     /// Points each stroke is resampled to before comparing.
     var samplesPerStroke = 16
@@ -65,7 +65,7 @@ struct DefaultAttemptEvaluator: AttemptEvaluator {
 }
 
 /// Plain geometry helpers on strokes, kept separate so they can be tested.
-enum StrokeGeometry {
+nonisolated enum StrokeGeometry {
     typealias Point = (x: Double, y: Double)
 
     /// Maps all strokes into a unit box together (keeping aspect ratio and the

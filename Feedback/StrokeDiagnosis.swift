@@ -1,7 +1,7 @@
 import Foundation
 
 /// The basic stroke families a teacher names when correcting a child.
-enum StrokeKind: String {
+nonisolated enum StrokeKind: String {
     case horizontal, vertical, leftFalling, rightFalling, dot
 
     /// Plain English name, used for kana.
@@ -50,7 +50,7 @@ enum StrokeKind: String {
 }
 
 /// What happened to one written stroke.
-enum StrokeVerdict: Equatable {
+nonisolated enum StrokeVerdict: Equatable {
     case correct
     case wrongOrder(belongsAt: Int)   // 0-based reference index this stroke really is
     case backwards
@@ -61,7 +61,7 @@ enum StrokeVerdict: Equatable {
 }
 
 /// A full stroke-by-stroke diagnosis of one attempt, for the mistake overlay.
-struct StrokeDiagnosis {
+nonisolated struct StrokeDiagnosis {
     /// User strokes and reference strokes in the same unit box the evaluator uses.
     let user: [[StrokeGeometry.Point]]
     let reference: [[StrokeGeometry.Point]]
