@@ -17,29 +17,45 @@ struct SequentialDemoView: View {
             // Progress indicator
             progressBar
             
-            ScrollView {
-                VStack(spacing: 24) {
-                    if viewModel.isLoading {
-                        ProgressView("Loading character...")
+            GeometryReader { geometry in
+                let landscape = geometry.size.width > geometry.size.height
+                if viewModel.isLoading {
+                    ProgressView("Loading character...")
+                        .padding()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if let glyph = viewModel.currentGlyph {
+                    if landscape {
+                        // Landscape: the canvas takes the full height on the right; the
+                        // character, controls and navigation scroll on the left.
+                        HStack(alignment: .top, spacing: 16) {
+                            ScrollView {
+                                VStack(spacing: 24) {
+                                    characterHeader(glyph: glyph)
+                                    controlButtons
+                                    navigationButtons
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                            demoCanvas(glyph: glyph, side: landscapeDemoCanvasSide(geometry.size))
+                        }
+                        .padding()
+                    } else {
+                        ScrollView {
+                            VStack(spacing: 24) {
+                                characterHeader(glyph: glyph)
+                                demoCanvas(glyph: glyph, side: min(adaptiveCanvasSize, geometry.size.width - 32))
+                                controlButtons
+                                navigationButtons
+                            }
                             .padding()
-                    } else if let glyph = viewModel.currentGlyph {
-                        // Character display
-                        characterHeader(glyph: glyph)
-                        
-                        // Demo canvas
-                        demoCanvas(glyph: glyph)
-                        
-                        // Controls
-                        controlButtons
-                        
-                        // Navigation
-                        navigationButtons
-                        
-                    } else if let error = viewModel.error {
+                        }
+                    }
+                } else if let error = viewModel.error {
+                    ScrollView {
                         errorView(error: error)
+                            .padding()
                     }
                 }
-                .padding()
             }
         }
         .navigationTitle("Sequential Demo")
@@ -120,7 +136,12 @@ struct SequentialDemoView: View {
         )
     }
     
-    private func demoCanvas(glyph: CharacterGlyph) -> some View {
+    /// Landscape canvas side: the height left after padding and the status line, at most 55% of the width.
+    private func landscapeDemoCanvasSide(_ size: CGSize) -> CGFloat {
+        max(200, min(size.height - 32 - 36, size.width * 0.55))
+    }
+    
+    private func demoCanvas(glyph: CharacterGlyph, side: CGFloat) -> some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 12)
@@ -129,7 +150,7 @@ struct SequentialDemoView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
                     )
-                    .frame(width: adaptiveCanvasSize, height: adaptiveCanvasSize)
+                    .frame(width: side, height: side)
                 
                 if viewModel.demoState != .idle {
                     Canvas { context, size in
@@ -217,7 +238,7 @@ struct SequentialDemoView: View {
                             )
                         }
                     }
-                    .frame(width: adaptiveCanvasSize, height: adaptiveCanvasSize)
+                    .frame(width: side, height: side)
                 }
                 
                 // Demo state overlay removed - use Play Demo button instead
