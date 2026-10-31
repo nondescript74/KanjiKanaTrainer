@@ -185,6 +185,11 @@
 			path = Docs;
 			sourceTree = "<group>";
 		};
+		F8FEED012F00000100ABCDEF /* Feedback */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Feedback;
+			sourceTree = "<group>";
+		};
 		F8F5D8B82ECD1F7A001AA0F8 /* Environment */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Environment;
@@ -250,6 +255,7 @@
 				F8A336AA2EA2BF82001DCD01 /* CanvasRepresentable.swift */,
 				F8E9704F2EA6DF1300C1B090 /* Assets.xcassets */,
 				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
+				F8FEED012F00000100ABCDEF /* Feedback */,
 				F88943BE2EA144E8001C8FB9 /* Domain */,
 				F883386C2EA1421900F636D9 /* KanjiKanaTrainerTests */,
 				F88338762EA1421900F636D9 /* KanjiKanaTrainerUITests */,
@@ -304,6 +310,7 @@
 			fileSystemSynchronizedGroups = (
 				F8A231962EAADDCB00DE6818 /* Docs */,
 				F8F5D8B82ECD1F7A001AA0F8 /* Environment */,
+				F8FEED012F00000100ABCDEF /* Feedback */,
 			);
 			name = KanjiKanaTrainer;
 			productName = KanjiKanaTrainer;

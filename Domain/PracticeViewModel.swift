@@ -15,6 +15,7 @@ final class PracticeViewModel: ObservableObject {
     let glyph: CharacterGlyph
     private let env: AppEnvironment
     @Published var score: PracticeScore?
+    @Published var diagnosis: StrokeDiagnosis?
     @Published var progress: CharacterProgress?
 
     init(glyph: CharacterGlyph, env: AppEnvironment) {
@@ -25,6 +26,7 @@ final class PracticeViewModel: ObservableObject {
 
     func clearScore() {
         score = nil
+        diagnosis = nil
     }
 
     func evaluate(_ drawing: PKDrawing) {
@@ -38,6 +40,7 @@ final class PracticeViewModel: ObservableObject {
         }
 
         let attemptScore = env.evaluator.evaluate(user: strokes, ideal: glyph.strokes)
+        diagnosis = StrokeDiagnosis(user: strokes, ideal: glyph.strokes, usesChineseTerms: glyph.script != .kana)
         score = attemptScore
         record(attemptScore, for: glyph)
     }

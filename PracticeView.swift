@@ -88,10 +88,11 @@ struct PracticeView: View {
     private var practiceScore: some View {
         ZStack {
             if let score = viewModel.score {
-                ScoreFeedbackView(score: score, progress: viewModel.progress)
+                ScoreFeedbackView(score: score, progress: viewModel.progress,
+                                  diagnosis: viewModel.diagnosis, glyph: viewModel.glyph)
             }
         }
-        .frame(height: 56)
+        .frame(height: 76)
     }
 }
 

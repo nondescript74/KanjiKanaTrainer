@@ -17,6 +17,7 @@ final class SequentialPracticeViewModel: ObservableObject {
     @Published var currentIndex: Int = 0
     @Published var currentGlyph: CharacterGlyph?
     @Published var score: PracticeScore?
+    @Published var diagnosis: StrokeDiagnosis?
     @Published var progress: CharacterProgress?
     @Published var isLoading: Bool = false
     @Published var error: Error?
@@ -62,6 +63,7 @@ final class SequentialPracticeViewModel: ObservableObject {
         guard hasNext else { return }
         currentIndex += 1
         score = nil
+        diagnosis = nil
         await loadCurrentGlyph()
     }
     
@@ -69,11 +71,13 @@ final class SequentialPracticeViewModel: ObservableObject {
         guard hasPrevious else { return }
         currentIndex -= 1
         score = nil
+        diagnosis = nil
         await loadCurrentGlyph()
     }
     
     func clearScore() {
         score = nil
+        diagnosis = nil
     }
     
     func evaluate(_ drawing: PKDrawing) {
@@ -89,6 +93,7 @@ final class SequentialPracticeViewModel: ObservableObject {
         }
 
         let attemptScore = env.evaluator.evaluate(user: strokes, ideal: glyph.strokes)
+        diagnosis = StrokeDiagnosis(user: strokes, ideal: glyph.strokes, usesChineseTerms: glyph.script != .kana)
         score = attemptScore
         do {
             try env.progress.record(glyph: glyph, score: attemptScore)

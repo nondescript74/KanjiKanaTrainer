@@ -64,8 +64,15 @@ let adaptiveCanvasSize: CGFloat = {
 struct ScoreFeedbackView: View {
     let score: PracticeScore
     let progress: CharacterProgress?
+    /// Stroke-by-stroke diagnosis; when present the hint names the stroke to fix
+    /// and a button opens the mistake overlay.
+    var diagnosis: StrokeDiagnosis? = nil
+    var glyph: CharacterGlyph? = nil
+
+    @State private var showMistakes = false
 
     private var hint: String {
+        if let diagnosis { return diagnosis.hint }
         if score.total > 0.8 { return "Great job! 🎉" }
         if score.orderAccuracy < score.shapeSimilarity { return "Watch the demo again and try the stroke order" }
         return "Nice try! Make your strokes look more like the example"
@@ -73,16 +80,39 @@ struct ScoreFeedbackView: View {
 
     var body: some View {
         VStack(spacing: 4) {
-            Text("Score: \(Int((score.total * 100).rounded()))%")
-                .font(.headline)
-                .foregroundStyle(score.total > 0.8 ? .green : .orange)
+            HStack(spacing: 10) {
+                Text("Score: \(Int((score.total * 100).rounded()))%")
+                    .font(.headline)
+                    .foregroundStyle(score.total > 0.8 ? .green : .orange)
+                if diagnosis != nil, glyph != nil {
+                    Button {
+                        showMistakes = true
+                    } label: {
+                        Label(diagnosis?.isPerfect == true ? "See strokes" : "What to fix",
+                              systemImage: "scope")
+                            .font(.caption.bold())
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.mini)
+                }
+            }
             Text(hint)
                 .font(.caption)
                 .foregroundStyle(.secondary)
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
+                .multilineTextAlignment(.center)
             if let progress {
                 Text("Best \(Int((progress.bestScore * 100).rounded()))% · \(progress.attempts) \(progress.attempts == 1 ? "try" : "tries")")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
+            }
+        }
+        .accessibilityElement(children: .combine)
+        .onAppear { UIAccessibility.post(notification: .announcement, argument: hint) }
+        .sheet(isPresented: $showMistakes) {
+            if let diagnosis, let glyph {
+                MistakeSheet(glyph: glyph, diagnosis: diagnosis)
             }
         }
     }
