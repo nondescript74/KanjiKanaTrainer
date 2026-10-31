@@ -819,6 +819,12 @@ enum ChineseNumberIDs {
     }
     
     static func range(_ numbers: ClosedRange<Int>) -> [CharacterID] {
-        numbers.map { id(for: $0) } // a closure keeps main-actor isolation; a method reference drops it
+        // A plain loop: a closure passed to map is nonisolated, so calling the main-actor
+        // id(for:) from it is flagged (Xcode: "call to main actor-isolated static method").
+        var ids: [CharacterID] = []
+        for number in numbers {
+            ids.append(id(for: number))
+        }
+        return ids
     }
 }
