@@ -46,10 +46,13 @@ struct PracticeView: View {
 
     @ViewBuilder
     private func practiceHeader(fontSize: CGFloat) -> some View {
-        Text(viewModel.glyph.literal)
-            .font(.system(size: fontSize))
-            .lineLimit(1)
-            .minimumScaleFactor(0.4)
+        HStack(spacing: 12) {
+            Text(viewModel.glyph.literal)
+                .font(.system(size: fontSize))
+                .lineLimit(1)
+                .minimumScaleFactor(0.4)
+            SpeakCharacterButton(glyph: viewModel.glyph)
+        }
         Text(viewModel.glyph.meaning.joined(separator: ", "))
             .foregroundStyle(.secondary)
             .lineLimit(1)

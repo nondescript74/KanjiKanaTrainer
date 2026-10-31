@@ -53,6 +53,8 @@ final class LessonViewModel: ObservableObject {
             print("   Script: \(g.script)")
             print("   This usually means kanastrokes.json is missing or doesn't contain this character")
             print("   Check the Debug view (StrokeDataDebugView) for more information")
+            // No animation without stroke data, but the child still hears the character.
+            speakCharacter(g)
             return
         }
         

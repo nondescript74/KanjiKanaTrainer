@@ -147,10 +147,13 @@ struct SequentialPracticeView: View {
 extension SequentialPracticeView {
     @ViewBuilder
     func practiceHeader(_ glyph: CharacterGlyph, fontSize: CGFloat) -> some View {
-        Text(glyph.literal)
-            .font(.system(size: fontSize))
-            .lineLimit(1)
-            .minimumScaleFactor(0.4)
+        HStack(spacing: 12) {
+            Text(glyph.literal)
+                .font(.system(size: fontSize))
+                .lineLimit(1)
+                .minimumScaleFactor(0.4)
+            SpeakCharacterButton(glyph: glyph)
+        }
         Text(glyph.meaning.joined(separator: ", "))
             .foregroundStyle(.secondary)
             .lineLimit(1)

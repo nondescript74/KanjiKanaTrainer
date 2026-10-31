@@ -34,3 +34,26 @@ struct FillSquare<Content: View>: View {
         }
     }
 }
+
+/// Speaker button that says a character aloud (Mandarin for hanzi, Japanese for kana).
+struct SpeakCharacterButton: View {
+    let glyph: CharacterGlyph
+
+    var body: some View {
+        AudioButton(action: { glyph.playPronunciation() }, style: Self.style)
+            .accessibilityLabel("Say it")
+    }
+
+    /// Icon only (fits the landscape column), big enough for a child's finger.
+    static let style = AudioButtonStyle(
+        icon: "speaker.wave.2.fill",
+        font: .title,
+        color: .blue,
+        label: nil,
+        textFont: .headline,
+        padding: EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10),
+        background: Color.blue.opacity(0.1),
+        cornerRadius: 12,
+        spacing: 0
+    )
+}

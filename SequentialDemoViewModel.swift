@@ -164,6 +164,8 @@ final class SequentialDemoViewModel: ObservableObject {
         guard !glyph.strokes.isEmpty else {
             print("⚠️ No stroke data available for demo")
             print("   Character: '\(glyph.literal)' (U+\(String(format: "%04X", glyph.codepoint)))")
+            // No animation without stroke data, but the child still hears the character.
+            speakCharacter(glyph)
             return
         }
         
