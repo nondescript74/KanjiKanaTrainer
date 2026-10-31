@@ -137,66 +137,19 @@ final class SequentialPracticeViewModel: ObservableObject {
         return SequentialPracticeViewModel(glyphIDs: ids, env: env)
     }
     
-    /// Creates a sequential practice view model for Chinese numbers 11-19
+    /// Creates a sequential practice view model for Chinese numbers 11-19 (十一 … 十九)
     static func chineseNumbers11to19(env: AppEnvironment) -> SequentialPracticeViewModel {
-        // Numbers 11-19 are formed by combining 十 (10) + number
-        // 十一 (11), 十二 (12), etc.
-        let baseCodepoints: [Int] = [
-            0x5341, // 十 (10)
-            0x4E00, // 一 (1)
-            0x4E8C, // 二 (2)
-            0x4E09, // 三 (3)
-            0x56DB, // 四 (4)
-            0x4E94, // 五 (5)
-            0x516D, // 六 (6)
-            0x4E03, // 七 (7)
-            0x516B, // 八 (8)
-            0x4E5D  // 九 (9)
-        ]
-        
-        // For sequential practice, we'll use the base digits
-        let ids = baseCodepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
-        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+        SequentialPracticeViewModel(glyphIDs: ChineseNumberIDs.range(11...19), env: env)
     }
     
-    /// Creates a sequential practice view model for Chinese numbers 20-30
+    /// Creates a sequential practice view model for Chinese numbers 20-30 (二十 … 三十)
     static func chineseNumbers20to30(env: AppEnvironment) -> SequentialPracticeViewModel {
-        // Numbers 20-30 use: 二十 (20), 二十一 (21), ... 三十 (30)
-        let baseCodepoints: [Int] = [
-            0x4E8C, // 二 (2)
-            0x5341, // 十 (10)
-            0x4E00, // 一 (1)
-            0x4E09, // 三 (3)
-            0x56DB, // 四 (4)
-            0x4E94, // 五 (5)
-            0x516D, // 六 (6)
-            0x4E03, // 七 (7)
-            0x516B, // 八 (8)
-            0x4E5D, // 九 (9)
-        ]
-        
-        let ids = baseCodepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
-        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+        SequentialPracticeViewModel(glyphIDs: ChineseNumberIDs.range(20...30), env: env)
     }
     
-    /// Creates a sequential practice view model for Chinese numbers 1-30
+    /// Creates a sequential practice view model for Chinese numbers 1-30 (一 … 三十)
     static func chineseNumbers1to30(env: AppEnvironment) -> SequentialPracticeViewModel {
-        // All unique characters needed for numbers 1-30
-        let numberCodepoints: [Int] = [
-            0x4E00, // 1 (一)
-            0x4E8C, // 2 (二)
-            0x4E09, // 3 (三)
-            0x56DB, // 4 (四)
-            0x4E94, // 5 (五)
-            0x516D, // 6 (六)
-            0x4E03, // 7 (七)
-            0x516B, // 8 (八)
-            0x4E5D, // 9 (九)
-            0x5341  // 10 (十)
-        ]
-        
-        let ids = numberCodepoints.map { CharacterID(script: .hanzi, codepoint: $0) }
-        return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+        SequentialPracticeViewModel(glyphIDs: ChineseNumberIDs.range(1...30), env: env)
     }
     
     /// Creates a sequential practice view model for large Chinese numbers
@@ -837,5 +790,35 @@ final class SequentialPracticeViewModel: ObservableObject {
         
         let ids = allKatakana.map { CharacterID(script: .kana, codepoint: $0) }
         return SequentialPracticeViewModel(glyphIDs: ids, env: env)
+    }
+}
+
+/// Character IDs for the Chinese numbers 0-30, in counting order.
+/// 0-10 are single characters; 11-30 are compound glyphs (十一, 二十, 二十一 …)
+/// served by `GlyphBundleRepository` under `CharacterID.compound`.
+enum ChineseNumberIDs {
+    static let singles: [Int] = [
+        0x96F6, // 0 零
+        0x4E00, // 1 一
+        0x4E8C, // 2 二
+        0x4E09, // 3 三
+        0x56DB, // 4 四
+        0x4E94, // 5 五
+        0x516D, // 6 六
+        0x4E03, // 7 七
+        0x516B, // 8 八
+        0x4E5D, // 9 九
+        0x5341  // 10 十
+    ]
+    
+    static func id(for number: Int) -> CharacterID {
+        precondition((0...30).contains(number), "Chinese number sets cover 0-30")
+        return number <= 10
+            ? CharacterID(script: .hanzi, codepoint: singles[number])
+            : .compound(script: .hanzi, number: number)
+    }
+    
+    static func range(_ numbers: ClosedRange<Int>) -> [CharacterID] {
+        numbers.map(id(for:))
     }
 }
