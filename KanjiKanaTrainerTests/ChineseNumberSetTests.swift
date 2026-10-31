@@ -2,6 +2,9 @@ import Foundation
 import Testing
 @testable import KanjiKanaTrainer
 
+/// The app target defaults to MainActor isolation (SWIFT_DEFAULT_ACTOR_ISOLATION),
+/// so suites that call app types synchronously must run on the main actor too.
+@MainActor
 struct ChineseNumberSetTests {
 
     private let repo = GlyphBundleRepository()
@@ -40,6 +43,9 @@ struct ChineseNumberSetTests {
     }
 }
 
+/// The app target defaults to MainActor isolation (SWIFT_DEFAULT_ACTOR_ISOLATION),
+/// so suites that call app types synchronously must run on the main actor too.
+@MainActor
 struct CompoundLayoutTests {
 
     private let repo = GlyphBundleRepository()
