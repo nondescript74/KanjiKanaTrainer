@@ -52,124 +52,31 @@ struct SequentialPracticeView: View {
                     )
                     Spacer()
                 } else if let glyph = viewModel.currentGlyph {
-                    Text(glyph.literal)
-                        .font(.system(size: adaptiveCharacterFontSize))
-                        .padding(.top, 20)
-                    Text(glyph.meaning.joined(separator: ", "))
-                        .foregroundStyle(.secondary)
-                    
-                    // Show readings if available
-                    if !glyph.readings.isEmpty {
-                        Text(glyph.readings.joined(separator: ", "))
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    // Use GeometryReader to calculate available space for canvas
-                    let availableHeight = geometry.size.height - 380 // Reserve space for text, buttons, score, navigation
-                    let maxCanvasSize = min(geometry.size.width - 40, availableHeight) // 40 for horizontal padding
-                    let canvasSize = min(adaptiveCanvasSize, maxCanvasSize)
-                    
-                    CanvasRepresentable(drawing: $drawing)
-                        .frame(width: canvasSize, height: canvasSize)
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(12)
-                        .overlay(RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.secondary.opacity(0.3)))
-                        .padding(.horizontal)
-
-                    HStack {
-                        Button("Clear") {
-                            drawing = PKDrawing()
-                            viewModel.clearScore()
-                        }
-                        .buttonStyle(.bordered)
-                        .practiceTooltip("Clear your drawing and start over")
-                        
-                        Spacer()
-                        
-                        Button("Evaluate") {
-                            viewModel.evaluate(drawing)
-                            // Show navigation tip after first evaluation
-                            if viewModel.currentIndex == 0 && !showNavigationTip {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    withAnimation {
-                                        showNavigationTip = true
-                                    }
+                    if geometry.size.width > geometry.size.height {
+                        // Landscape: the canvas takes the full height on the right; the
+                        // character, buttons, score and navigation scroll on the left.
+                        HStack(alignment: .top, spacing: 16) {
+                            ScrollView {
+                                VStack(spacing: 12) {
+                                    practiceHeader(glyph)
+                                    drawControls
+                                    practiceFooter
                                 }
                             }
+                            .frame(maxWidth: .infinity)
+                            practiceCanvas(size: landscapeCanvasSize(geometry.size))
                         }
-                        .buttonStyle(.borderedProminent)
-                        .practiceTooltip("Check how well you drew the character")
-                    }
-                    .padding(.horizontal)
+                    } else {
+                        practiceHeader(glyph)
 
-                    if let score = viewModel.score {
-                        ScoreFeedbackView(score: score, progress: viewModel.progress)
+                        // Use GeometryReader to calculate available space for canvas
+                        let availableHeight = geometry.size.height - 380 // Reserve space for text, buttons, score, navigation
+                        let maxCanvasSize = min(geometry.size.width - 40, availableHeight) // 40 for horizontal padding
+                        let canvasSize = min(adaptiveCanvasSize, maxCanvasSize)
+                        practiceCanvas(size: canvasSize)
+                        drawControls
+                        practiceFooter
                     }
-                    
-                    // Navigation tip
-                    SequentialPracticeHelp.InlineTip(
-                        icon: "arrow.left.arrow.right",
-                        message: "Use Next to continue, or Previous to review earlier characters",
-                        color: .green,
-                        isVisible: $showNavigationTip
-                    )
-                    
-                    // Navigation buttons
-                    HStack(spacing: 20) {
-                        Button {
-                            Task {
-                                drawing = PKDrawing()
-                                await viewModel.previousGlyph()
-                                showNavigationTip = false
-                            }
-                        } label: {
-                            Label("Previous", systemImage: "chevron.left")
-                        }
-                        .buttonStyle(.bordered)
-                        .disabled(!viewModel.hasPrevious)
-                        .practiceTooltip("Go back to review the previous character")
-                        
-                        Spacer()
-                        
-                        // Show completion message if at the end
-                        if !viewModel.hasNext && viewModel.score != nil {
-                            Button {
-                                dismiss()
-                            } label: {
-                                Label("Complete!", systemImage: "checkmark.circle.fill")
-                                    .labelStyle(.titleAndIcon)
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .tint(.green)
-                            .practiceTooltip("You've finished this set!")
-                        } else {
-                            Button {
-                                Task {
-                                    drawing = PKDrawing()
-                                    await viewModel.nextGlyph()
-                                    showNavigationTip = false
-                                    // Show evaluation tip for new character
-                                    if !showEvaluationTip {
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                            withAnimation {
-                                                showEvaluationTip = true
-                                            }
-                                        }
-                                    }
-                                }
-                            } label: {
-                                Label("Next", systemImage: "chevron.right")
-                                    .labelStyle(.titleAndIcon)
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .disabled(!viewModel.hasNext)
-                            .practiceTooltip("Move to the next character")
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 8)
                     
                     Spacer(minLength: 0)
                 }
@@ -223,5 +130,140 @@ struct SequentialPracticeView: View {
         }
     } else {
         // Fallback on earlier versions
+    }
+}
+
+// MARK: - Practice layout pieces (shared by portrait and landscape)
+
+extension SequentialPracticeView {
+    /// Landscape canvas: as tall as the screen allows below the progress row, at most 60% of the width.
+    func landscapeCanvasSize(_ size: CGSize) -> CGFloat {
+        max(200, min(size.height - 70, size.width * 0.6))
+    }
+
+    @ViewBuilder
+    func practiceHeader(_ glyph: CharacterGlyph) -> some View {
+        Text(glyph.literal)
+            .font(.system(size: adaptiveCharacterFontSize))
+            .padding(.top, 20)
+        Text(glyph.meaning.joined(separator: ", "))
+            .foregroundStyle(.secondary)
+        
+        // Show readings if available
+        if !glyph.readings.isEmpty {
+            Text(glyph.readings.joined(separator: ", "))
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    @ViewBuilder
+    func practiceCanvas(size: CGFloat) -> some View {
+        CanvasRepresentable(drawing: $drawing)
+            .frame(width: size, height: size)
+            .background(Color(UIColor.systemGray6))
+            .cornerRadius(12)
+            .overlay(RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.secondary.opacity(0.3)))
+            .padding(.horizontal)
+    }
+
+    @ViewBuilder
+    var drawControls: some View {
+        HStack {
+            Button("Clear") {
+                drawing = PKDrawing()
+                viewModel.clearScore()
+            }
+            .buttonStyle(.bordered)
+            .practiceTooltip("Clear your drawing and start over")
+            
+            Spacer()
+            
+            Button("Evaluate") {
+                viewModel.evaluate(drawing)
+                // Show navigation tip after first evaluation
+                if viewModel.currentIndex == 0 && !showNavigationTip {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        withAnimation {
+                            showNavigationTip = true
+                        }
+                    }
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .practiceTooltip("Check how well you drew the character")
+        }
+        .padding(.horizontal)
+    }
+
+    @ViewBuilder
+    var practiceFooter: some View {
+        if let score = viewModel.score {
+            ScoreFeedbackView(score: score, progress: viewModel.progress)
+        }
+        
+        // Navigation tip
+        SequentialPracticeHelp.InlineTip(
+            icon: "arrow.left.arrow.right",
+            message: "Use Next to continue, or Previous to review earlier characters",
+            color: .green,
+            isVisible: $showNavigationTip
+        )
+        
+        // Navigation buttons
+        HStack(spacing: 20) {
+            Button {
+                Task {
+                    drawing = PKDrawing()
+                    await viewModel.previousGlyph()
+                    showNavigationTip = false
+                }
+            } label: {
+                Label("Previous", systemImage: "chevron.left")
+            }
+            .buttonStyle(.bordered)
+            .disabled(!viewModel.hasPrevious)
+            .practiceTooltip("Go back to review the previous character")
+            
+            Spacer()
+            
+            // Show completion message if at the end
+            if !viewModel.hasNext && viewModel.score != nil {
+                Button {
+                    dismiss()
+                } label: {
+                    Label("Complete!", systemImage: "checkmark.circle.fill")
+                        .labelStyle(.titleAndIcon)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.green)
+                .practiceTooltip("You've finished this set!")
+            } else {
+                Button {
+                    Task {
+                        drawing = PKDrawing()
+                        await viewModel.nextGlyph()
+                        showNavigationTip = false
+                        // Show evaluation tip for new character
+                        if !showEvaluationTip {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                withAnimation {
+                                    showEvaluationTip = true
+                                }
+                            }
+                        }
+                    }
+                } label: {
+                    Label("Next", systemImage: "chevron.right")
+                        .labelStyle(.titleAndIcon)
+                }
+                .buttonStyle(.borderedProminent)
+                .disabled(!viewModel.hasNext)
+                .practiceTooltip("Move to the next character")
+            }
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 8)
     }
 }
