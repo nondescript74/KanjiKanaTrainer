@@ -69,6 +69,10 @@ struct SequentialDemoView: View {
         .task {
             await viewModel.loadCurrentGlyph()
         }
+        .onDisappear {
+            // Leaving the set stops its auto-play, animation and speech.
+            viewModel.stopAll()
+        }
     }
     
     // MARK: - View Components

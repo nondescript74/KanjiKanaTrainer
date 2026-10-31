@@ -230,6 +230,7 @@ struct LessonView: View {
         }
         .padding()
         .task { await viewModel.loadGlyph() }
+        .onDisappear { viewModel.stopAll() }
         .navigationTitle("Lesson Demo")
         #if DEBUG
         .alert("Debug Data", isPresented: $showDebugAlert) {

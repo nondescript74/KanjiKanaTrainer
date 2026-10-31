@@ -75,6 +75,15 @@ final class LessonViewModel: ObservableObject {
         }
     }
     
+    /// Stop the animation and any speech; called when the lesson screen goes away.
+    func stopAll() {
+        stopDemo()
+        if speechSynthesizer.isSpeaking {
+            speechSynthesizer.stopSpeaking(at: .immediate)
+        }
+        SpeechSynthesizerManager.shared.stopSpeaking()
+    }
+    
     func stopDemo() {
         animationTask?.cancel()
         demoState = .idle

@@ -50,6 +50,8 @@ final class SequentialDemoViewModel: ObservableObject {
     
     private let env: AppEnvironment
     private var animationTask: Task<Void, Never>?
+    /// Load-then-play task started by Next / Previous / jump (and by auto-play); cancelled by stopAll().
+    private var navigationTask: Task<Void, Never>?
     private let speechSynthesizer = AVSpeechSynthesizer()
     
     // MARK: - Demo State Enum
@@ -120,9 +122,10 @@ final class SequentialDemoViewModel: ObservableObject {
     func nextGlyph() {
         guard hasNext else { return }
         currentIndex += 1
-        Task {
+        navigationTask?.cancel()
+        navigationTask = Task {
             await loadCurrentGlyph()
-            if autoPlayEnabled {
+            if autoPlayEnabled && !Task.isCancelled {
                 startDemo()
             }
         }
@@ -132,9 +135,10 @@ final class SequentialDemoViewModel: ObservableObject {
     func previousGlyph() {
         guard hasPrevious else { return }
         currentIndex -= 1
-        Task {
+        navigationTask?.cancel()
+        navigationTask = Task {
             await loadCurrentGlyph()
-            if autoPlayEnabled {
+            if autoPlayEnabled && !Task.isCancelled {
                 startDemo()
             }
         }
@@ -144,9 +148,10 @@ final class SequentialDemoViewModel: ObservableObject {
     func jumpTo(index: Int) {
         guard index >= 0 && index < glyphIDs.count else { return }
         currentIndex = index
-        Task {
+        navigationTask?.cancel()
+        navigationTask = Task {
             await loadCurrentGlyph()
-            if autoPlayEnabled {
+            if autoPlayEnabled && !Task.isCancelled {
                 startDemo()
             }
         }
@@ -182,6 +187,19 @@ final class SequentialDemoViewModel: ObservableObject {
         animationTask = Task {
             await animateDrawing(strokes: glyph.strokes)
         }
+    }
+    
+    /// Stop everything this screen started: animation, auto-play chain and speech.
+    /// Called when the demo screen goes away, so a set left in auto-play stops playing.
+    func stopAll() {
+        autoPlayEnabled = false
+        navigationTask?.cancel()
+        navigationTask = nil
+        stopDemo()
+        if speechSynthesizer.isSpeaking {
+            speechSynthesizer.stopSpeaking(at: .immediate)
+        }
+        SpeechSynthesizerManager.shared.stopSpeaking()
     }
     
     /// Stop the demo animation
