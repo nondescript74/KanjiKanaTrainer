@@ -509,13 +509,11 @@ struct GlyphBundleRepository: GlyphRepository {
         if id.codepoint < 0 {
             let number = -id.codepoint
             if let payload = Self.compoundNumbers[number] {
-                // Combine strokes from all component characters
-                var allStrokes: [StrokePath] = []
-                for componentCodepoint in payload.components {
-                    if let componentStrokes = ChineseStrokeDataLoader.shared.loadStrokes(for: UInt32(componentCodepoint)) {
-                        allStrokes.append(contentsOf: componentStrokes)
-                    }
+                // Set each component character in its own cell, left to right
+                let components = payload.components.map {
+                    ChineseStrokeDataLoader.shared.loadNumberStrokes(for: UInt32($0)) ?? []
                 }
+                let allStrokes = CompoundLayout.sideBySide(components)
                 
                 return CharacterGlyph(
                     script: id.script,
@@ -563,4 +561,20 @@ struct GlyphBundleRepository: GlyphRepository {
 //    func hasStrokeData(for codepoint: UInt32) -> Bool {
 //        return StrokeDataLoader.loadStrokes(for: codepoint) != nil
 //    }
+}
+
+/// Places the characters of a compound (十一, 二十三 …) next to each other.
+/// Each component is expected in a 0-1 cell; component i is shifted right by
+/// i × (1 + gap). Without this the components were drawn on top of each other.
+enum CompoundLayout {
+    static let gap: Float = 0.15
+    
+    static func sideBySide(_ components: [[StrokePath]]) -> [StrokePath] {
+        components.enumerated().flatMap { index, strokes in
+            let dx = Float(index) * (1 + gap)
+            return strokes.map { stroke in
+                StrokePath(points: stroke.points.map { StrokePoint(x: $0.x + dx, y: $0.y, t: $0.t) })
+            }
+        }
+    }
 }

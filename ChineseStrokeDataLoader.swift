@@ -105,6 +105,18 @@ class ChineseStrokeDataLoader {
         return nil
     }
     
+    /// Stroke data for a Chinese number from the KanjiVG numbers file (chinesenumbers.json).
+    /// Unlike `loadStrokes(for:)`, which prefers the 1024-grid file and flips each glyph
+    /// around its own max Y, this keeps the character's place inside a fixed 0-1 cell
+    /// (一 stays mid-height), so several numbers can be set side by side.
+    func loadNumberStrokes(for codepoint: UInt32) -> [StrokePath]? {
+        let key4 = String(format: "U+%04X", codepoint)
+        if let data = strokeData[key4] {
+            return convertToStrokePaths(data.strokes, flipY: false)
+        }
+        return nil
+    }
+    
     /// Convert JSON stroke data to StrokePath array
     private func convertToStrokePaths(_ jsonStrokes: [[JSONStrokePoint]], flipY: Bool) -> [StrokePath] {
         if flipY {
