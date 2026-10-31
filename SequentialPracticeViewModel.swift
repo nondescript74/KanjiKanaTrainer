@@ -819,6 +819,6 @@ enum ChineseNumberIDs {
     }
     
     static func range(_ numbers: ClosedRange<Int>) -> [CharacterID] {
-        numbers.map(id(for:))
+        numbers.map { id(for: $0) } // a closure keeps main-actor isolation; a method reference drops it
     }
 }
