@@ -20,8 +20,8 @@ struct CharacterID: Hashable, Codable {
     }
 }
 
-struct StrokePoint: Codable { let x: Float; let y: Float; let t: TimeInterval }
-struct StrokePath: Codable { let points: [StrokePoint] }
+nonisolated struct StrokePoint: Codable { let x: Float; let y: Float; let t: TimeInterval }
+nonisolated struct StrokePath: Codable { let points: [StrokePoint] }
 
 struct CharacterGlyph: Codable, Identifiable {
     var id: CharacterID { .init(script: script, codepoint: codepoint) }
@@ -42,7 +42,7 @@ struct CharacterGlyph: Codable, Identifiable {
     }
 }
 
-struct PracticeScore: Codable {
+nonisolated struct PracticeScore: Codable {
     let orderAccuracy: Double
     let shapeSimilarity: Double
     var total: Double { (orderAccuracy + shapeSimilarity) / 2.0 }
