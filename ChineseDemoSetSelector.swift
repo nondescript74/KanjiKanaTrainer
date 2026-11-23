@@ -176,7 +176,29 @@ struct ChineseDemoSetSelector: View {
             }
         }
         
+        /// Remembers that this set was watched to the end (the tick on the list).
+        var completionKey: String { "chinese.demo." + rawValue }
+        
         func createViewModel(env: AppEnvironment) -> SequentialDemoViewModel {
+            let viewModel = makeViewModel(env: env)
+            viewModel.completionKey = completionKey
+            return viewModel
+        }
+        
+        /// The list's sets top to bottom, for "Up next". The whole-set reviews
+        /// (First 100 complete, All 100) are left out: they come after the parts.
+        static let upNextOrder: [DemoSet] = [
+            .numbers1to10,
+            .numbers11to19, .numbers20to30, .tensTo100,
+            .numbers31to40, .numbers41to50, .numbers51to60, .numbers61to70,
+            .numbers71to80, .numbers81to90, .numbers91to100,
+            .bodyParts, .nature, .sizeDirection,
+            .objects, .pronouns, .verbs, .commonWords,
+            .first100Greetings, .first100Introduction, .first100Family, .familyRelatives,
+            .first100Time, .first100School, .first100Food
+        ]
+        
+        private func makeViewModel(env: AppEnvironment) -> SequentialDemoViewModel {
             switch self {
             case .numbers1to10: return .chineseNumbers1to10(env: env)
             case .bodyParts: return .chineseBodyParts(env: env)
@@ -210,6 +232,17 @@ struct ChineseDemoSetSelector: View {
         }
     }
     
+    /// Sets watched to the end, read when the list appears (and again on coming back to it).
+    @State private var finished: Set<String> = []
+    
+    private var upNext: DemoSet? {
+        UpNext.first(in: DemoSet.upNextOrder) { finished.contains($0.completionKey) }
+    }
+    
+    private func row(_ set: DemoSet) -> some View {
+        ChineseDemoSetRow(set: set, finished: finished.contains(set.completionKey), upNext: upNext == set)
+    }
+    
     var body: some View {
         List {
             Section {
@@ -222,7 +255,7 @@ struct ChineseDemoSetSelector: View {
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers1to10.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers1to10)
+                    row(.numbers1to10)
                 }
             }
             
@@ -230,61 +263,61 @@ struct ChineseDemoSetSelector: View {
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers11to19.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers11to19)
+                    row(.numbers11to19)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers20to30.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers20to30)
+                    row(.numbers20to30)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.tensTo100.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .tensTo100)
+                    row(.tensTo100)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers31to40.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers31to40)
+                    row(.numbers31to40)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers41to50.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers41to50)
+                    row(.numbers41to50)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers51to60.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers51to60)
+                    row(.numbers51to60)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers61to70.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers61to70)
+                    row(.numbers61to70)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers71to80.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers71to80)
+                    row(.numbers71to80)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers81to90.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers81to90)
+                    row(.numbers81to90)
                 }
 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.numbers91to100.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .numbers91to100)
+                    row(.numbers91to100)
                 }
             }
             
@@ -292,19 +325,19 @@ struct ChineseDemoSetSelector: View {
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.bodyParts.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .bodyParts)
+                    row(.bodyParts)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.nature.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .nature)
+                    row(.nature)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.sizeDirection.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .sizeDirection)
+                    row(.sizeDirection)
                 }
             }
             
@@ -312,25 +345,25 @@ struct ChineseDemoSetSelector: View {
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.objects.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .objects)
+                    row(.objects)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.pronouns.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .pronouns)
+                    row(.pronouns)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.verbs.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .verbs)
+                    row(.verbs)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.commonWords.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .commonWords)
+                    row(.commonWords)
                 }
             }
             
@@ -338,49 +371,49 @@ struct ChineseDemoSetSelector: View {
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.first100All.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .first100All)
+                    row(.first100All)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.first100Greetings.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .first100Greetings)
+                    row(.first100Greetings)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.first100Introduction.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .first100Introduction)
+                    row(.first100Introduction)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.first100Family.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .first100Family)
+                    row(.first100Family)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.familyRelatives.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .familyRelatives)
+                    row(.familyRelatives)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.first100Time.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .first100Time)
+                    row(.first100Time)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.first100School.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .first100School)
+                    row(.first100School)
                 }
                 
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.first100Food.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .first100Food)
+                    row(.first100Food)
                 }
             }
             
@@ -388,17 +421,24 @@ struct ChineseDemoSetSelector: View {
                 NavigationLink {
                     SequentialDemoView(viewModel: DemoSet.all100.createViewModel(env: env))
                 } label: {
-                    ChineseDemoSetRow(set: .all100)
+                    row(.all100)
                 }
             }
         }
         .navigationTitle("Chinese Character Demos")
+        .onAppear {
+            finished = DemoCompletionStore.shared.finishedKeys
+        }
     }
 }
 
 /// Row view for a Chinese number demo set option
 struct ChineseDemoSetRow: View {
     let set: ChineseDemoSetSelector.DemoSet
+    /// Watched to the last character.
+    var finished: Bool = false
+    /// The next set to watch.
+    var upNext: Bool = false
     
     var body: some View {
         HStack(spacing: 12) {
@@ -408,8 +448,13 @@ struct ChineseDemoSetRow: View {
                 .frame(width: 40)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(set.title)
-                    .font(.headline)
+                HStack(spacing: 6) {
+                    Text(set.title)
+                        .font(.headline)
+                    if upNext {
+                        UpNextBadge()
+                    }
+                }
                 
                 Text(set.description)
                     .font(.caption)
@@ -418,6 +463,13 @@ struct ChineseDemoSetRow: View {
             }
             
             Spacer()
+            
+            if finished {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.title3)
+                    .foregroundStyle(.green)
+                    .accessibilityLabel("Watched")
+            }
             
             Text("\(set.characterCount)")
                 .font(.caption)

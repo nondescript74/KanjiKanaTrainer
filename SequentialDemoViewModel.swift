@@ -46,6 +46,14 @@ final class SequentialDemoViewModel: ObservableObject {
     /// Whether auto-play is enabled (automatically moves to next character)
     @Published var autoPlayEnabled: Bool = false
     
+    /// Start drawing as soon as the screen opens, and carry on through the set
+    /// (used by the family tree, where a tap on 外婆 should draw 外 then 婆).
+    let playsOnAppear: Bool
+    
+    /// Key under which finishing this set is remembered (a tick on the set list).
+    /// Nil for screens that aren't a set on a list.
+    var completionKey: String?
+    
     // MARK: - Private Properties
     
     private let env: AppEnvironment
@@ -64,9 +72,11 @@ final class SequentialDemoViewModel: ObservableObject {
     
     // MARK: - Initialization
     
-    init(glyphIDs: [CharacterID], env: AppEnvironment) {
+    init(glyphIDs: [CharacterID], env: AppEnvironment, playsOnAppear: Bool = false) {
         self.glyphIDs = glyphIDs
         self.env = env
+        self.playsOnAppear = playsOnAppear
+        self.autoPlayEnabled = playsOnAppear
     }
     
     deinit {
@@ -171,6 +181,7 @@ final class SequentialDemoViewModel: ObservableObject {
             print("   Character: '\(glyph.literal)' (U+\(String(format: "%04X", glyph.codepoint)))")
             // No animation without stroke data, but the child still hears the character.
             speakCharacter(glyph)
+            markFinishedIfLast()
             return
         }
         
@@ -248,6 +259,7 @@ final class SequentialDemoViewModel: ObservableObject {
         
         // All strokes complete
         demoState = .completed
+        markFinishedIfLast()
         
         // Speak the character
         if let glyph = currentGlyph {
@@ -264,6 +276,12 @@ final class SequentialDemoViewModel: ObservableObject {
     }
     
     // MARK: - Speech Synthesis
+    
+    /// Watching the last character of a set finishes the set: remember it for the set list's tick.
+    private func markFinishedIfLast() {
+        guard let completionKey, currentIndex == glyphIDs.count - 1 else { return }
+        DemoCompletionStore.shared.markFinished(completionKey)
+    }
     
     private func speakCharacter(_ glyph: CharacterGlyph) {
         if speechSynthesizer.isSpeaking {
