@@ -190,6 +190,19 @@ struct ChineseNumberSetSelector: View {
             }
         }
         
+        /// The list's sets top to bottom, for "Up next". The whole-set reviews
+        /// (1-30 complete, First 100 complete, All 100) are left out: they come after the parts.
+        static let upNextOrder: [NumberSet] = [
+            .numbers0to10, .numbers1to10, .numbers11to19, .numbers20to30,
+            .tensTo100, .numbers31to40, .numbers41to50, .numbers51to60, .numbers61to70,
+            .numbers71to80, .numbers81to90, .numbers91to100,
+            .largeNumbers,
+            .bodyParts, .nature, .sizeDirection,
+            .objects, .pronouns, .verbs, .commonWords,
+            .first100Greetings, .first100Introduction, .first100Family, .familyRelatives,
+            .first100Time, .first100School, .first100Food
+        ]
+        
         func createViewModel(env: AppEnvironment) -> SequentialPracticeViewModel {
             switch self {
             case .numbers0to10: return .chineseNumbers0to10(env: env)
@@ -227,6 +240,27 @@ struct ChineseNumberSetSelector: View {
         }
     }
     
+    /// Stars per set, worked out from saved practice when the list appears
+    /// (and again on coming back from a set).
+    @State private var summaries: [NumberSet: SetProgressSummary] = [:]
+    
+    private var upNext: NumberSet? {
+        UpNext.first(in: NumberSet.upNextOrder) { (summaries[$0]?.stars ?? 0) >= 1 }
+    }
+    
+    private func row(_ set: NumberSet) -> some View {
+        NumberSetRow(set: set, summary: summaries[set], upNext: upNext == set)
+    }
+    
+    private func refreshSummaries() {
+        let bests = BestScores(progress: env.progress)
+        var out: [NumberSet: SetProgressSummary] = [:]
+        for set in NumberSet.allCases {
+            out[set] = bests.summary(for: set.createViewModel(env: env).glyphIDs)
+        }
+        summaries = out
+    }
+    
     var body: some View {
         List {
             Section {
@@ -239,13 +273,13 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers0to10.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers0to10)
+                    row(.numbers0to10)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers1to10.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers1to10)
+                    row(.numbers1to10)
                 }
             }
             
@@ -253,7 +287,7 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers11to19.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers11to19)
+                    row(.numbers11to19)
                 }
             }
             
@@ -261,7 +295,7 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers20to30.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers20to30)
+                    row(.numbers20to30)
                 }
             }
             
@@ -269,49 +303,49 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.tensTo100.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .tensTo100)
+                    row(.tensTo100)
                 }
 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers31to40.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers31to40)
+                    row(.numbers31to40)
                 }
 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers41to50.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers41to50)
+                    row(.numbers41to50)
                 }
 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers51to60.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers51to60)
+                    row(.numbers51to60)
                 }
 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers61to70.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers61to70)
+                    row(.numbers61to70)
                 }
 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers71to80.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers71to80)
+                    row(.numbers71to80)
                 }
 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers81to90.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers81to90)
+                    row(.numbers81to90)
                 }
 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers91to100.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers91to100)
+                    row(.numbers91to100)
                 }
             }
             
@@ -319,13 +353,13 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.numbers1to30.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .numbers1to30)
+                    row(.numbers1to30)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.largeNumbers.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .largeNumbers)
+                    row(.largeNumbers)
                 }
             }
             
@@ -333,19 +367,19 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.bodyParts.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .bodyParts)
+                    row(.bodyParts)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.nature.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .nature)
+                    row(.nature)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.sizeDirection.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .sizeDirection)
+                    row(.sizeDirection)
                 }
             }
             
@@ -353,25 +387,25 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.objects.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .objects)
+                    row(.objects)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.pronouns.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .pronouns)
+                    row(.pronouns)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.verbs.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .verbs)
+                    row(.verbs)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.commonWords.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .commonWords)
+                    row(.commonWords)
                 }
             }
             
@@ -379,49 +413,49 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.first100All.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .first100All)
+                    row(.first100All)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.first100Greetings.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .first100Greetings)
+                    row(.first100Greetings)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.first100Introduction.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .first100Introduction)
+                    row(.first100Introduction)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.first100Family.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .first100Family)
+                    row(.first100Family)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.familyRelatives.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .familyRelatives)
+                    row(.familyRelatives)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.first100Time.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .first100Time)
+                    row(.first100Time)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.first100School.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .first100School)
+                    row(.first100School)
                 }
                 
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.first100Food.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .first100Food)
+                    row(.first100Food)
                 }
             }
             
@@ -429,17 +463,24 @@ struct ChineseNumberSetSelector: View {
                 NavigationLink {
                     SequentialPracticeView(viewModel: NumberSet.all100.createViewModel(env: env))
                 } label: {
-                    NumberSetRow(set: .all100)
+                    row(.all100)
                 }
             }
         }
         .navigationTitle("Chinese Sequential Practice")
+        .onAppear {
+            refreshSummaries()
+        }
     }
 }
 
 /// Row view for a number set option
 struct NumberSetRow: View {
     let set: ChineseNumberSetSelector.NumberSet
+    /// Saved practice for this set, if any.
+    var summary: SetProgressSummary? = nil
+    /// The next set to practise.
+    var upNext: Bool = false
     
     var body: some View {
         HStack(spacing: 12) {
@@ -449,13 +490,22 @@ struct NumberSetRow: View {
                 .frame(width: 40)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(set.title)
-                    .font(.headline)
+                HStack(spacing: 6) {
+                    Text(set.title)
+                        .font(.headline)
+                    if upNext {
+                        UpNextBadge()
+                    }
+                }
                 
                 Text(set.description)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
+                
+                if let summary, summary.started {
+                    SetStarsView(summary: summary)
+                }
             }
             
             Spacer()

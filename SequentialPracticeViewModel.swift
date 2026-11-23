@@ -12,7 +12,8 @@ import Combine
 @MainActor
 final class SequentialPracticeViewModel: ObservableObject {
     private let env: AppEnvironment
-    private let glyphIDs: [CharacterID]
+    /// The set's characters in order (read by the set list for its stars).
+    let glyphIDs: [CharacterID]
     
     @Published var currentIndex: Int = 0
     @Published var currentGlyph: CharacterGlyph?

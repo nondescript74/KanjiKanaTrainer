@@ -134,10 +134,38 @@ struct RootView: View {
                                     )
                                 }
                                 .buttonStyle(CardButtonStyle())
+
+                                if selectedScript == .chineseNumbers {
+                                    // Number game: hear or read a number, tap the match
+                                    NavigationLink {
+                                        NumberGameView()
+                                    } label: {
+                                        FeatureCard(
+                                            title: "Number Game",
+                                            subtitle: "Hear or read a number, tap the match",
+                                            icon: "gamecontroller.fill",
+                                            accentColor: .green
+                                        )
+                                    }
+                                    .buttonStyle(CardButtonStyle())
+
+                                    // Family tree: tap a relative, watch the name drawn
+                                    NavigationLink {
+                                        FamilyTreeView(env: env)
+                                    } label: {
+                                        FeatureCard(
+                                            title: "Family Tree",
+                                            subtitle: "Tap a relative to see and hear their name",
+                                            icon: "person.3.fill",
+                                            accentColor: .pink
+                                        )
+                                    }
+                                    .buttonStyle(CardButtonStyle())
+                                }
                             }
                             .padding(.horizontal)
                         }
-                        
+
                         Spacer(minLength: 20)
                         
                         // Version and build number
